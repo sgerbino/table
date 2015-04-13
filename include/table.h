@@ -2,6 +2,7 @@
 #define TABLE_H_
 
 #include <stdint.h>
+#include <stdbool.h>
 
 /**
  * \brief Table order
@@ -100,18 +101,18 @@ typedef struct _table
 {
   /* Columns */
   table_column *cols; /**< A pointer to an array of table columns */
-  uint32_t cols_len;    /**< The length of the array of table columns */
+  uint64_t cols_len;    /**< The length of the array of table columns */
   size_t col_block; /**< The column block size */
   size_t cols_allocated; /**< The number of columns allocated */
 
   /* Rows */
   table_row *rows; /**< A pointer to an array of table rows */
-  uint32_t rows_len;    /**< The length of the array of table rows */
+  uint64_t rows_len;    /**< The length of the array of table rows */
   size_t row_block; /**< The row block size */
   size_t rows_allocated; /**< The number of rows allocated */
 
   /* Callbacks */
-  uint32_t callback_len; /**< The length of the array of table callbacks */
+  uint64_t callback_len; /**< The length of the array of table callbacks */
   table_callback_function *callback; /**< A pointer to an array of callbacks */
   void **callback_data; /**< A pointer to an array of callback data */
   table_bitfield *callback_registration; /**< The registration bits */
@@ -135,7 +136,7 @@ int table_remove_row(table *t, int row);
 
 /* Cell value manipulation */
 int table_set(table *t, int row, int col, void *value, table_data_type data_type);
-int table_set_bool(table *t, int row, int col, int value);
+int table_set_bool(table *t, int row, int col, bool value);
 int table_set_int(table *t, int row, int col, int value);
 int table_set_uint(table *t, int row, int col, unsigned int value);
 int table_set_int8(table *t, int row, int col, int8_t value);
@@ -161,7 +162,7 @@ int table_set_string(table *t, int row, int col, const char *value);
 int table_set_ptr(table *t, int row, int col, void *value);
 
 void *table_get(table *t, int row, int col);
-int table_get_bool(table *t, int row, int col);
+bool table_get_bool(table *t, int row, int col);
 int table_get_int(table *t, int row, int col);
 unsigned int table_get_uint(table *t, int row, int col);
 int8_t table_get_int8(table *t, int row, int col);
@@ -188,7 +189,7 @@ void *table_get_ptr(table *t, int row, int col);
 
 /* Search functions */
 int table_find(table *t, int col, void *value, table_data_type data_type, table_order order);
-int table_find_bool(table *t, int col, int value, table_order order);
+int table_find_bool(table *t, int col, bool value, table_order order);
 int table_find_int(table *t, int col, int value, table_order order);
 int table_find_uint(table *t, int col, unsigned int value, table_order order);
 int table_find_int8(table *t, int col, int8_t value, table_order order);

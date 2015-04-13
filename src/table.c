@@ -28,6 +28,7 @@
 #define TABLE_ULONGF   "%lu"
 #define TABLE_LLONGF   "%lld"
 #define TABLE_ULLONGF  "%llu"
+#define TABLE_BOOLF    TABLE_INTF
 
 /* Scan formatters */
 #define TABLE_CHARSF    TABLE_CHARF
@@ -53,6 +54,7 @@
 #define TABLE_ULONGSF   TABLE_ULONGF
 #define TABLE_LLONGSF   TABLE_LLONGF
 #define TABLE_ULLONGSF  TABLE_ULLONGF
+#define TABLE_BOOLSF    TABLE_BOOLF
 
 /* Static functions */
 static void table_add_row_block(table *t);
@@ -263,12 +265,12 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     {
       if(!cell_ptr->value)
       {
-        cell_ptr->value = malloc(sizeof(int));
+        cell_ptr->value = malloc(sizeof(bool));
       }
 
       if(cell_ptr->value)
       {
-        memcpy(cell_ptr->value, value, sizeof(int));
+        memcpy(cell_ptr->value, value, sizeof(bool));
         retval = 0;
       }
     }
@@ -626,7 +628,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
  * \param[in] value The boolean value
  * \return The return code
  */
-int table_set_bool(table *t, int row, int col, int value)
+int table_set_bool(table *t, int row, int col, bool value)
 {
   return table_set(t, row, col, (void*)&value, TABLE_BOOL);
 }
@@ -949,9 +951,9 @@ void *table_get(table *t, int row, int col)
  * \param[in] col The table column
  * \return The boolean value
  */
-int table_get_bool(table *t, int row, int col)
+bool table_get_bool(table *t, int row, int col)
 {
-  return *((int*)table_get(t, row, col));
+  return *((bool*)table_get(t, row, col));
 }
 
 /**
@@ -1757,7 +1759,7 @@ table *table_dupe(table *t)
         break;
       case TABLE_BOOL:
         {
-          int val;
+          bool val;
           val = table_get_bool(t, i, j);
           table_set_bool(return_table, i, j, val);
         }
@@ -2020,7 +2022,7 @@ int table_find(table *t, int col, void* value, table_data_type data_type, table_
         }
         break;
       case TABLE_BOOL:
-        if(table_get_bool(t, i, col) == *(int*)value)
+        if(table_get_bool(t, i, col) == *(bool*)value)
         {
           retval = i;
         }
@@ -2179,7 +2181,7 @@ int table_find(table *t, int col, void* value, table_data_type data_type, table_
         }
         break;
       case TABLE_BOOL:
-        if(table_get_bool(t, i, col) == *(int*)value)
+        if(table_get_bool(t, i, col) == *(bool*)value)
         {
           retval = i;
         }
@@ -2213,7 +2215,7 @@ int table_find(table *t, int col, void* value, table_data_type data_type, table_
  * \brief Find a boolean value in the table
  * \return The row of the first occurrence of the search value or -1
  */
-int table_find_bool(table *t, int col, int value, table_order dir)
+int table_find_bool(table *t, int col, bool value, table_order dir)
 {
   return table_find(t, col, (void*)&value, TABLE_BOOL, dir);
 }
@@ -2624,7 +2626,7 @@ int table_cell_to_string(table *t, int row, int col, char *buf, size_t size)
     snprintf(buf, size, TABLE_LDOUBLEF, table_get_ldouble(t, row, col));
     break;
   case TABLE_BOOL:
-    snprintf(buf, size, TABLE_INTF, table_get_bool(t, row, col));
+     snprintf(buf, size, TABLE_BOOLF, table_get_bool(t, row, col));
     break;
   case TABLE_CHAR:
     snprintf(buf, size, TABLE_CHARF, table_get_char(t, row, col));
@@ -3015,7 +3017,7 @@ int table_cell_from_string(table *t, int row, int col, const char *buf)
   case TABLE_BOOL:
     {
       int b;
-      int scan_ret = sscanf(buf, TABLE_INTSF, &b);
+      int scan_ret = sscanf(buf, TABLE_BOOLSF, &b);
       if(-1 == scan_ret)
       {
         retcode = -1;
