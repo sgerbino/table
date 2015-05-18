@@ -68,13 +68,14 @@ return_code add_rows(table *t)
 {
    table_add_row(t);
    table_add_row(t);
+   table_add_row(t);
    return PASS;
 }
 
 return_code check_rows(table *t)
 {
    return_code rc = PASS;
-   if (table_get_row_length(t) != 2)
+   if (table_get_row_length(t) != 3)
       rc = FAIL;
    return rc;
 }
