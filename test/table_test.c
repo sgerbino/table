@@ -121,7 +121,7 @@ bool row_test(char *buf, size_t len)
 
    num_rows = table_get_row_length(&t);
 
-   if (num_rows == random_number)
+   if (num_rows != random_number)
    {
       snprintf(buf, len, "Failed to retrieve row length, expected %d but received %d", random_number, num_rows);
       rc = false;
