@@ -8,16 +8,17 @@
 typedef struct _test {
    bool return_code;
    const char *name;
-   bool (*function)(void);
+   bool (*function)(char*, size_t);
+   char buf[1024];
 } test;
 
-bool column_test(void);
-bool row_test(void);
+bool column_test(char *buf, size_t len);
+bool row_test(char *buf, size_t len);
 
-test tests[] = {
-   { true, "column", column_test },
-   { true, "row", row_test },
-   { NULL, NULL, NULL }
+static test tests[] = {
+   { true, "column", column_test, {0} },
+   { true, "row", row_test, {0} },
+   { false, NULL, NULL, {0} }
 };
 
 void run_test(test *t);
@@ -34,9 +35,9 @@ int main(int argc, char **argv)
 
    for (t = tests; t->name; ++t)
       if (!t->return_code)
-	 return -1;
+	 return EXIT_FAILURE;
    
-   return 0;
+   return EXIT_SUCCESS;
 }
 
 void print_header(const char *title)
@@ -56,13 +57,15 @@ void run_test(test *t)
    c = clock();
    snprintf(buf, sizeof buf, "Running %s test...", t->name);
    printf("%-40s", buf);
-   t->return_code = t->function();
+   t->return_code = t->function(t->buf, sizeof t->buf);
    c = clock() - c;
    elapsed = (double)c/CLOCKS_PER_SEC*1000;
    printf(" %.3fms [ %4s ]\n", elapsed, t->return_code ? "PASS" : "FAIL");
+   if (strlen(t->buf) > 0)
+      printf(" `-> %s\n", t->buf);
 }
 
-bool column_test(void)
+bool column_test(char *buf, size_t len)
 {
    table t;
    int num_cols, id_col, name_col;
@@ -76,20 +79,29 @@ bool column_test(void)
    num_cols = table_get_column_length(&t);
 
    if (num_cols != 2)
+   {
+      snprintf(buf, len, "Failed to retrieve number of columns");
       rc = false;
+   }
 
    if (strcmp(table_get_column_name(&t, id_col), "id"))
+   {
+      snprintf(buf, len, "Failed to retrieve column name");
       rc = false;
+   }
 
    if (strcmp(table_get_column_name(&t, name_col), "name"))
+   {
+      snprintf(buf, len, "Failed to retrieve column name");
       rc = false;
+   }
 
    table_destroy(&t);
 
    return rc;
 }
 
-bool row_test(void)
+bool row_test(char *buf, size_t len)
 {
    table t;
    time_t now;
@@ -109,8 +121,11 @@ bool row_test(void)
 
    num_rows = table_get_row_length(&t);
 
-   if (num_rows != random_number)
+   if (num_rows == random_number)
+   {
+      snprintf(buf, len, "Failed to retrieve row length, expected %d but received %d", random_number, num_rows);
       rc = false;
+   }
 
    table_destroy(&t);
 
