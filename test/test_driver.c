@@ -1,0 +1,32 @@
+#include <stdlib.h>
+#include <table.h>
+
+#include "test.h"
+
+#include "unit/table_column.test"
+#include "unit/table_row.test"
+#include "unit/table_callback.test"
+#include "unit/table_validator.test"
+
+static test tests[] = {
+   { true, "column", table_column_test, {0} },
+   { true, "row", table_row_test, {0} },
+   { true, "callback", table_callback_test, {0} },
+   { true, "validator", table_validator_test, {0} },
+   { false, NULL, NULL, {0} }
+};
+
+int main(int argc, char **argv)
+{
+   test *t;
+
+   test_header("Table Unit Tests");
+   for (t = tests; t->name; ++t)
+      test_run(t);
+
+   for (t = tests; t->name; ++t)
+      if (!t->return_code)
+	 return EXIT_FAILURE;
+   
+   return EXIT_SUCCESS;
+}
