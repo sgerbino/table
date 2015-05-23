@@ -1,6 +1,7 @@
 #ifndef TABLE_H_
 #define TABLE_H_
 
+#include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -56,19 +57,6 @@ typedef enum _table_event_type
  ,TABLE_COLUMN_REMOVED = 1 << 4
 } table_event_type;
 
-/* Forward declaration */
-typedef struct _table table;
-
-/**
- * \brief A table callback, handles table event notifications
- */
-typedef void (*table_callback_function)(table *t, int row, int col, table_event_type event_type, void *data);
-
-/**
- * \brief A table bitfield
- */
-typedef unsigned int table_bitfield;
-
 /**
  * \brief A structure to represent table columns
  */
@@ -93,6 +81,19 @@ typedef struct _table_row
 {
   table_cell *cells;    /**< A pointer to an array of table cells */
 } table_row;
+
+/* Forward declaration */
+typedef struct _table table;
+
+/**
+ * \brief A table callback, handles table event notifications
+ */
+typedef void (*table_callback_function)(table *t, int row, int col, table_event_type event_type, void *data);
+
+/**
+ * \brief A table bitfield
+ */
+typedef unsigned int table_bitfield;
 
 /**
  * \brief A structure to represent a table
@@ -121,7 +122,6 @@ typedef struct _table
 } table;
 
 /* Memory allocation, deallocation, and manipulation */
-
 table *table_new(void);
 void table_delete(void *t);
 void table_init(table *t);
