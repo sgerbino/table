@@ -238,4 +238,7 @@ void table_unregister_callback(table *t, table_callback_function func, void *dat
 int table_cell_to_string(table *t, int row, int col, char *buf, size_t size);
 int table_cell_from_string(table *t, int row, int col, const char *buf);
 
+void table_serialize(table *t, void *buf, size_t len);
+table *table_deserialize(void *buf, size_t len);
+
 #endif /* TABLE_H_ */
