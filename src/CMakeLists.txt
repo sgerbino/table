@@ -12,6 +12,8 @@ set(TABLE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/table.c
 		  ${CMAKE_CURRENT_SOURCE_DIR}/table_get.c
 		  ${CMAKE_CURRENT_SOURCE_DIR}/table_row.c
 		  ${CMAKE_CURRENT_SOURCE_DIR}/table_set.c
-		  ${CMAKE_CURRENT_SOURCE_DIR}/table_validator.c)
+		  ${CMAKE_CURRENT_SOURCE_DIR}/table_validator.c
+		  ${CMAKE_CURRENT_SOURCE_DIR}/table_serialize.c
+		  ${CMAKE_CURRENT_SOURCE_DIR}/table_deserialize.c)
 		
 add_library(table SHARED ${TABLE_SOURCES} ${TABLE_HEADERS})

@@ -1,0 +1,77 @@
+
+bool table_serialize_test(char *buf, size_t len)
+{
+   table t1, *t2;
+   int random_number;
+   int before_num_cols;
+   int int_col, string_col, row, num_rows, num_cols;
+   time_t now;
+   srand(time(&now));
+   char byte_array[10000];
+   const int range = 100;
+   const int minimum = 100;
+   bool rc = true;
+
+   random_number = rand() % range + minimum;
+
+   table_init(&t1);
+
+   int_col = table_add_column(&t1, "id", TABLE_INT);
+   string_col = table_add_column(&t1, "value", TABLE_STRING);
+   before_num_cols = table_get_column_length(&t1);
+
+   for (row = 0; row < random_number; ++row)
+   {
+      char buffer[255];
+      snprintf(buffer, sizeof buffer, "%d", row);
+
+      table_add_row(&t1);
+      table_set_int(&t1, row, int_col, row);
+      table_set_string(&t1, row, string_col, buffer);
+   }
+
+   table_serialize(&t1, byte_array, 10000);
+
+   table_destroy(&t1);
+
+   t2 = table_deserialize(byte_array, 10000);
+
+   num_rows = table_get_row_length(t2);
+
+   if (num_rows != random_number)
+   {
+      snprintf(buf, len, "Failed to retrieve row length, expected %d but received %d", random_number, num_rows);
+      rc = false;
+   }
+
+   num_cols = table_get_column_length(t2);
+   if (num_cols != before_num_cols)
+   {
+      snprintf(buf, len, "Failed to retrieve column length, expected %d but received %d", before_num_cols, num_cols);
+      rc = false;
+   }
+
+   for (row = 0; row < num_rows; ++row)
+   {
+      const char *str = table_get_string(t2, row, string_col);
+      int value = table_get_int(t2, row, int_col);
+      char buffer[255];
+      snprintf(buffer, sizeof buffer, "%d", row);
+
+      if (row != value)
+      {
+        snprintf(buf, len, "Failed to retrieve correct value from cell (%d,%d), expected %d but received %d", row, int_col, row, value);
+        rc = false;
+      }
+
+      if (strcmp(str, buffer))
+      {
+         snprintf(buf, len, "Failed to retrieve correct value from cell (%d,%d), expected %s but received %s", row, string_col, buffer, str);
+         rc = false;
+      }
+   }
+
+   table_delete(t2);
+
+   return rc;
+}
