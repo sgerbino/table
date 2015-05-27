@@ -103,13 +103,13 @@ typedef struct _table
   /* Columns */
   table_column *cols; /**< A pointer to an array of table columns */
   uint64_t cols_len;    /**< The length of the array of table columns */
-  size_t col_block; /**< The column block size */
+  uint64_t col_block; /**< The column block size */
   size_t cols_allocated; /**< The number of columns allocated */
 
   /* Rows */
   table_row *rows; /**< A pointer to an array of table rows */
   uint64_t rows_len;    /**< The length of the array of table rows */
-  size_t row_block; /**< The row block size */
+  uint64_t row_block; /**< The row block size */
   size_t rows_allocated; /**< The number of rows allocated */
 
   /* Callbacks */
@@ -117,7 +117,7 @@ typedef struct _table
   table_callback_function *callback; /**< A pointer to an array of callbacks */
   void **callback_data; /**< A pointer to an array of callback data */
   table_bitfield *callback_registration; /**< The registration bits */
-  size_t callback_block; /**< The callback block size */
+  uint64_t callback_block; /**< The callback block size */
   size_t callbacks_allocated; /**< The number of callbacks allocated */
 } table;
 

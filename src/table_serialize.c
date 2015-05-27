@@ -1,14 +1,13 @@
 #include "table_private.h"
 
-#define PACK(destination, source, type)                         \
-   do {                                                         \
-      *(type*)destination = *(type*)source;                     \
-      destination = (char*)destination + sizeof *(type*)source; \
+#define PACK(destination, source, type)                 \
+   do {                                                 \
+      *(type*)destination = *(type*)source;             \
+      destination = (char*)destination + sizeof(type);  \
    } while (0)
 
 #define PACK_STRING(destination, source, length)        \
    do {                                                 \
-      PACK(destination, &length, uint64_t);             \
       strncpy(destination, source, length);             \
       destination = (char*)destination + length;        \
    } while (0)
@@ -17,20 +16,21 @@ void table_serialize(table *t, void *buf, size_t len)
 {
    uint64_t row_len = table_get_row_length(t);
    uint64_t col_len = table_get_column_length(t);
-   uint64_t row, col;
+   uint64_t row, col, i;
 
    PACK(buf, &col_len, uint64_t);
+   PACK(buf, &t->col_block, uint64_t);
    for (col = 0; col < col_len; ++col)
    {
       const char *name = table_get_column_name(t, col);
-      uint64_t len = strlen(name);
+      size_t name_len = strlen(name) + 1;
       table_data_type type = table_get_column_data_type(t, col);
-      PACK(buf, &len, uint64_t);
-      PACK_STRING(buf, name, len);
       PACK(buf, &type, table_data_type);
+      PACK_STRING(buf, name, name_len);
    }
 
    PACK(buf, &row_len, uint64_t);
+   PACK(buf, &t->row_block, uint64_t);
    for (row = 0; row < row_len; ++row)
    {
       for (col = 0; col < col_len; ++col)
@@ -101,7 +101,7 @@ void table_serialize(table *t, void *buf, size_t len)
          case TABLE_STRING:
          {
             const char *value = table_get_string(t, row, col);
-            size_t size = strlen(value);
+            size_t size = strlen(value) + 1;
             PACK_STRING(buf, value, size);
          }
          break;
@@ -116,5 +116,13 @@ void table_serialize(table *t, void *buf, size_t len)
             break;
          }
       }
+   }
+   PACK(buf, &t->callback_len, uint64_t);
+   PACK(buf, &t->callback_block, uint64_t);
+   for (i = 0; i < t->callback_len; ++i)
+   {
+      PACK(buf, &t->callback[i], table_callback_function);
+      PACK(buf, &t->callback_data[i], void*);
+      PACK(buf, &t->callback_registration[i], table_bitfield);
    }
 }
