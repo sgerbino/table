@@ -3,44 +3,41 @@
 #define UNPACK(destination, source, type)       \
    do {                                         \
       *(type*)destination = *(type*)source;     \
-      source = (char*)source + sizeof (type);   \
+      source = (char*)source + sizeof(type);    \
    } while (0)
 
-#define UNPACK_STRING(destination, source, length)                      \
-   do {                                                                 \
-      uint64_t len;                                                     \
-      UNPACK(&len, source, uint64_t);                                   \
-      strncpy(destination, source, length < len ? length : len);        \
-      source = (char*)source + len;                                     \
+#define UNPACK_STRING(destination, source, length)      \
+   do {                                                 \
+      strncpy(destination, source, length);             \
+      source = (char*)source + strlen(source) + 1;      \
    } while (0)
 
 table *table_deserialize(void *buf, size_t len)
 {
    uint64_t row_len;
    uint64_t col_len;
-   uint64_t row, col;
+   uint64_t callback_len;
+   uint64_t row, col, i;
    table *t = table_new();
 
    UNPACK(&col_len, buf, uint64_t);
+   UNPACK(&t->col_block, buf, uint64_t);
    for (col = 0; col < col_len; ++col)
    {
-      char name[255];
-      uint64_t len;
       table_data_type type;
-      UNPACK(&len, buf, uint64_t);
-      UNPACK_STRING(name, buf, sizeof name);
-      UNPACK(&type, buf, table_data_type);
-      table_add_column(t, name, type);
+      UNPACK(&type, buf, table_data_type);      
+      table_add_column(t, buf, type);
+      buf = (char*)buf + strlen(buf) + 1;
    }
 
    UNPACK(&row_len, buf, uint64_t);
+   UNPACK(&t->row_block, buf, uint64_t);
    for (row = 0; row < row_len; ++row)
    {
       table_add_row(t);
       for (col = 0; col < col_len; ++col)
       {
          table_data_type type = table_get_column_data_type(t, col);
-
          switch(type)
          {
          case TABLE_BOOL:
@@ -185,9 +182,8 @@ table *table_deserialize(void *buf, size_t len)
          break;
          case TABLE_STRING:
          {
-            char string[255] = {0};
-            UNPACK_STRING(string, buf, sizeof string);
-            table_set_string(t, row, col, string);
+            table_set_string(t, row, col, buf);
+            buf = (char*)buf + strlen(buf) + 1;
          }
          break;
          case TABLE_CHAR:
@@ -213,6 +209,19 @@ table *table_deserialize(void *buf, size_t len)
          break;
          }
       }
+   }
+
+   UNPACK(&callback_len, buf, uint64_t);
+   UNPACK(&t->callback_block, buf, uint64_t);
+   for (i = 0; i < callback_len; ++i)
+   {
+      table_callback_function callback;
+      void *callback_data;
+      table_bitfield callback_registration;
+      UNPACK(&callback, buf, table_callback_function);
+      UNPACK(&callback_data, buf, void*);
+      UNPACK(&callback_registration, buf, table_bitfield);
+      table_register_callback(t, callback, callback_data, callback_registration);
    }
 
    return t;
