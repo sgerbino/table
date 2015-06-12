@@ -547,3 +547,44 @@ int table_find_ptr(table *t, int col, void* value, table_order dir)
 {
   return table_find(t, col, value, TABLE_PTR, dir);
 }
+
+int table_sorted_find(table *t, int col, void *value, table_position position)
+{
+  return table_sorted_subset_find(t, col, value, position, 0, table_get_row_length(t) - 1);
+}
+
+int table_sorted_subset_find(table *t, int col, void *value, table_position position, int minimum, int maximum)
+{
+  table_column *column = table_get_col_ptr(t, col);
+  int middle = (maximum - minimum / 2) + minimum;
+  int compare = column->compare(value, table_get(t, middle, col));
+
+  if (minimum == maximum)
+    return -1;
+
+  switch (compare)
+  {
+    case 0:
+    {
+      do
+      {
+        if (position == TABLE_FIRST)
+          compare = column->compare(table_get(t, --middle, col), value);
+        else
+          compare = column->compare(table_get(t, ++middle, col), value);
+      } while (!compare);
+      if (position == TABLE_FIRST)
+        return ++middle;
+      else
+        return --middle;
+    }
+    break;
+    case 1:
+      return table_sorted_subset_find(t, col, value, position, middle, maximum);
+      break;
+    case -1:
+      return table_sorted_subset_find(t, col, value, position, minimum, middle - 1);
+      break;
+  }
+  return -1;
+}

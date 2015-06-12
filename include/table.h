@@ -6,6 +6,15 @@
 #include <stdbool.h>
 
 /**
+ * \brief Table position
+ */
+typedef enum _table_position
+{
+  TABLE_FIRST,
+  TABLE_LAST
+} table_position;
+
+/**
  * \brief Table order
  */
 typedef enum _table_order
@@ -58,12 +67,18 @@ typedef enum _table_event_type
 } table_event_type;
 
 /**
+ * \brief A table cell comparison function
+ */
+typedef int (*table_compare_function)(void *value1, void *value2);
+
+/**
  * \brief A structure to represent table columns
  */
 typedef struct _table_column
 {
   char *name;    /**< The name of the column */
   table_data_type type; /**< The column data type */
+  table_compare_function compare; /**< The column compare function */
 } table_column;
 
 /**
@@ -103,13 +118,13 @@ typedef struct _table
   /* Columns */
   table_column *cols; /**< A pointer to an array of table columns */
   uint64_t cols_len;    /**< The length of the array of table columns */
-  uint64_t col_block; /**< The column block size */
+  size_t col_block; /**< The column block size */
   size_t cols_allocated; /**< The number of columns allocated */
 
   /* Rows */
   table_row *rows; /**< A pointer to an array of table rows */
   uint64_t rows_len;    /**< The length of the array of table rows */
-  uint64_t row_block; /**< The row block size */
+  size_t row_block; /**< The row block size */
   size_t rows_allocated; /**< The number of rows allocated */
 
   /* Callbacks */
@@ -117,7 +132,7 @@ typedef struct _table
   table_callback_function *callback; /**< A pointer to an array of callbacks */
   void **callback_data; /**< A pointer to an array of callback data */
   table_bitfield *callback_registration; /**< The registration bits */
-  uint64_t callback_block; /**< The callback block size */
+  size_t callback_block; /**< The callback block size */
   size_t callbacks_allocated; /**< The number of callbacks allocated */
 } table;
 
@@ -214,6 +229,9 @@ int table_find_uchar(table *t, int col, unsigned char value, table_order order);
 int table_find_string(table *t, int col, const char *value, table_order order);
 int table_find_ptr(table *t, int col, void *value, table_order order);
 
+int table_sorted_find(table *t, int col, void *value, table_position position);
+int table_sorted_subset_find(table *t, int col, void *value, table_position position, int minimum, int maximum);
+
 /* Row and column observers */
 int table_get_column_length(table *t);
 int table_get_row_length(table *t);
@@ -223,6 +241,13 @@ table_data_type table_get_column_data_type(table *t, int col);
 int table_get_column(table *t, const char *name);
 const char *table_get_column_name(table *t, int col);
 int table_cell_nullify(table *t, int row, int col);
+
+/* n Column sort */
+void table_column_sort(table *t, int *cols, table_order *sort_orders, int num_cols);
+void table_merge_sort_rows(table *t, int col, int first, int last, table_order order);
+void table_merge_sort_split_rows(table *t, table_row *sorted_rows, int col, int first, int last, table_order order);
+void table_merge_sort_merge_rows(table *t, table_row *sorted_rows, int col, int first, int middle, int last, table_order order);
+void table_merge_sort_copy_rows(table *t, int first, int last, table_row *sorted_rows);
 
 /* Validators */
 int table_column_is_valid(table *t, int col);
@@ -237,8 +262,5 @@ void table_unregister_callback(table *t, table_callback_function func, void *dat
 /* Buffer utilities */
 int table_cell_to_string(table *t, int row, int col, char *buf, size_t size);
 int table_cell_from_string(table *t, int row, int col, const char *buf);
-
-void table_serialize(table *t, void *buf, size_t len);
-table *table_deserialize(void *buf, size_t len);
 
 #endif /* TABLE_H_ */

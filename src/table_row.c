@@ -155,3 +155,12 @@ table_row* table_get_row_ptr(table *t, int row)
   return t->rows + row;
 }
 
+/**
+ * \brief Set the pointer of a selected row
+ * \param[in] row The row index of the row to be set
+ * \param[in] row_ptr The table_row pointer to set as the specified row
+ */
+void table_set_row_ptr(table *t, int row, table_row *row_ptr)
+{
+	t->rows[row] = *row_ptr;
+}
