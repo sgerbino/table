@@ -556,11 +556,16 @@ int table_sorted_find(table *t, int col, void *value, table_position position)
 int table_sorted_subset_find(table *t, int col, void *value, table_position position, int minimum, int maximum)
 {
   table_column *column = table_get_col_ptr(t, col);
-  int middle = (maximum - minimum / 2) + minimum;
+  int middle = (maximum - minimum) / 2 + minimum;
   int compare = column->compare(value, table_get(t, middle, col));
 
   if (minimum == maximum)
-    return -1;
+  {
+    if (!column->compare(value, table_get(t, maximum, col)))
+      return maximum;
+    else
+      return -maximum;
+  }
 
   switch (compare)
   {
@@ -587,4 +592,234 @@ int table_sorted_subset_find(table *t, int col, void *value, table_position posi
       break;
   }
   return -1;
+}
+
+int table_sorted_find_int(table *t, int col, int value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_uint(table *t, int col, unsigned int value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_int8(table *t, int col, int8_t value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_uint8(table *t, int col, uint8_t value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_int16(table *t, int col, int16_t value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_uint16(table *t, int col, uint16_t value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_int32(table *t, int col, int32_t value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_uint32(table *t, int col, uint32_t value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_int64(table *t, int col, int64_t value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_uint64(table *t, int col, uint64_t value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_short(table *t, int col, short value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_ushort(table *t, int col, unsigned short value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_long(table *t, int col, long value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_ulong(table *t, int col, unsigned long value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_llong(table *t, int col, long long value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_ullong(table *t, int col, unsigned long long value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_float(table *t, int col, float value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_double(table *t, int col, double value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_ldouble(table *t, int col, long double value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_char(table *t, int col, char value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_uchar(table *t, int col, unsigned char value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)&value, position);
+}
+
+int table_sorted_find_string(table *t, int col, const char *value, table_position position)
+{
+   return table_sorted_find(t, col, (void*)value, position);
+}
+
+int table_sorted_find_ptr(table *t, int col, void *value, table_position position)
+{
+   return table_sorted_find(t, col, value, position);
+}
+
+int table_sorted_subset_find_int(table *t, int col, int value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_uint(table *t, int col, unsigned int value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_int8(table *t, int col, int8_t value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_uint8(table *t, int col, uint8_t value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_int16(table *t, int col, int16_t value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_uint16(table *t, int col, uint16_t value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_int32(table *t, int col, int32_t value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_uint32(table *t, int col, uint32_t value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_int64(table *t, int col, int64_t value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_uint64(table *t, int col, uint64_t value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_short(table *t, int col, short value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_ushort(table *t, int col, unsigned short value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_long(table *t, int col, long value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_ulong(table *t, int col, unsigned long value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_llong(table *t, int col, long long value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_ullong(table *t, int col, unsigned long long value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_float(table *t, int col, float value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_double(table *t, int col, double value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_ldouble(table *t, int col, long double value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_char(table *t, int col, char value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_uchar(table *t, int col, unsigned char value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_string(table *t, int col, const char *value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, (void*)value, position, minimum, maximum);
+}
+
+int table_sorted_subset_find_ptr(table *t, int col, void *value, table_position position, int minimum, int maximum)
+{
+   return table_sorted_subset_find(t, col, value, position, minimum, maximum);
 }
