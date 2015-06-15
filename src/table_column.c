@@ -163,6 +163,8 @@ int table_col_add(table *t, const char *name, table_data_type type)
     return -1;
   }
 
+  col_ptr->compare = table_get_default_compare_function_for_data_type(type);
+
   strcpy(col_ptr->name, name);
   col_ptr->type  = type;
 
@@ -227,4 +229,14 @@ int table_col_rem(table *t, int col_num)
 table_column *table_get_col_ptr(table *t, int col)
 {
   return t->cols + col;
+}
+
+/**
+ * \brief Retrieve the column comparison function
+ * \return The column comparison fucntion
+ */
+table_compare_function table_get_column_compare_function(table *t, int column)
+{
+  table_column *col_ptr = table_get_col_ptr(t, column);
+  return col_ptr->compare;
 }

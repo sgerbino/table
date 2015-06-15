@@ -72,5 +72,12 @@ void table_remove_row_block(table *t);
 int table_row_add(table *t);
 int table_row_rem(table *t, int row_num);
 table_row *table_get_row_ptr(table *t, int row_num);
+void table_set_row_ptr(table *t, int row, table_row *row_ptr);
+
+table_compare_function table_get_default_compare_function_for_data_type(table_data_type type);
+table_compare_function table_get_column_compare_function(table *t, int column);
+
+int table_sorted_find(table *t, int col, void *value, table_position position);
+int table_sorted_subset_find(table *t, int col, void *value, table_position position, int minimum, int maximum);
 
 #endif

@@ -8,6 +8,7 @@
 #include "unit/table_callback.test"
 #include "unit/table_validator.test"
 #include "unit/table_serialize.test"
+#include "unit/table_sort.test"
 
 static test tests[] = {
    { true, "column", table_column_test, {0} },
@@ -15,6 +16,7 @@ static test tests[] = {
    { true, "callback", table_callback_test, {0} },
    { true, "validator", table_validator_test, {0} },
    { true, "serialize", table_serialize_test, {0} },
+   { true, "sort", table_sort_test, {0} },
    { false, NULL, NULL, {0} }
 };
 
