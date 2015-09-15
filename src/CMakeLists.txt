@@ -1,8 +1,7 @@
 include_directories(${TABLE_INCLUDE_DIRS})
 
-# The core table implementation in C.
 set(TABLE_HEADERS ${TABLE_INCLUDE_DIRS}/table.h
-                  ${CMAKE_CURRENT_SOURCE_DIR}/table_private.h)
+                  ${CMAKE_CURRENT_SOURCE_DIR}/table_defs.h)
 
 set(TABLE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/table.c
 		  ${CMAKE_CURRENT_SOURCE_DIR}/table_callback.c

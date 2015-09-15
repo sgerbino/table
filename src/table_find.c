@@ -1,4 +1,4 @@
-#include "table_private.h"
+#include "table_defs.h"
 
 /**
  * \brief Find a value in the table
@@ -555,17 +555,12 @@ int table_sorted_find(table *t, int col, void *value, table_position position)
 
 int table_sorted_subset_find(table *t, int col, void *value, table_position position, int minimum, int maximum)
 {
-  table_column *column = table_get_col_ptr(t, col);
+  table_compare_function func = table_get_column_compare_function(t, col);
   int middle = (maximum - minimum) / 2 + minimum;
-  int compare = column->compare(value, table_get(t, middle, col));
+  int compare = func(value, table_get(t, middle, col));
 
-  if (minimum == maximum)
-  {
-    if (!column->compare(value, table_get(t, maximum, col)))
-      return maximum;
-    else
-      return -maximum;
-  }
+  if (minimum > maximum)
+    return -middle;
 
   switch (compare)
   {
@@ -574,9 +569,9 @@ int table_sorted_subset_find(table *t, int col, void *value, table_position posi
       do
       {
         if (position == TABLE_FIRST)
-          compare = column->compare(table_get(t, --middle, col), value);
+          compare = func(table_get(t, --middle, col), value);
         else
-          compare = column->compare(table_get(t, ++middle, col), value);
+          compare = func(table_get(t, ++middle, col), value);
       } while (!compare);
       if (position == TABLE_FIRST)
         return ++middle;
@@ -591,7 +586,8 @@ int table_sorted_subset_find(table *t, int col, void *value, table_position posi
       return table_sorted_subset_find(t, col, value, position, minimum, middle - 1);
       break;
   }
-  return -1;
+  
+  return -middle;
 }
 
 int table_sorted_find_int(table *t, int col, int value, table_position position)

@@ -1,4 +1,4 @@
-#include "table_private.h"
+#include "table_defs.h"
 
 int table_compare_bool(void *value1, void *value2)
 {

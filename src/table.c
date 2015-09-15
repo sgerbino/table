@@ -1,5 +1,4 @@
-#include <table.h>
-#include "table_private.h"
+#include "table_defs.h"
 
 /**
  * \brief Return a fully constructed table pointer

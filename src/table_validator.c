@@ -1,4 +1,4 @@
-#include "table_private.h"
+#include "table_defs.h"
 
 /**
  * \brief Determine if a column is valid

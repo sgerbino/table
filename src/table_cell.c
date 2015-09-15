@@ -1,4 +1,4 @@
-#include "table_private.h"
+#include "table_defs.h"
 
 /**
  * \brief Fill the string with the contents of a cell

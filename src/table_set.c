@@ -1,4 +1,4 @@
-#include "table_private.h"
+#include "table_defs.h"
 
 /**
  * \brief Set a cell value in the table

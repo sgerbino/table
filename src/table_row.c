@@ -1,4 +1,9 @@
-#include "table_private.h"
+#include "table_defs.h"
+
+static void table_add_row_block(table *t);
+static void table_remove_row_block(table *t);
+static int table_row_add(table *t);
+static int table_row_rem(table *t, int row_num);
 
 /**
  * \brief Get the number of rows in the table
@@ -48,7 +53,7 @@ int table_remove_row(table *t, int row)
  * \brief Add a block of rows
  * \param[in] table The table
  */
-void table_add_row_block(table *t)
+static void table_add_row_block(table *t)
 {
   t->rows_allocated += t->row_block;
   t->rows = realloc(t->rows, sizeof(table_row) * t->rows_allocated);
@@ -58,7 +63,7 @@ void table_add_row_block(table *t)
  * \brief Remove a block of rows
  * \param[in] table The table
  */
-void table_remove_row_block(table *t)
+static void table_remove_row_block(table *t)
 {
   t->rows_allocated -= t->row_block;
   t->rows = realloc(t->rows, sizeof(table_row) * t->rows_allocated);
@@ -69,7 +74,7 @@ void table_remove_row_block(table *t)
  * \param[out] t The table to be acted on
  * \return A return code
  */
-int table_row_add(table *t)
+static int table_row_add(table *t)
 {
   int num_cols, num_rows, i;
   table_row* row;
@@ -102,7 +107,7 @@ int table_row_add(table *t)
  * \param[in] row_num The row number
  * \return A return code
  */
-int table_row_rem(table *t, int row_num)
+static int table_row_rem(table *t, int row_num)
 {
   table_row* row;
   int num_rows, num_cols, i;

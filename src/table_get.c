@@ -1,4 +1,4 @@
-#include "table_private.h"
+#include "table_defs.h"
 
 /**
  * \brief Get a cells raw pointer value from the table

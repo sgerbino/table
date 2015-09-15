@@ -1,4 +1,9 @@
-#include "table_private.h"
+#include "table_defs.h"
+
+static void table_add_column_block(table *t);
+static void table_remove_column_block(table *t);
+static int table_col_add(table *t, const char *name, table_data_type data_type);
+static int table_col_rem(table *t, int col_num);
 
 /**
  * \brief Get the number of columns in the table
@@ -102,7 +107,7 @@ const char* table_get_column_name(table *t, int col)
  * \brief Remove a block of columns
  * \param[out] table The table to be acted on
  */
-void table_remove_column_block(table *t)
+static void table_remove_column_block(table *t)
 {
   int num_rows, row;
 
@@ -121,7 +126,7 @@ void table_remove_column_block(table *t)
  * \brief Add a block of columns
  * \param[out] table The table to be acted on
  */
-void table_add_column_block(table *t)
+static void table_add_column_block(table *t)
 {
   int num_rows, row;
 
@@ -144,10 +149,11 @@ void table_add_column_block(table *t)
  * \param[in] type The table data type
  * \return A return code
  */
-int table_col_add(table *t, const char *name, table_data_type type)
+static int table_col_add(table *t, const char *name, table_data_type type)
 {
   int num_rows, num_cols, i;
   size_t mem_size;
+  table_compare_function func;
 
   mem_size = strlen(name);
 
@@ -163,7 +169,8 @@ int table_col_add(table *t, const char *name, table_data_type type)
     return -1;
   }
 
-  col_ptr->compare = table_get_default_compare_function_for_data_type(type);
+  func = table_get_default_compare_function_for_data_type(type);
+  table_set_column_compare_function(t, num_cols, func);
 
   strcpy(col_ptr->name, name);
   col_ptr->type  = type;
@@ -181,7 +188,7 @@ int table_col_add(table *t, const char *name, table_data_type type)
  * \brief Removes a row from the table
  * \return The corresponding int
  */
-int table_col_rem(table *t, int col_num)
+static int table_col_rem(table *t, int col_num)
 {
   table_column *col;
   int num_cols, num_rows, i;
@@ -239,4 +246,13 @@ table_compare_function table_get_column_compare_function(table *t, int column)
 {
   table_column *col_ptr = table_get_col_ptr(t, column);
   return col_ptr->compare;
+}
+
+/**
+ * \brief Sets the columns compare function
+ */
+void table_set_column_compare_function(table *t, int column, table_compare_function function)
+{
+  table_column *col_ptr = table_get_col_ptr(t, column);
+  col_ptr->compare = function;
 }

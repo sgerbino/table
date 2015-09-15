@@ -229,8 +229,8 @@ int table_find_uchar(table *t, int col, unsigned char value, table_order order);
 int table_find_string(table *t, int col, const char *value, table_order order);
 int table_find_ptr(table *t, int col, void *value, table_order order);
 
+/* Binary search functions */
 int table_sorted_find(table *t, int col, void *value, table_position position);
-int table_sorted_subset_find(table *t, int col, void *value, table_position position, int minimum, int maximum);
 int table_sorted_find_int(table *t, int col, int value, table_position position);
 int table_sorted_find_uint(table *t, int col, unsigned int value, table_position position);
 int table_sorted_find_int8(table *t, int col, int8_t value, table_position position);
@@ -255,6 +255,8 @@ int table_sorted_find_uchar(table *t, int col, unsigned char value, table_positi
 int table_sorted_find_string(table *t, int col, const char *value, table_position position);
 int table_sorted_find_ptr(table *t, int col, void *value, table_position position);
 
+/* Binary search within a row subset */
+int table_sorted_subset_find(table *t, int col, void *value, table_position position, int minimum, int maximum);
 int table_sorted_subset_find_int(table *t, int col, int value, table_position position, int minimum, int maximum);
 int table_sorted_subset_find_uint(table *t, int col, unsigned int value, table_position position, int minimum, int maximum);
 int table_sorted_subset_find_int8(table *t, int col, int8_t value, table_position position, int minimum, int maximum);
@@ -288,13 +290,11 @@ table_data_type table_get_column_data_type(table *t, int col);
 int table_get_column(table *t, const char *name);
 const char *table_get_column_name(table *t, int col);
 int table_cell_nullify(table *t, int row, int col);
+table_compare_function table_get_column_compare_function(table *t, int column);
+void table_set_column_compare_function(table *t, int column, table_compare_function function);
 
-/* n Column sort */
+/* Sort */
 void table_column_sort(table *t, int *cols, table_order *sort_orders, int num_cols);
-void table_merge_sort_rows(table *t, int col, int first, int last, table_order order);
-void table_merge_sort_split_rows(table *t, table_row *sorted_rows, int col, int first, int last, table_order order);
-void table_merge_sort_merge_rows(table *t, table_row *sorted_rows, int col, int first, int middle, int last, table_order order);
-void table_merge_sort_copy_rows(table *t, int first, int last, table_row *sorted_rows);
 
 /* Validators */
 int table_column_is_valid(table *t, int col);
@@ -310,7 +310,11 @@ void table_unregister_callback(table *t, table_callback_function func, void *dat
 int table_cell_to_string(table *t, int row, int col, char *buf, size_t size);
 int table_cell_from_string(table *t, int row, int col, const char *buf);
 
+/* Serialization */
 void table_serialize(table *t, void *buf, size_t len);
 table *table_deserialize(void *buf, size_t len);
 
+table_compare_function table_get_default_compare_function_for_data_type(table_data_type type);
+
 #endif /* TABLE_H_ */
+

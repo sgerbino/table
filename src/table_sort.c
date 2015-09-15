@@ -1,7 +1,12 @@
-#include "table_private.h"
+#include "table_defs.h"
+
+static void table_merge_sort_rows(table *t, int col, int first, int last, table_order order);
+static void table_merge_sort_split_rows(table *t, table_row *sorted_rows, int col, int first, int last, table_order order);
+static void table_merge_sort_merge_rows(table *t, table_row *sorted_rows, int col, int first, int middle, int last, table_order order);
+static void table_merge_sort_copy_rows(table *t, int first, int last, table_row *sorted_rows);
 
 /**
- * \brief multi-column sort
+ * \brief Multi-column sort
  * \param[in] table The table to be sorted
  * \param[in] cols Array of indices of the columns to be sorted
  * \param[in] sort_orders Array of sort orders for each column
@@ -53,14 +58,14 @@ void table_column_sort(table *t, int *cols, table_order *sort_orders, int num_co
 }
 
 /**
- * \brief row merge sort main function
+ * \brief Row merge sort main function
  * \param[in] t The table to be sorted
  * \param[in] col The column to sort by
  * \param[in] first The first row to sort
  * \param[in] last The last row to sort
  * \param[in] order The table_order to sort the rows by
  */
-void table_merge_sort_rows(table *t, int col, int first, int last, table_order order)
+static void table_merge_sort_rows(table *t, int col, int first, int last, table_order order)
 {
    table_row *sorted_rows = calloc(last-first+1, sizeof(table_row));
    table_merge_sort_split_rows(t, sorted_rows, col, first, last, order);
@@ -68,7 +73,7 @@ void table_merge_sort_rows(table *t, int col, int first, int last, table_order o
 }
 
 /**
- * \brief row merge sort split row list into row sublist function
+ * \brief Row merge sort split row list into row sublist function
  * \param[in] t The table to be sorted
  * \param[in] sorted_rows Array to hold the sorted rows
  * \param[in] col The column to sort the table rows by
@@ -76,7 +81,7 @@ void table_merge_sort_rows(table *t, int col, int first, int last, table_order o
  * \param[in] last The last row to sort
  * \param[in] order The table_order to sort by
  */
-void table_merge_sort_split_rows(table *t, table_row *sorted_rows, int col, int first, int last, table_order order)
+static void table_merge_sort_split_rows(table *t, table_row *sorted_rows, int col, int first, int last, table_order order)
 {
    if (last-first+1 < 2)
       return;
@@ -88,7 +93,7 @@ void table_merge_sort_split_rows(table *t, table_row *sorted_rows, int col, int 
 }
 
 /**
- * \brief row merge sort merge row sublists function
+ * \brief Row merge sort merge row sublists function
  * \param[in] t The table to sort by
  * \param[in] sorted_rows Array to hold the sorted rows
  * \param[in] col The column to sort table rows by
@@ -97,7 +102,7 @@ void table_merge_sort_split_rows(table *t, table_row *sorted_rows, int col, int 
  * \param[in] last The index of the last row in the sublist
  * \param[in] order The table_order to sort by
  */
-void table_merge_sort_merge_rows(table *t, table_row *sorted_rows, int col, int first, int middle, int last, table_order order)
+static void table_merge_sort_merge_rows(table *t, table_row *sorted_rows, int col, int first, int middle, int last, table_order order)
 {
    int n1 = first, n2 = middle+1, i;
    table_column *col_ptr = table_get_col_ptr(t, col);
@@ -133,13 +138,13 @@ void table_merge_sort_merge_rows(table *t, table_row *sorted_rows, int col, int 
 }
 
 /**
- * \brief row merge sort copy sorted rows back into table
+ * \brief Row merge sort copy sorted rows back into table
  * \param[in] t The table to be sorted
  * \param[in] first The index of the first row that was sorted
  * \param[in] last The index of the last row that was sorted
  * \param[in] sorted_rows Array of sorted rows
  */
-void table_merge_sort_copy_rows(table *t, int first, int last, table_row *sorted_rows)
+static void table_merge_sort_copy_rows(table *t, int first, int last, table_row *sorted_rows)
 {
    int i = 0;
    for (i = 0; i < last - first + 1; i++)

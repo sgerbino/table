@@ -1,4 +1,4 @@
-#include "table_private.h"
+#include "table_defs.h"
 
 #define UNPACK(destination, source, type)       \
    do {                                         \
