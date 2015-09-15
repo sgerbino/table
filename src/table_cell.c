@@ -1,7 +1,7 @@
 #include "table_defs.h"
 
 /**
- * \brief Fill the string with the contents of a cell
+ * \brief Fill the buffer with the contents of a cell
  * \param[in] table The table to be examined
  * \param[in] row The row number
  * \param[in] col The column number
@@ -9,7 +9,7 @@
  * \param[in] size The buffer size
  * \return A corresponding int
  */
-int table_cell_to_string(table *t, int row, int col, char *buf, size_t size)
+int table_cell_to_buffer(table *t, int row, int col, char *buf, size_t size)
 {
   int retcode = 0;
   switch(table_get_column_data_type(t, col))
@@ -91,14 +91,14 @@ int table_cell_to_string(table *t, int row, int col, char *buf, size_t size)
 }
 
 /**
- * \brief Populate the cell from the string.
+ * \brief Populate the cell from the buffer
  * \param[in] table The table to be modified
  * \param[in] row The row number
  * \param[in] col The column number
- * \param[in] buf The input string
+ * \param[in] buf The input buffer
  * \return A corresponding int
  */
-int table_cell_from_string(table *t, int row, int col, const char *buf)
+int table_cell_from_buffer(table *t, int row, int col, const char *buf)
 {
   int retcode = 0;
   switch(table_get_column_data_type(t, col))

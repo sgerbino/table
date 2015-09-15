@@ -112,7 +112,7 @@ bool table_sort_test(char *buf, size_t len)
       {
          for (col = 0; col < table_get_column_length(&t); col++)
          {
-            table_cell_to_string(&t, row, col, buf, sizeof buf);
+            table_cell_to_buffer(&t, row, col, buf, sizeof buf);
             if (error_row == row && error_column == col)
                printf("%s*\t", buf);
             else

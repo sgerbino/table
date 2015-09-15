@@ -307,8 +307,8 @@ void table_register_callback(table *t, table_callback_function func, void *data,
 void table_unregister_callback(table *t, table_callback_function func, void *data);
 
 /* Buffer utilities */
-int table_cell_to_string(table *t, int row, int col, char *buf, size_t size);
-int table_cell_from_string(table *t, int row, int col, const char *buf);
+int table_cell_to_buffer(table *t, int row, int col, char *buf, size_t size);
+int table_cell_from_buffer(table *t, int row, int col, const char *buf);
 
 /* Serialization */
 void table_serialize(table *t, void *buf, size_t len);
