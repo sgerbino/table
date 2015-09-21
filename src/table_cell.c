@@ -1,4 +1,44 @@
+/**
+ * \file
+ * \brief The table cell implementation file
+ * 
+ * This file handles table cell implementations.
+ */
 #include "table_defs.h"
+
+/**
+ * \brief Initialize a table cell
+ * \param[in] t The table
+ * \param[in] row The table row
+ * \param[in] column The table column
+ */
+void table_cell_init(table *t, int row, int col)
+{
+  table_cell *cell = table_get_cell_ptr(t, row, col);
+  cell->value = NULL;
+}
+
+/**
+ * \brief Destroy a table cell
+ * \param[out] t The table
+ * \param[in] row The table row
+ * \param[out] column The table column
+ */
+void table_cell_destroy(table *t, int row, int column)
+{
+  table_cell *cell = NULL;
+  
+  switch (table_get_column_data_type(t, column))
+  {
+    case TABLE_PTR:
+      break;
+    default:
+      cell = table_get_cell_ptr(t, row, column);
+      if(cell->value)
+        free(cell->value);
+      break;
+  }
+}
 
 /**
  * \brief Fill the buffer with the contents of a cell

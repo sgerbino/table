@@ -1,48 +1,58 @@
+/**
+ * \file
+ * \brief The table callback implementation file
+ * 
+ * This file handles table callback implementations.
+ */
 #include "table_defs.h"
+
+static void table_callback_init(table *t, int callback_index, table_callback_function func, void *data, table_bitfield event_types);
+static int table_get_callback_index(table *t, table_callback_function func, void *data);
+static void table_add_callback_block(table *t);
+static void table_remove_callback_block(table *t);
+
+/**
+ * \brief Initialize a callback
+ * \param[out] t The table
+ * \param[in] callback_index The callback index
+ * \param[in] func The callback function
+ * \param[in] data The callback data
+ * \param[in] registration The callback registration
+ */
+static void table_callback_init(table *t, int callback_index, table_callback_function func, void *data, table_bitfield event_types)
+{
+  *(t->callbacks + callback_index) = func;
+  *(t->callbacks_data + callback_index) = data;
+  *(t->callbacks_registration + callback_index) = event_types;
+}
+
+/**
+ * \brief Get the number of callbacks in the table
+ * \param[in] t The table to examine
+ * \return The number of callbacks
+ */
+int table_get_callback_length(table *t)
+{
+  return t->callbacks_length;
+}
 
 /**
  * \brief Register a data callback for the table
  */
 void table_register_callback(table *t, table_callback_function func, void* data, table_bitfield event_types)
 {
-  table_callback_function *tmp_callback;
-  void **tmp_callback_data;
-  table_bitfield *tmp_callback_registration;
-  size_t i;
-
-  /* Check if this callback already exists. */
-  for (i = 0; i < t->callback_len; i++)
+  int callback_index = table_get_callback_index(t, func, data);
+  if (callback_index > 0)
   {
-    if (t->callback[i] == func && t->callback_data[i] == data)
-    {
-      /* Add the new event types, if any. */
-      t->callback_registration[i] |= event_types;
-      return;
-    }
+    t->callbacks_registration[callback_index] |= event_types;
+    return;
   }
 
-  if(!(t->callback_len % t->callback_block))
-  {
-    tmp_callback = calloc(t->callback_len + t->callback_block, sizeof(table_callback_function));
-    tmp_callback_data = calloc(t->callback_len + t->callback_block, sizeof(void*));
-    tmp_callback_registration = calloc(t->callback_len + t->callback_block, sizeof(table_bitfield*));
-    if(t->callback != NULL)
-    {
-      memcpy(tmp_callback, t->callback, t->callback_len * sizeof(table_callback_function));
-      memcpy(tmp_callback_data, t->callback_data, t->callback_len * sizeof(void*));
-      memcpy(tmp_callback_registration, t->callback_registration, t->callback_len * sizeof(table_bitfield*));
-      free(t->callback);
-      free(t->callback_data);
-      free(t->callback_registration);
-    }
-    t->callback = tmp_callback;
-    t->callback_data = tmp_callback_data;
-    t->callback_registration = tmp_callback_registration;
-  }
-  *(t->callback + t->callback_len) = func;
-  *(t->callback_data + t->callback_len) = data;
-  *(t->callback_registration + t->callback_len) = event_types;
-  t->callback_len++;
+  if(!(t->callbacks_length % t->callbacks_block))
+    table_add_callback_block(t);
+  
+  table_callback_init(t, table_get_callback_length(t), func, data, event_types);
+  t->callbacks_length++;
 }
 
 /**
@@ -50,58 +60,21 @@ void table_register_callback(table *t, table_callback_function func, void* data,
  */
 void table_unregister_callback(table *t, table_callback_function func, void* data)
 {
-  table_callback_function *tmp_callback;
-  void **tmp_callback_data;
-  table_bitfield *tmp_callback_registration;
-  int i, rm = -1;
-
-  /* Find a match */
-  for(i = 0; i < t->callback_len; i++)
-  {
-    if(t->callback[i] == func && t->callback_data[i] == data)
-    {
-      rm = i;
-      break;
-    }
-  }
+  int i;
+  int callback_index = table_get_callback_index(t, func, data);
 
   /* If a match was found, shift all the cells down */
-  if(rm != -1)
+  if(callback_index != -1)
   {
-    for(i = rm; i < t->callback_len - 1; i++)
+    for(i = callback_index; i < t->callbacks_length - 1; i++)
     {
-      t->callback[i] = t->callback[i + 1];
-      t->callback_data[i] = t->callback_data[i + 1];
-      t->callback_registration[i] = t->callback_registration[i + 1];
+      t->callbacks[i] = t->callbacks[i + 1];
+      t->callbacks_data[i] = t->callbacks_data[i + 1];
+      t->callbacks_registration[i] = t->callbacks_registration[i + 1];
     }
 
-    if(!(--t->callback_len % t->callback_block))
-    {
-      if(t->callback_len != 0)
-      {
-        tmp_callback = calloc(t->callback_len + t->callback_block, sizeof(table_callback_function));
-        tmp_callback_data = calloc(t->callback_len + t->callback_block, sizeof(void*));
-        tmp_callback_registration = calloc(t->callback_len + t->callback_block, sizeof(table_bitfield*));
-        memcpy(tmp_callback, t->callback, t->callback_len * sizeof(table_callback_function));
-        memcpy(tmp_callback_data, t->callback_data, t->callback_len * sizeof(void*));
-        memcpy(tmp_callback_registration, t->callback_registration, t->callback_len * sizeof(table_bitfield*));
-        free(t->callback);
-        free(t->callback_data);
-        free(t->callback_registration);
-        t->callback = tmp_callback;
-        t->callback_data = tmp_callback_data;
-        t->callback_registration = tmp_callback_registration;
-      }
-      else
-      {
-        free(t->callback);
-        free(t->callback_data);
-        free(t->callback_registration);
-        t->callback = NULL;
-        t->callback_data = NULL;
-        t->callback_registration = NULL;
-      }
-    }
+    if(!(--t->callbacks_length % t->callbacks_block))
+      table_remove_callback_block(t);
   }
 }
 
@@ -115,11 +88,58 @@ void table_unregister_callback(table *t, table_callback_function func, void* dat
 void table_notify(table *t, int row, int col, table_event_type event_type)
 {
   int i;
-  for (i = 0; i < t->callback_len; i++)
+  for (i = 0; i < t->callbacks_length; i++)
+    if (t->callbacks_registration[i] & event_type)
+      t->callbacks[i](t, row, col, event_type, t->callbacks_data[i]);
+}
+
+/**
+ * \brief Removes a callback block
+ * \param[in] t The table
+ */
+static void table_remove_callback_block(table *t)
+{
+  t->callbacks_allocated -= t->callbacks_block;
+  if (t->callbacks_allocated)
   {
-    if (t->callback_registration[i] & event_type)
-    {
-      t->callback[i](t, row, col, event_type, t->callback_data[i]);
-    }
+    t->callbacks = realloc(t->callbacks, sizeof(table_callback_function) * t->callbacks_allocated);
+    t->callbacks_data = realloc(t->callbacks_data, sizeof(void*) * t->callbacks_allocated);
+    t->callbacks_registration = realloc(t->callbacks_registration, sizeof(table_bitfield) * t->callbacks_allocated);
   }
+  else
+  {
+    free(t->callbacks);
+    free(t->callbacks_data);
+    free(t->callbacks_registration);
+    t->callbacks = NULL;
+    t->callbacks_data = NULL;
+    t->callbacks_registration = NULL;
+  }
+}
+
+/**
+ * \brief Adds an additional callback block
+ * \param[in] t The table
+ */
+static void table_add_callback_block(table *t)
+{
+  t->callbacks_allocated += t->callbacks_block;
+  t->callbacks = realloc(t->callbacks, sizeof(table_callback_function) * t->callbacks_allocated);
+  t->callbacks_data = realloc(t->callbacks_data, sizeof(void*) * t->callbacks_allocated);
+  t->callbacks_registration = realloc(t->callbacks_registration, sizeof(table_bitfield) * t->callbacks_allocated);
+}
+
+/**
+ * \brief Get the index of a callback
+ * \param[in] t The table
+ * \param[in] func The table callback function
+ * \param[in] data The table callback data
+ * \return The callback index
+ */
+static int table_get_callback_index(table *t, table_callback_function func, void *data)
+{
+  for(int callback_index = 0; callback_index < t->callbacks_length; callback_index++)
+    if(t->callbacks[callback_index] == func && t->callbacks_data[callback_index] == data)
+      return callback_index;
+  return -1;
 }

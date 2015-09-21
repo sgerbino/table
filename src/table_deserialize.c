@@ -1,3 +1,9 @@
+/**
+ * \file
+ * \brief The table deserialization implementation file
+ * 
+ * This file handles table deserialization implementations.
+ */
 #include "table_defs.h"
 
 #define UNPACK(destination, source, type)       \
@@ -21,7 +27,7 @@ table *table_deserialize(void *buf, size_t len)
    table *t = table_new();
 
    UNPACK(&col_len, buf, uint64_t);
-   UNPACK(&t->col_block, buf, uint64_t);
+   UNPACK(&t->column_block, buf, uint64_t);
    for (col = 0; col < col_len; ++col)
    {
       table_data_type type;
@@ -212,7 +218,7 @@ table *table_deserialize(void *buf, size_t len)
    }
 
    UNPACK(&callback_len, buf, uint64_t);
-   UNPACK(&t->callback_block, buf, uint64_t);
+   UNPACK(&t->callbacks_block, buf, uint64_t);
    for (i = 0; i < callback_len; ++i)
    {
       table_callback_function callback;

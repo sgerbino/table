@@ -1,3 +1,9 @@
+/**
+ * \file
+ * \brief The table find implementation file
+ * 
+ * This file handles table find implementations.
+ */
 #include "table_defs.h"
 
 /**
@@ -548,11 +554,29 @@ int table_find_ptr(table *t, int col, void* value, table_order dir)
   return table_find(t, col, value, TABLE_PTR, dir);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find(table *t, int col, void *value, table_position position)
 {
   return table_sorted_subset_find(t, col, value, position, 0, table_get_row_length(t) - 1);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The lowest row to consider
+ * \param[in] maximum The highest row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find(table *t, int col, void *value, table_position position, int minimum, int maximum)
 {
   table_compare_function func = table_get_column_compare_function(t, col);
@@ -590,231 +614,645 @@ int table_sorted_subset_find(table *t, int col, void *value, table_position posi
   return -middle;
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_int(table *t, int col, int value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_uint(table *t, int col, unsigned int value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_int8(table *t, int col, int8_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_uint8(table *t, int col, uint8_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_int16(table *t, int col, int16_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_uint16(table *t, int col, uint16_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_int32(table *t, int col, int32_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_uint32(table *t, int col, uint32_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_int64(table *t, int col, int64_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_uint64(table *t, int col, uint64_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_short(table *t, int col, short value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_ushort(table *t, int col, unsigned short value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_long(table *t, int col, long value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_ulong(table *t, int col, unsigned long value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_llong(table *t, int col, long long value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_ullong(table *t, int col, unsigned long long value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_float(table *t, int col, float value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_double(table *t, int col, double value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_ldouble(table *t, int col, long double value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_char(table *t, int col, char value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_uchar(table *t, int col, unsigned char value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_string(table *t, int col, const char *value, table_position position)
 {
    return table_sorted_find(t, col, (void*)value, position);
 }
 
+/**
+ * \brief Search through the entire table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \return The row matching given criteria
+ */
 int table_sorted_find_ptr(table *t, int col, void *value, table_position position)
 {
    return table_sorted_find(t, col, value, position);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_int(table *t, int col, int value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_uint(table *t, int col, unsigned int value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_int8(table *t, int col, int8_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_uint8(table *t, int col, uint8_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_int16(table *t, int col, int16_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_uint16(table *t, int col, uint16_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_int32(table *t, int col, int32_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_uint32(table *t, int col, uint32_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_int64(table *t, int col, int64_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_uint64(table *t, int col, uint64_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_short(table *t, int col, short value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_ushort(table *t, int col, unsigned short value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_long(table *t, int col, long value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_ulong(table *t, int col, unsigned long value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_llong(table *t, int col, long long value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_ullong(table *t, int col, unsigned long long value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_float(table *t, int col, float value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_double(table *t, int col, double value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_ldouble(table *t, int col, long double value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_char(table *t, int col, char value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_uchar(table *t, int col, unsigned char value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_string(table *t, int col, const char *value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)value, position, minimum, maximum);
 }
 
+/**
+ * \brief Search through a subset of the table on a particular column using a binary search
+ * \param[in] t The table
+ * \param[in] col The column to search
+ * \param[in] value The value to match on
+ * \param[in] position The location of the returned row if there are more than one result
+ * \param[in] minimum The first row to consider
+ * \param[in] maximum The last row to consider
+ * \return The row matching given criteria
+ */
 int table_sorted_subset_find_ptr(table *t, int col, void *value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, value, position, minimum, maximum);

@@ -2,8 +2,31 @@
 
 static void table_add_column_block(table *t);
 static void table_remove_column_block(table *t);
-static int table_col_add(table *t, const char *name, table_data_type data_type);
-static int table_col_rem(table *t, int col_num);
+static int table_column_add(table *t, const char *name, table_data_type data_type);
+static int table_column_remove(table *t, int col_num);
+
+/**
+ * \brief Initialize a table column
+ * \param[in] column_index The column column_index
+ */
+void table_column_init(table *t, int column_index, char *name, table_data_type type, table_compare_function func)
+{
+  table_column *column = table_get_col_ptr(t, column_index);
+  column->name = strdup(name);
+  column->type = type;
+  column->compare = func;
+}
+
+/**
+ * \brief Destroys a table column
+ * \param[in] column The table column
+ */
+void table_column_destroy(table *t, int column)
+{
+  table_column *col = table_get_col_ptr(t, column);
+  if (col->name)
+    free(col->name);
+}
 
 /**
  * \brief Get the number of columns in the table
@@ -12,7 +35,7 @@ static int table_col_rem(table *t, int col_num);
  */
 int table_get_column_length(table *t)
 {
-  return t->cols_len;
+  return t->column_length;
 }
 
 /**
@@ -23,33 +46,26 @@ int table_get_column_length(table *t)
  */
 int table_get_column(table *t, const char *name)
 {
-  int col_num, num_cols, i;
-  num_cols = table_get_column_length(t);
-  col_num = -1;
-  for(i = 0; i < num_cols; i++)
-  {
-    table_column *col;
-    col = table_get_col_ptr(t, i);
-    if(!strcmp(col->name, name))
-    {
-      col_num = i;
+  int column_index;
+  int column_length = table_get_column_length(t);
+
+  for (column_index = 0; column_index < column_length; column_index++)
+    if (!strcmp(table_get_column_name(t, column_index), name))
       break;
-    }
-  }
-  return col_num;
+
+  return column_index == column_length ? -1 : column_index;
 }
 
 /**
  * \brief Get the column type for a given column number
  * \param[in] t The table to be acted on
- * \param[in] col The table column
+ * \param[in] column_index The table column
  * \return The columns table_data_type
  */
-table_data_type table_get_column_data_type(table *t, int col)
+table_data_type table_get_column_data_type(table *t, int column_index)
 {
-  table_column *col_ptr = table_get_col_ptr(t, col);
-  table_data_type retval = col_ptr->type;
-  return retval;
+  table_column *column = table_get_col_ptr(t, column_index);
+  return column->type;
 }
 
 /**
@@ -61,15 +77,12 @@ table_data_type table_get_column_data_type(table *t, int col)
  */
 int table_add_column(table *t, const char* name, table_data_type type)
 {
-  if(!(table_get_column_length(t) % t->col_block))
-  {
+  if (!(table_get_column_length(t) % t->column_block))
     table_add_column_block(t);
-  }
 
-  table_col_add(t, name, type);
-  table_notify(t, -1, t->cols_len, TABLE_COLUMN_ADDED);
-
-  return t->cols_len++;
+  table_column_add(t, name, type);
+  table_notify(t, -1, table_get_column_length(t), TABLE_COLUMN_ADDED);
+  return t->column_length++;
 }
 
 /**
@@ -80,16 +93,13 @@ int table_add_column(table *t, const char* name, table_data_type type)
  */
 int table_remove_column(table *t, int col)
 {
-  table_col_rem(t, col);
-  t->cols_len--;
+  table_column_remove(t, col);
+  t->column_length--;
 
-  if(!(table_get_column_length(t) % t->col_block))
-  {
+  if (!(table_get_column_length(t) % t->column_block))
     table_remove_column_block(t);
-  }
 
   table_notify(t, -1, col, TABLE_COLUMN_REMOVED);
-
   return 0;
 }
 
@@ -111,14 +121,14 @@ static void table_remove_column_block(table *t)
 {
   int num_rows, row;
 
-  t->cols_allocated -= t->col_block;
-  t->cols = realloc(t->cols, sizeof(table_column) * t->cols_allocated);
+  t->columns_allocated -= t->column_block;
+  t->columns = realloc(t->columns, sizeof(table_column) * t->columns_allocated);
 
   num_rows = table_get_row_length(t);
   for (row = 0; row < num_rows; row++)
   {
     table_row *row_ptr = table_get_row_ptr(t, row);
-    row_ptr->cells = realloc(row_ptr->cells, sizeof(table_cell) * t->cols_allocated);
+    row_ptr->cells = realloc(row_ptr->cells, sizeof(table_cell) * t->columns_allocated);
   }
 }
 
@@ -130,14 +140,14 @@ static void table_add_column_block(table *t)
 {
   int num_rows, row;
 
-  t->cols_allocated += t->col_block;
-  t->cols = realloc(t->cols, sizeof(table_column) * t->cols_allocated);
+  t->columns_allocated += t->column_block;
+  t->columns = realloc(t->columns, sizeof(table_column) * t->columns_allocated);
 
   num_rows = table_get_row_length(t);
   for (row = 0; row < num_rows; row++)
   {
     table_row *row_ptr = table_get_row_ptr(t, row);
-    row_ptr->cells = realloc(row_ptr->cells, sizeof(table_cell) * t->cols_allocated);
+    row_ptr->cells = realloc(row_ptr->cells, sizeof(table_cell) * t->columns_allocated);
   }
 
 }
@@ -149,18 +159,13 @@ static void table_add_column_block(table *t)
  * \param[in] type The table data type
  * \return A return code
  */
-static int table_col_add(table *t, const char *name, table_data_type type)
+static int table_column_add(table *t, const char *name, table_data_type type)
 {
-  int num_rows, num_cols, i;
-  size_t mem_size;
-  table_compare_function func;
+  size_t mem_size = strlen(name);
+  int row_length = table_get_row_length(t);
+  int column_length = table_get_column_length(t);
 
-  mem_size = strlen(name);
-
-  num_rows = table_get_row_length(t);
-  num_cols = table_get_column_length(t);
-
-  table_column *col_ptr = table_get_col_ptr(t, num_cols);
+  table_column *col_ptr = table_get_col_ptr(t, column_length);
 
   col_ptr->name = malloc(sizeof(char) * mem_size + sizeof(char));
 
@@ -169,17 +174,14 @@ static int table_col_add(table *t, const char *name, table_data_type type)
     return -1;
   }
 
-  func = table_get_default_compare_function_for_data_type(type);
-  table_set_column_compare_function(t, num_cols, func);
+  table_compare_function func = table_get_default_compare_function_for_data_type(type);
+  table_set_column_compare_function(t, column_length, func);
 
   strcpy(col_ptr->name, name);
-  col_ptr->type  = type;
+  col_ptr->type = type;
 
-  for(i = 0; i < num_rows; i++)
-  {
-    table_cell* cell_ptr = table_get_cell_ptr(t, i, num_cols);
-    cell_ptr->value = NULL;
-  }
+  for(int row = 0; row < row_length; row++)
+    table_cell_init(t, row, column_length);
 
   return 0;
 }
@@ -188,40 +190,25 @@ static int table_col_add(table *t, const char *name, table_data_type type)
  * \brief Removes a row from the table
  * \return The corresponding int
  */
-static int table_col_rem(table *t, int col_num)
+static int table_column_remove(table *t, int column_index)
 {
-  table_column *col;
-  int num_cols, num_rows, i;
+  table_column_destroy(t, column_index);
 
-  col = table_get_col_ptr(t, col_num);
-  if(col->name)
+  int column_length = table_get_column_length(t);
+  for(int i = column_index; i < (column_length - 1); i++)
   {
-    free(col->name);
-  }
-
-  num_cols = table_get_column_length(t);
-  for(i = col_num; i < (num_cols - 1); i++)
-  {
-    memcpy(t->cols + i, t->cols + i + 1, sizeof(table_column));
+    memcpy(t->columns + i, t->columns + i + 1, sizeof(table_column));
   }
 
   /* Free extraneous cell values */
-  num_rows = table_get_row_length(t);
-  for(i = 0; i < num_rows; i++)
+  int row_length = table_get_row_length(t);
+  for(int i = 0; i < row_length; i++)
   {
-    table_row* row;
-    table_cell* cell;
-    int j;
-    cell = table_get_cell_ptr(t, i, col_num);
-
-    if(cell->value)
-    {
-      free(cell->value);
-    }
+    table_cell_destroy(t, i, column_index);
 
     /* Shift cells and overwrite deleted cell */
-    row = table_get_row_ptr(t, i);
-    for(j = col_num; j < (num_cols - 1); j++)
+    table_row* row = table_get_row_ptr(t, i);
+    for(int j = column_index; j < (column_length - 1); j++)
     {
       memcpy(row->cells + j, row->cells + j + 1, sizeof(table_cell));
     }
@@ -235,7 +222,7 @@ static int table_col_rem(table *t, int col_num)
  */
 table_column *table_get_col_ptr(table *t, int col)
 {
-  return t->cols + col;
+  return t->columns + col;
 }
 
 /**

@@ -8,7 +8,7 @@
 /**
  * \brief Table position
  */
-typedef enum _table_position
+typedef enum table_position
 {
   TABLE_FIRST,
   TABLE_LAST
@@ -17,7 +17,7 @@ typedef enum _table_position
 /**
  * \brief Table order
  */
-typedef enum _table_order
+typedef enum table_order
 {
   TABLE_ASCENDING
  ,TABLE_DESCENDING
@@ -26,7 +26,7 @@ typedef enum _table_order
 /**
  * \brief Table data types
  */
-typedef enum _table_data_type
+typedef enum table_data_type
 {
   TABLE_INT
  ,TABLE_UINT
@@ -57,13 +57,14 @@ typedef enum _table_data_type
 /**
  * \brief Table event types
  */
-typedef enum _table_event_type
+typedef enum table_event_type
 {
   TABLE_DATA_MODIFIED  = 1 << 0
  ,TABLE_ROW_ADDED      = 1 << 1
  ,TABLE_ROW_REMOVED    = 1 << 2
  ,TABLE_COLUMN_ADDED   = 1 << 3
  ,TABLE_COLUMN_REMOVED = 1 << 4
+ ,TABLE_SORTED         = 1 << 5
 } table_event_type;
 
 /**
@@ -74,7 +75,7 @@ typedef int (*table_compare_function)(void *value1, void *value2);
 /**
  * \brief A structure to represent table columns
  */
-typedef struct _table_column
+typedef struct table_column
 {
   char *name;    /**< The name of the column */
   table_data_type type; /**< The column data type */
@@ -84,7 +85,7 @@ typedef struct _table_column
 /**
  * \brief A structure to represent table cells
  */
-typedef struct _table_cell
+typedef struct table_cell
 {
   void *value; /**< The value of the table cell */
 } table_cell;
@@ -92,18 +93,18 @@ typedef struct _table_cell
 /**
  * \brief A structure to represent table rows
  */
-typedef struct _table_row
+typedef struct table_row
 {
-  table_cell *cells;    /**< A pointer to an array of table cells */
+  table_cell *cells; /**< A pointer to an array of table cells */
 } table_row;
 
 /* Forward declaration */
-typedef struct _table table;
+typedef struct table table;
 
 /**
  * \brief A table callback, handles table event notifications
  */
-typedef void (*table_callback_function)(table *t, int row, int col, table_event_type event_type, void *data);
+typedef void (*table_callback_function)(table *t, int row, int column, table_event_type event_type, void *data);
 
 /**
  * \brief A table bitfield
@@ -113,26 +114,26 @@ typedef unsigned int table_bitfield;
 /**
  * \brief A structure to represent a table
  */
-typedef struct _table
+typedef struct table
 {
   /* Columns */
-  table_column *cols; /**< A pointer to an array of table columns */
-  uint64_t cols_len;    /**< The length of the array of table columns */
-  uint64_t col_block; /**< The column block size */
-  size_t cols_allocated; /**< The number of columns allocated */
+  table_column *columns; /**< A pointer to an array of table columns */
+  uint64_t column_length; /**< The length of the array of table columns */
+  uint64_t column_block; /**< The column block size */
+  size_t columns_allocated; /**< The number of columns allocated */
 
   /* Rows */
   table_row *rows; /**< A pointer to an array of table rows */
-  uint64_t rows_len;    /**< The length of the array of table rows */
+  uint64_t rows_length; /**< The length of the array of table rows */
   uint64_t row_block; /**< The row block size */
   size_t rows_allocated; /**< The number of rows allocated */
 
   /* Callbacks */
-  uint64_t callback_len; /**< The length of the array of table callbacks */
-  table_callback_function *callback; /**< A pointer to an array of callbacks */
-  void **callback_data; /**< A pointer to an array of callback data */
-  table_bitfield *callback_registration; /**< The registration bits */
-  uint64_t callback_block; /**< The callback block size */
+  uint64_t callbacks_length; /**< The length of the array of table callbacks */
+  table_callback_function *callbacks; /**< A pointer to an array of callbacks */
+  void **callbacks_data; /**< A pointer to an array of callback data */
+  table_bitfield *callbacks_registration; /**< The registration bits */
+  uint64_t callbacks_block; /**< The callback block size */
   size_t callbacks_allocated; /**< The number of callbacks allocated */
 } table;
 
@@ -284,6 +285,7 @@ int table_sorted_subset_find_ptr(table *t, int col, void *value, table_position 
 /* Row and column observers */
 int table_get_column_length(table *t);
 int table_get_row_length(table *t);
+int table_get_callback_length(table *t);
 
 /* Column utilities */
 table_data_type table_get_column_data_type(table *t, int col);

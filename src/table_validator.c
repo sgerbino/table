@@ -1,3 +1,9 @@
+/**
+ * \file
+ * \brief The table validator implementation file
+ * 
+ * This file handles table validator implementations.
+ */
 #include "table_defs.h"
 
 /**
@@ -12,12 +18,10 @@ int table_column_is_valid(table *t, int col)
 
   if(t)
   {
-    int num_cols = table_get_column_length(t);
+    int column_length = table_get_column_length(t);
 
-    if(col >= 0 && col < num_cols)
-    {
+    if(col >= 0 && col < column_length)
       retval = 1;
-    }
   }
 
   return retval;
@@ -35,12 +39,10 @@ int table_row_is_valid(table *t, int row)
 
   if(t)
   {
-    int num_rows = table_get_row_length(t);
+    int row_length = table_get_row_length(t);
 
-    if(row >= 0 && row < num_rows)
-    {
+    if(row >= 0 && row < row_length)
       retval = 1;
-    }
   }
 
   return retval;
@@ -55,14 +57,7 @@ int table_row_is_valid(table *t, int row)
  */
 int table_cell_is_valid(table *t, int row, int col)
 {
-  int retval = 0;
-
-  if(table_column_is_valid(t, col) && table_row_is_valid(t, row))
-  {
-    retval = 1;
-  }
-
-  return retval;
+  return table_column_is_valid(t, col) && table_row_is_valid(t, row) ? 1 : 0;
 }
 
 /**
@@ -78,12 +73,8 @@ int table_cell_has_value(table *t, int row, int col)
   int retval = 0;
 
   if(cell)
-  {
     if(cell->value)
-    {
       retval = 1;
-    }
-  }
 
   return retval;
 }

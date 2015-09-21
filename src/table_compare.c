@@ -1,3 +1,9 @@
+/**
+ * \file
+ * \brief The table compare implementation file
+ * 
+ * This file handles table compare implementations.
+ */
 #include "table_defs.h"
 
 int table_compare_bool(void *value1, void *value2)

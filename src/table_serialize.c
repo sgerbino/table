@@ -1,3 +1,9 @@
+/**
+ * \file
+ * \brief The table serialize implementation file
+ * 
+ * This file handles table serialize implementations.
+ */
 #include "table_defs.h"
 
 #define PACK(destination, source, type)                 \
@@ -19,7 +25,7 @@ void table_serialize(table *t, void *buf, size_t len)
    uint64_t row, col, i;
 
    PACK(buf, &col_len, uint64_t);
-   PACK(buf, &t->col_block, uint64_t);
+   PACK(buf, &t->column_block, uint64_t);
    for (col = 0; col < col_len; ++col)
    {
       const char *name = table_get_column_name(t, col);
@@ -117,12 +123,12 @@ void table_serialize(table *t, void *buf, size_t len)
          }
       }
    }
-   PACK(buf, &t->callback_len, uint64_t);
-   PACK(buf, &t->callback_block, uint64_t);
-   for (i = 0; i < t->callback_len; ++i)
+   PACK(buf, &t->callbacks_length, uint64_t);
+   PACK(buf, &t->callbacks_block, uint64_t);
+   for (i = 0; i < t->callbacks_length; ++i)
    {
-      PACK(buf, &t->callback[i], table_callback_function);
-      PACK(buf, &t->callback_data[i], void*);
-      PACK(buf, &t->callback_registration[i], table_bitfield);
+      PACK(buf, &t->callbacks[i], table_callback_function);
+      PACK(buf, &t->callbacks_data[i], void*);
+      PACK(buf, &t->callbacks_registration[i], table_bitfield);
    }
 }

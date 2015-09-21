@@ -1,3 +1,9 @@
+/**
+ * \file
+ * \brief The table row implementation file
+ * 
+ * This file handles table row implementations.
+ */
 #include "table_defs.h"
 
 static void table_add_row_block(table *t);
@@ -6,13 +12,31 @@ static int table_row_add(table *t);
 static int table_row_rem(table *t, int row_num);
 
 /**
+ * \brief Destroy the table row
+ * \param[out] t The table
+ * \param[in] row The table row
+ */
+void table_row_destroy(table *t, int row)
+{
+  int column_length = table_get_column_length(t);
+  table_row *row_ptr = table_get_row_ptr(t, row);
+  int column_id;
+  
+  for (column_id = 0; column_id < column_length; column_id++)
+    table_cell_destroy(t, row, column_id);
+  
+  if (row_ptr->cells)
+    free(row_ptr->cells);
+}
+
+/**
  * \brief Get the number of rows in the table
  * \param[in] table The table to examine
  * \return The number of rows
  */
 int table_get_row_length(table *t)
 {
-  return t->rows_len;
+  return t->rows_length;
 }
 
 /**
@@ -23,12 +47,11 @@ int table_get_row_length(table *t)
 int table_add_row(table *t)
 {
   if(!(table_get_row_length(t) % t->row_block))
-  {
     table_add_row_block(t);
-  }
+
   table_row_add(t);
-  table_notify(t, t->rows_len, -1, TABLE_ROW_ADDED);
-  return t->rows_len++;
+  table_notify(t, table_get_row_length(t), -1, TABLE_ROW_ADDED);
+  return t->rows_length++;
 }
 
 /**
@@ -40,11 +63,11 @@ int table_add_row(table *t)
 int table_remove_row(table *t, int row)
 {
   table_row_rem(t, row);
-  t->rows_len--;
+  t->rows_length--;
+
   if(!(table_get_row_length(t) % t->row_block))
-  {
     table_remove_row_block(t);
-  }
+
   table_notify(t, row, -1, TABLE_ROW_REMOVED);
   return 0;
 }
@@ -84,7 +107,7 @@ static int table_row_add(table *t)
 
   row = table_get_row_ptr(t, num_rows);
 
-  row->cells = malloc(sizeof(table_cell) * t->cols_allocated);
+  row->cells = malloc(sizeof(table_cell) * t->columns_allocated);
 
   if(!row->cells)
   {

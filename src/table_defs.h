@@ -58,6 +58,12 @@
 #define TABLE_ULLONGSF  TABLE_ULLONGF
 #define TABLE_BOOLSF    TABLE_BOOLF
 
+void table_cell_init(table *t, int row, int column);
+
+void table_row_destroy(table *t, int row);
+void table_column_destroy(table *t, int column);
+void table_cell_destroy(table *t, int row, int column);
+
 /* Internal event notifier */
 void table_notify(table *t, int row, int col, table_event_type event_type);
 

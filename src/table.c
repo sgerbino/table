@@ -1,4 +1,23 @@
+/**
+ * \file
+ * \brief The top level table implementation file
+ * \author Steve Gerbino
+ * 
+ * This file handles basic table memory allocation and deallocation 
+ * as well as table level utilities.
+ */
 #include "table_defs.h"
+
+static void table_init_rows(table *t);
+static void table_init_columns(table *t);
+static void table_init_callbacks(table *t);
+static void table_destroy_rows(table *t);
+static void table_destroy_columns(table *t);
+static void table_destroy_callbacks(table *t);
+
+static const uint64_t DEFAULT_COLUMN_BLOCK = 10;
+static const uint64_t DEFAULT_ROW_BLOCK = 20;
+static const uint64_t DEFAULT_CALLBACK_BLOCK = 10;
 
 /**
  * \brief Return a fully constructed table pointer
@@ -22,108 +41,112 @@ void table_delete(void *t)
 
 /**
  * \brief Initialize a table
- * \param[in] table The table to be initialized
+ * \param[in] t The table to be initialized
  */
 void table_init(table *t)
 {
-  /* Columns */
-  t->cols = NULL;
-  t->cols_len = 0;
-  t->cols_allocated = 0;
-  t->col_block = 10; /* Column block defaults to 10 */
-
-  /* Rows */
-  t->rows = NULL;
-  t->rows_len = 0;
-  t->rows_allocated = 0;
-  t->row_block = 20; /* Row block defaults to 20 */
-
-  /* Callbacks */
-  t->callback = NULL;
-  t->callback_data = NULL;
-  t->callback_registration = NULL;
-  t->callback_len = 0;
-  t->callbacks_allocated = 0;
-  t->callback_block = 10; /* Callback block defaults to 10 */
+  table_init_columns(t);
+  table_init_rows(t);
+  table_init_callbacks(t);
 }
 
 /**
+ * \brief Initialize a tables column members
+ * \param[in] t The table
+ */
+static void table_init_columns(table *t)
+{
+  t->columns = NULL;
+  t->column_length = 0;
+  t->columns_allocated = 0;
+  t->column_block = DEFAULT_COLUMN_BLOCK;
+}
+
+/**
+ * \brief Initialize a tables row members
+ * \param[in] t The table
+ */
+static void table_init_rows(table *t)
+{
+  t->rows = NULL;
+  t->rows_length = 0;
+  t->rows_allocated = 0;
+  t->row_block = DEFAULT_ROW_BLOCK;
+}
+
+/**
+ * \brief Initialize a tables callback members
+ * \param[in] t The table
+ */
+static void table_init_callbacks(table *t)
+{
+  t->callbacks = NULL;
+  t->callbacks_data = NULL;
+  t->callbacks_registration = NULL;
+  t->callbacks_length = 0;
+  t->callbacks_allocated = 0;
+  t->callbacks_block = DEFAULT_CALLBACK_BLOCK;
+}
+
+
+/**
  * \brief Free the tables allocated memory
- * \param[in] table The table to be freed
+ * \param[in] t The table to be freed
  */
 void table_destroy(table *t)
 {
-  int num_rows, num_cols, i, j;
-
   if (!t)
     return;
+  
+  table_destroy_rows(t);
+  table_destroy_columns(t);
+  table_destroy_callbacks(t);
+}
 
-  num_rows = table_get_row_length(t);
-  num_cols = table_get_column_length(t);
+/**
+ * \brief Destroy the rows on a table
+ * \param[out] t The table
+ */
+static void table_destroy_rows(table *t)
+{
+  int row_length, row;
+  row_length = table_get_row_length(t);
 
   /* Free rows and cells */
-  for(i = 0; i < num_rows; i++)
-  {
-    table_row* row;
-
-    row = table_get_row_ptr(t, i);
-
-    for(j = 0; j < num_cols; j++)
-    {
-      table_cell* cell;
-
-      /* Do NOT free what table pointers point to */
-      if(table_get_column_data_type(t, j) == TABLE_PTR)
-      {
-        continue;
-      }
-
-      cell = table_get_cell_ptr(t, i, j);
-
-      if(cell->value)
-      {
-        free(cell->value);
-      }
-    }
-
-    if(row->cells)
-    {
-      free(row->cells);
-    }
-  }
+  for(row = 0; row < row_length; row++)
+    table_row_destroy(t, row);
 
   if(t->rows)
-  {
     free(t->rows);
-  }
+}
 
-  /* Free columns */
-  for(i = 0; i < num_cols; i++)
-  {
-    table_column *col;
+/**
+ * \brief Destroy the callbacks on a table
+ * \param[out] t The table
+ */
+static void table_destroy_callbacks(table *t)
+{
+  if (t->callbacks)
+    free(t->callbacks);
+  
+  if (t->callbacks_data)
+    free(t->callbacks_data);
+}
 
-    col = table_get_col_ptr(t, i);
-
-    if(col->name)
-    {
-      free(col->name);
-    }
-  }
-
-  if(t->cols)
-  {
-    free(t->cols);
-  }
-
-  if(t->callback)
-  {
-    free(t->callback);
-  }
-
-  if(t->callback_data)
-  {
-    free(t->callback_data);
-  }
+/**
+ * \brief Destroy the columns on a table
+ * \param[out] t The table
+ */
+static void table_destroy_columns(table *t)
+{
+  int column_length = table_get_column_length(t);
+  int column_id;
+  
+  for(column_id = 0; column_id < column_length; column_id++)
+    table_column_destroy(t, column_id);
+  
+  if (t->columns)
+    free(t->columns);
 }
 
 /**

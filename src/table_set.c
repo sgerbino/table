@@ -1,3 +1,9 @@
+/**
+ * \file
+ * \brief The table set implementation file
+ * 
+ * This file handles table set implementations.
+ */
 #include "table_defs.h"
 
 /**

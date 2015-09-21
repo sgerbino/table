@@ -1,3 +1,9 @@
+/**
+ * \file
+ * \brief The table get implementation file
+ * 
+ * This file handles table get implementations.
+ */
 #include "table_defs.h"
 
 /**
