@@ -114,7 +114,7 @@ typedef unsigned int table_bitfield;
 /**
  * \brief A structure to represent a table
  */
-typedef struct table
+struct table
 {
   /* Columns */
   table_column *columns; /**< A pointer to an array of table columns */
@@ -135,7 +135,7 @@ typedef struct table
   table_bitfield *callbacks_registration; /**< The registration bits */
   uint64_t callbacks_block; /**< The callback block size */
   size_t callbacks_allocated; /**< The number of callbacks allocated */
-} table;
+};
 
 /* Memory allocation, deallocation, and manipulation */
 table *table_new(void);
