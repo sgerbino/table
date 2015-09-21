@@ -12,18 +12,28 @@ static int table_row_add(table *t);
 static int table_row_rem(table *t, int row_num);
 
 /**
+ * \brief Initialize a table row
+ * \param[out] t The table
+ * \param[in] row_index The table row to initialize
+ */
+void table_row_init(table *t, int row_index)
+{
+  table_row *row = table_get_row_ptr(t, row_index);
+  row->cells = malloc(sizeof(table_cell) * t->columns_allocated);
+}
+
+/**
  * \brief Destroy the table row
  * \param[out] t The table
- * \param[in] row The table row
+ * \param[in] row_index The table row
  */
-void table_row_destroy(table *t, int row)
+void table_row_destroy(table *t, int row_index)
 {
   int column_length = table_get_column_length(t);
-  table_row *row_ptr = table_get_row_ptr(t, row);
-  int column_id;
+  table_row *row_ptr = table_get_row_ptr(t, row_index);
   
-  for (column_id = 0; column_id < column_length; column_id++)
-    table_cell_destroy(t, row, column_id);
+  for (int column_index = 0; column_index < column_length; column_index++)
+    table_cell_destroy(t, row_index, column_index);
   
   if (row_ptr->cells)
     free(row_ptr->cells);
@@ -99,27 +109,13 @@ static void table_remove_row_block(table *t)
  */
 static int table_row_add(table *t)
 {
-  int num_cols, num_rows, i;
-  table_row* row;
+  int rows_length = table_get_row_length(t);
+  int columns_length = table_get_column_length(t);
 
-  num_rows = table_get_row_length(t);
-  num_cols = table_get_column_length(t);
+  table_row_init(t, rows_length);
 
-  row = table_get_row_ptr(t, num_rows);
-
-  row->cells = malloc(sizeof(table_cell) * t->columns_allocated);
-
-  if(!row->cells)
-  {
-    return -1;
-  }
-
-  for(i = 0; i < num_cols; i++)
-  {
-    table_cell* cell;
-    cell = table_get_cell_ptr(t, num_rows, i);
-    cell->value = NULL;
-  }
+  for(int column_index = 0; column_index < columns_length; column_index++)
+    table_cell_init(t, rows_length, column_index);
 
   return 0;
 }

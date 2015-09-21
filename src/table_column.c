@@ -8,8 +8,11 @@ static int table_column_remove(table *t, int col_num);
 /**
  * \brief Initialize a table column
  * \param[in] column_index The column column_index
+ * \param[in] name The column name
+ * \param[in] type The column data type
+ * \param[in] func The column compare function
  */
-void table_column_init(table *t, int column_index, char *name, table_data_type type, table_compare_function func)
+void table_column_init(table *t, int column_index, const char *name, table_data_type type, table_compare_function func)
 {
   table_column *column = table_get_col_ptr(t, column_index);
   column->name = strdup(name);
@@ -161,24 +164,10 @@ static void table_add_column_block(table *t)
  */
 static int table_column_add(table *t, const char *name, table_data_type type)
 {
-  size_t mem_size = strlen(name);
   int row_length = table_get_row_length(t);
   int column_length = table_get_column_length(t);
 
-  table_column *col_ptr = table_get_col_ptr(t, column_length);
-
-  col_ptr->name = malloc(sizeof(char) * mem_size + sizeof(char));
-
-  if(!col_ptr->name)
-  {
-    return -1;
-  }
-
-  table_compare_function func = table_get_default_compare_function_for_data_type(type);
-  table_set_column_compare_function(t, column_length, func);
-
-  strcpy(col_ptr->name, name);
-  col_ptr->type = type;
+  table_column_init(t, column_length, name, type, table_get_default_compare_function_for_data_type(type));
 
   for(int row = 0; row < row_length; row++)
     table_cell_init(t, row, column_length);

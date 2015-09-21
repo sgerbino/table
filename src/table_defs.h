@@ -58,11 +58,15 @@
 #define TABLE_ULLONGSF  TABLE_ULLONGF
 #define TABLE_BOOLSF    TABLE_BOOLF
 
-void table_cell_init(table *t, int row, int column);
+/* Internal constructors */
+void table_row_init(table *t, int row_index);
+void table_column_init(table *t, int column_index, const char *name, table_data_type type, table_compare_function func);
+void table_cell_init(table *t, int row_index, int column_index);
 
-void table_row_destroy(table *t, int row);
-void table_column_destroy(table *t, int column);
-void table_cell_destroy(table *t, int row, int column);
+/* Internal destructors */
+void table_row_destroy(table *t, int row_index);
+void table_column_destroy(table *t, int column_index);
+void table_cell_destroy(table *t, int row, int column_index);
 
 /* Internal event notifier */
 void table_notify(table *t, int row, int col, table_event_type event_type);
