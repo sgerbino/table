@@ -8,550 +8,358 @@
 
 /**
  * \brief Find a value in the table
- * \return The row of the first occurrence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] data_type The table data data_type
+ * \param[in] order The order in which to linear search the table
+ * \param[in] minimum_index The lowest index to consider while searching
+ * \param[in] maximum_index The highest index to consider while searching
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find(table *t, int col, void* value, table_data_type data_type, table_order order)
+int table_subset_find(table *t, int column_index, void* value, table_order order, int minimum_index, int maximum_index)
 {
-  const char *str;
-  int i, retval = -1;
-  int num_rows = table_get_row_length(t);
-
-  if(order == TABLE_ASCENDING)
+  table_compare_function compare = table_get_column_compare_function(t, column_index);
+  
+  if (order == TABLE_ASCENDING)
   {
-    for(i = 0; i < num_rows; i++)
-    {
-      if(retval != -1)
-      {
-        break;
-      }
-
-      switch(data_type)
-      {
-      case TABLE_INT:
-        if(table_get_int(t, i, col) == *(int*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_UINT:
-        if(table_get_uint(t, i, col) == *(unsigned int*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_INT8:
-        if(table_get_int8(t, i, col) == *(int8_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_UINT8:
-        if(table_get_uint8(t, i, col) == *(uint8_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_INT16:
-        if(table_get_int16(t, i, col) == *(int16_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_UINT16:
-        if(table_get_uint16(t, i, col) == *(uint16_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_INT32:
-        if(table_get_int32(t, i, col) == *(int32_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_UINT32:
-        if(table_get_uint32(t, i, col) == *(uint32_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_INT64:
-        if(table_get_int64(t, i, col) == *(int64_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_UINT64:
-        if(table_get_uint64(t, i, col) == *(uint64_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_SHORT:
-        if(table_get_short(t, i, col) == *(short*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_USHORT:
-        if(table_get_ushort(t, i, col) == *(unsigned short*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_LONG:
-        if(table_get_long(t, i, col) == *(long*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_ULONG:
-        if(table_get_ulong(t, i, col) == *(unsigned long*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_LLONG:
-        if(table_get_llong(t, i, col) == *(long long*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_ULLONG:
-        if(table_get_ullong(t, i, col) == *(unsigned long long*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_STRING:
-        str = table_get_string(t, i, col);
-        if(!strcmp(str, (char*)value))
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_FLOAT:
-        if(table_get_float(t, i, col) == *(float*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_DOUBLE:
-        if(table_get_double(t, i, col) == *(double*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_LDOUBLE:
-        if(table_get_ldouble(t, i, col) == *(long double*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_BOOL:
-        if(table_get_bool(t, i, col) == *(bool*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_CHAR:
-        if(table_get_char(t, i, col) == *(char*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_UCHAR:
-        if(table_get_uchar(t, i, col) == *(unsigned char*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_PTR:
-        if(table_get_ptr(t, i, col) == value)
-        {
-          retval = i;
-        }
-        break;
-      }
-    }
+    for (int row_index = minimum_index; row_index <= maximum_index; row_index++)
+      if (!compare(value, table_get(t, row_index, column_index)))
+        return row_index;
   }
   else
   {
-    for(i = num_rows - 1; i >= 0; i--)
-    {
-      if(retval != -1)
-      {
-        break;
-      }
-
-      switch(data_type)
-      {
-      case TABLE_INT:
-        if(table_get_int(t, i, col) == *(int*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_UINT:
-        if(table_get_uint(t, i, col) == *(unsigned int*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_INT8:
-        if(table_get_int8(t, i, col) == *(int8_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_UINT8:
-        if(table_get_uint8(t, i, col) == *(uint8_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_INT16:
-        if(table_get_int16(t, i, col) == *(int16_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_UINT16:
-        if(table_get_uint16(t, i, col) == *(uint16_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_INT32:
-        if(table_get_int32(t, i, col) == *(int32_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_UINT32:
-        if(table_get_uint32(t, i, col) == *(uint32_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_INT64:
-        if(table_get_int64(t, i, col) == *(int64_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_UINT64:
-        if(table_get_uint64(t, i, col) == *(uint64_t*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_SHORT:
-        if(table_get_short(t, i, col) == *(short*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_USHORT:
-        if(table_get_ushort(t, i, col) == *(unsigned short*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_LONG:
-        if(table_get_long(t, i, col) == *(long*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_ULONG:
-        if(table_get_ulong(t, i, col) == *(unsigned long*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_LLONG:
-        if(table_get_llong(t, i, col) == *(long long*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_ULLONG:
-        if(table_get_ullong(t, i, col) == *(unsigned long long*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_STRING:
-        str = table_get_string(t, i, col);
-        if(!strcmp(str, (const char*)value))
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_FLOAT:
-        if(table_get_float(t, i, col) == *(float*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_DOUBLE:
-        if(table_get_double(t, i, col) == *(double*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_LDOUBLE:
-        if(table_get_ldouble(t, i, col) == *(long double*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_BOOL:
-        if(table_get_bool(t, i, col) == *(bool*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_CHAR:
-        if(table_get_char(t, i, col) == *(char*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_UCHAR:
-        if(table_get_uchar(t, i, col) == *(unsigned char*)value)
-        {
-          retval = i;
-        }
-        break;
-      case TABLE_PTR:
-        if(table_get_ptr(t, i, col) == value)
-        {
-          retval = i;
-        }
-        break;
-      }
-    }
+    for (int row_index = maximum_index; row_index >= minimum_index; row_index--)
+      if (!compare(value, table_get(t, row_index, column_index)))
+        return row_index;
   }
+  
+  return TABLE_INDEX_NOT_FOUND;
+}
 
-  return retval;
+/**
+ * \brief Find a value in the table
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
+ */
+int table_find(table* t, int column_index, void* value, table_order order)
+{
+  return table_subset_find(t, column_index, value, order, 0, table_get_row_length(t) - 1);
 }
 
 /**
  * \brief Find a boolean value in the table
- * \return The row of the first occurrence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_bool(table *t, int col, bool value, table_order dir)
+int table_find_bool(table *t, int column_index, bool value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_BOOL, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find an integer value in the table
- * \return The row of the first occurrence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_int(table *t, int col, int value, table_order dir)
+int table_find_int(table *t, int column_index, int value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_INT, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find an unsigned integer in the table
- * \return The row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_uint(table *t, int col, unsigned int value, table_order dir)
+int table_find_uint(table *t, int column_index, unsigned int value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_UINT, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find an int8 value in the table
- * \return The row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_int8(table *t, int col, int8_t value, table_order dir)
+int table_find_int8(table *t, int column_index, int8_t value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_INT8, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find an uint8 in the table
- * \return The row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_uint8(table *t, int col, uint8_t value, table_order dir)
+int table_find_uint8(table *t, int column_index, uint8_t value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_UINT8, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find an int16 value in the table
- * \return The row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_int16(table *t, int col, int16_t value, table_order dir)
+int table_find_int16(table *t, int column_index, int16_t value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_INT16, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
-/***
+/**
  * \brief Find an uint16 in the table
- * \return A row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_uint16(table *t, int col, uint16_t value, table_order dir)
+int table_find_uint16(table *t, int column_index, uint16_t value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_UINT16, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find an int32 value in the table
- * \return A row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_int32(table *t, int col, int32_t value, table_order dir)
+int table_find_int32(table *t, int column_index, int32_t value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_INT32, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find an uint32 in the table
- * \return A row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_uint32(table *t, int col, uint32_t value, table_order dir)
+int table_find_uint32(table *t, int column_index, uint32_t value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_UINT32, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find an int64 value in the table
- * \return A row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_int64(table *t, int col, int64_t value, table_order dir)
+int table_find_int64(table *t, int column_index, int64_t value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_INT64, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find an uint64 in the table
- * \return A row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_uint64(table *t, int col, uint64_t value, table_order dir)
+int table_find_uint64(table *t, int column_index, uint64_t value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_UINT64, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find a short in the table
- * \return A row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_short(table *t, int col, short value, table_order dir)
+int table_find_short(table *t, int column_index, short value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_SHORT, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find an unsigned short value in the table
- * \return A row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_ushort(table *t, int col, unsigned short value, table_order dir)
+int table_find_ushort(table *t, int column_index, unsigned short value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_USHORT, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find a long value in the table
- * \return A row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_long(table *t, int col, long value, table_order dir)
+int table_find_long(table *t, int column_index, long value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_LONG, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find an unsigned long value in the table
- * \return A row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_ulong(table *t, int col, unsigned long value, table_order dir)
+int table_find_ulong(table *t, int column_index, unsigned long value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_ULONG, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find a long long value in the table
- * \return A row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_llong(table *t, int col, long long value, table_order dir)
+int table_find_llong(table *t, int column_index, long long value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_LLONG, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find an unsigned long long value in the table
- * \return A row of the occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_ullong(table *t, int col, unsigned long long value, table_order dir)
+int table_find_ullong(table *t, int column_index, unsigned long long value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_ULLONG, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find a float value in the table
- * \return The row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_float(table *t, int col, float value, table_order dir)
+int table_find_float(table *t, int column_index, float value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_FLOAT, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find a double value in the table
- * \return The row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_double(table *t, int col, double value, table_order dir)
+int table_find_double(table *t, int column_index, double value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_DOUBLE, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find a long double value in the table
- * \return The row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_ldouble(table *t, int col, long double value, table_order dir)
+int table_find_ldouble(table *t, int column_index, long double value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_LDOUBLE, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find a char value in the table
- * \return The row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_char(table *t, int col, char value, table_order dir)
+int table_find_char(table *t, int column_index, char value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_CHAR, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find an unsigned char value in the table
- * \return The row of the first occurence of the search value or -1
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_uchar(table *t, int col, unsigned char value, table_order dir)
+int table_find_uchar(table *t, int column_index, unsigned char value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_UCHAR, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find a string value in the table
- * \return The row containing the string
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_string(table *t, int col, const char *value, table_order dir)
+int table_find_string(table *t, int column_index, const char *value, table_order order)
 {
-  return table_find(t, col, (void*)&value, TABLE_STRING, dir);
+  return table_find(t, column_index, (void*)&value, order);
 }
 
 /**
  * \brief Find a pointer value in the table
- * \return The row in which the pointer was found or -1 for not found
+ * \param[in] t The table
+ * \param[in] column_index The column to search
+ * \param[in] value The value to search for
+ * \param[in] order The order in which to linear search the table
+ * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_ptr(table *t, int col, void* value, table_order dir)
+int table_find_ptr(table *t, int column_index, void* value, table_order order)
 {
-  return table_find(t, col, value, TABLE_PTR, dir);
+  return table_find(t, column_index, value, order);
 }
 
 /**
@@ -589,7 +397,6 @@ int table_sorted_subset_find(table *t, int col, void *value, table_position posi
   switch (compare)
   {
     case 0:
-    {
       do
       {
         if (position == TABLE_FIRST)
@@ -601,8 +408,7 @@ int table_sorted_subset_find(table *t, int col, void *value, table_position posi
         return ++middle;
       else
         return --middle;
-    }
-    break;
+      break;
     case 1:
       return table_sorted_subset_find(t, col, value, position, middle, maximum);
       break;

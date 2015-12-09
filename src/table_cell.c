@@ -9,31 +9,31 @@
 /**
  * \brief Initialize a table cell
  * \param[in] t The table
- * \param[in] row The table row
- * \param[in] column The table column
+ * \param[in] row_index The table row
+ * \param[in] column_index The table column
  */
-void table_cell_init(table *t, int row, int col)
+void table_cell_init(table *t, int row_index, int column_index)
 {
-  table_cell *cell = table_get_cell_ptr(t, row, col);
+  table_cell *cell = table_get_cell_ptr(t, row_index, column_index);
   cell->value = NULL;
 }
 
 /**
  * \brief Destroy a table cell
  * \param[out] t The table
- * \param[in] row The table row
- * \param[out] column The table column
+ * \param[in] row_index The table row
+ * \param[out] column_index The table column
  */
-void table_cell_destroy(table *t, int row, int column)
+void table_cell_destroy(table *t, int row_index, int column_index)
 {
   table_cell *cell = NULL;
   
-  switch (table_get_column_data_type(t, column))
+  switch (table_get_column_data_type(t, column_index))
   {
     case TABLE_PTR:
       break;
     default:
-      cell = table_get_cell_ptr(t, row, column);
+      cell = table_get_cell_ptr(t, row_index, column_index);
       if(cell->value)
         free(cell->value);
       break;
@@ -42,7 +42,7 @@ void table_cell_destroy(table *t, int row, int column)
 
 /**
  * \brief Fill the buffer with the contents of a cell
- * \param[in] table The table to be examined
+ * \param[in] t The table to be examined
  * \param[in] row The row number
  * \param[in] col The column number
  * \param[out] buf The output buffer
@@ -132,7 +132,7 @@ int table_cell_to_buffer(table *t, int row, int col, char *buf, size_t size)
 
 /**
  * \brief Populate the cell from the buffer
- * \param[in] table The table to be modified
+ * \param[in] t The table to be modified
  * \param[in] row The row number
  * \param[in] col The column number
  * \param[in] buf The input buffer
@@ -606,10 +606,13 @@ int table_cell_nullify(table *t, int row, int col)
 
 /**
  * \brief Get the pointer of a particular cell
+ * \param[in] t The table
+ * \param[in] row_index The table row
+ * \param[in] column_index The table column
  * \return The table cell pointer
  */
-table_cell* table_get_cell_ptr(table *t, int row, int col)
+table_cell* table_get_cell_ptr(table *t, int row_index, int column_index)
 {
-  table_row *row_ptr = table_get_row_ptr(t, row);
-  return row_ptr->cells + col;
+  table_row *row_ptr = table_get_row_ptr(t, row_index);
+  return row_ptr->cells + column_index;
 }

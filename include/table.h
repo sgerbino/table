@@ -137,6 +137,8 @@ struct table
   size_t callbacks_allocated; /**< The number of callbacks allocated */
 };
 
+static const int TABLE_INDEX_NOT_FOUND = -1;
+
 /* Memory allocation, deallocation, and manipulation */
 table *table_new(void);
 void table_delete(void *t);
@@ -151,7 +153,7 @@ int table_add_row(table *t);
 int table_remove_row(table *t, int row);
 
 /* Cell value manipulation */
-int table_set(table *t, int row, int col, void *value, table_data_type data_type);
+int table_set(table* t, int row, int col, void* value, table_data_type data_type);
 int table_set_bool(table *t, int row, int col, bool value);
 int table_set_int(table *t, int row, int col, int value);
 int table_set_uint(table *t, int row, int col, unsigned int value);
@@ -204,31 +206,33 @@ const char *table_get_string(table *t, int row, int col);
 void *table_get_ptr(table *t, int row, int col);
 
 /* Search functions */
-int table_find(table *t, int col, void *value, table_data_type data_type, table_order order);
-int table_find_bool(table *t, int col, bool value, table_order order);
-int table_find_int(table *t, int col, int value, table_order order);
-int table_find_uint(table *t, int col, unsigned int value, table_order order);
-int table_find_int8(table *t, int col, int8_t value, table_order order);
-int table_find_uint8(table *t, int col, uint8_t value, table_order order);
-int table_find_int16(table *t, int col, int16_t value, table_order order);
-int table_find_uint16(table *t, int col, uint16_t value, table_order order);
-int table_find_int32(table *t, int col, int32_t value, table_order order);
-int table_find_uint32(table *t, int col, uint32_t value, table_order order);
-int table_find_int64(table *t, int col, int64_t value, table_order order);
-int table_find_uint64(table *t, int col, uint64_t value, table_order order);
-int table_find_short(table *t, int col, short value, table_order order);
-int table_find_ushort(table *t, int col, unsigned short value, table_order order);
-int table_find_long(table *t, int col, long value, table_order order);
-int table_find_ulong(table *t, int col, unsigned long value, table_order order);
-int table_find_llong(table *t, int col, long long value, table_order order);
-int table_find_ullong(table *t, int col, unsigned long long value, table_order order);
-int table_find_float(table *t, int col, float value, table_order order);
-int table_find_double(table *t, int col, double value, table_order order);
-int table_find_ldouble(table *t, int col, long double value, table_order order);
-int table_find_char(table *t, int col, char value, table_order order);
-int table_find_uchar(table *t, int col, unsigned char value, table_order order);
-int table_find_string(table *t, int col, const char *value, table_order order);
-int table_find_ptr(table *t, int col, void *value, table_order order);
+int table_find(table* t, int column_index, void* value, table_order order);
+int table_find_bool(table* t, int column_index, bool value, table_order order);
+int table_find_int(table* t, int column_index, int value, table_order order);
+int table_find_uint(table *t, int column_index, unsigned int value, table_order order);
+int table_find_int8(table* t, int column_index, int8_t value, table_order order);
+int table_find_uint8(table *t, int column_index, uint8_t value, table_order order);
+int table_find_int16(table *t, int column_index, int16_t value, table_order order);
+int table_find_uint16(table *t, int column_index, uint16_t value, table_order order);
+int table_find_int32(table *t, int column_index, int32_t value, table_order order);
+int table_find_uint32(table *t, int column_index, uint32_t value, table_order order);
+int table_find_int64(table *t, int column_index, int64_t value, table_order order);
+int table_find_uint64(table *t, int column_index, uint64_t value, table_order order);
+int table_find_short(table *t, int column_index, short value, table_order order);
+int table_find_ushort(table *t, int column_index, unsigned short value, table_order order);
+int table_find_long(table *t, int column_index, long value, table_order order);
+int table_find_ulong(table *t, int column_index, unsigned long value, table_order order);
+int table_find_llong(table *t, int column_index, long long value, table_order order);
+int table_find_ullong(table *t, int column_index, unsigned long long value, table_order order);
+int table_find_float(table *t, int column_index, float value, table_order order);
+int table_find_double(table *t, int column_index, double value, table_order order);
+int table_find_ldouble(table *t, int column_index, long double value, table_order order);
+int table_find_char(table *t, int column_index, char value, table_order order);
+int table_find_uchar(table *t, int column_index, unsigned char value, table_order order);
+int table_find_string(table *t, int column_index, const char *value, table_order order);
+int table_find_ptr(table *t, int column_index, void *value, table_order order);
+
+int table_subset_find(table *t, int column_index, void* value, table_order order, int minimum_index, int maximum_index);
 
 /* Binary search functions */
 int table_sorted_find(table *t, int col, void *value, table_position position);

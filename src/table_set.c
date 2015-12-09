@@ -12,19 +12,19 @@
  * \param[in] row The row number
  * \param[in] col The column number
  * \param[in] value The new cell value
- * \param[in] col_type The column data type
+ * \param[in] data_type The column data type
  * \return A corresponding int
  */
-int table_set(table *t, int row, int col, void *value, table_data_type col_type)
+int table_set(table *t, int row, int col, void *value, table_data_type data_type)
 {
   int retval = -1;
   table_cell *cell_ptr = table_get_cell_ptr(t, row, col);
   table_column *col_data_ptr = table_get_col_ptr(t, col);
 
-  switch(col_type)
+  switch(data_type)
   {
   case TABLE_BOOL:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -39,7 +39,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_INT:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -54,7 +54,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_UINT:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -69,7 +69,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_INT8:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -84,7 +84,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_UINT8:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -99,7 +99,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_INT16:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -114,7 +114,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_UINT16:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -129,7 +129,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_INT32:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -144,7 +144,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_UINT32:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -159,7 +159,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_INT64:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -174,7 +174,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_UINT64:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -189,7 +189,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_SHORT:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -204,7 +204,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_USHORT:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -219,7 +219,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_LONG:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -234,7 +234,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_ULONG:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -249,7 +249,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_LLONG:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -264,7 +264,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_ULLONG:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -279,7 +279,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_FLOAT:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -294,7 +294,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_DOUBLE:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -309,7 +309,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_LDOUBLE:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -324,7 +324,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_STRING:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       size_t size = strlen(value);
       cell_ptr->value = realloc(cell_ptr->value, size + 1);
@@ -337,7 +337,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_CHAR:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -352,7 +352,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_UCHAR:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       if(!cell_ptr->value)
       {
@@ -367,7 +367,7 @@ int table_set(table *t, int row, int col, void *value, table_data_type col_type)
     }
     break;
   case TABLE_PTR:
-    if(col_data_ptr->type == col_type)
+    if(col_data_ptr->type == data_type)
     {
       cell_ptr->value = value;
       retval = 0;

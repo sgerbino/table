@@ -12,7 +12,7 @@
  * 1945.[1] A detailed description and analysis of bottom-up mergesort appeared in a report by Goldstine and Neumann as 
  * early as 1948.
  * 
- * \a Source: <a href="https://en.wikipedia.org/wiki/Merge_sort">\a Merge \a sort \a - \a Wikipedia, \a the \a free \a encyclopedia</a>
+ * \a Source: <a href="https://en.wikipedia.org/wiki/Merge_sort">Merge sort - Wikipedia, the free encyclopedia</a>
  */
 #include "table_defs.h"
 

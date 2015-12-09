@@ -80,17 +80,16 @@ void table_unregister_callback(table *t, table_callback_function func, void* dat
 
 /**
  * \brief Notify registered callbacks
- * \param[in] table The table to do notifications on
- * \param[in] row The row number
- * \param[in] col The column number
- * \param[in] cb_type The callback type
+ * \param[in] t The table to do notifications on
+ * \param[in] row_index The row number
+ * \param[in] column_index The column number
+ * \param[in] event_type The callback type
  */
-void table_notify(table *t, int row, int col, table_event_type event_type)
+void table_notify(table *t, int row_index, int column_index, table_event_type event_type)
 {
-  int i;
-  for (i = 0; i < t->callbacks_length; i++)
-    if (t->callbacks_registration[i] & event_type)
-      t->callbacks[i](t, row, col, event_type, t->callbacks_data[i]);
+  for (int callback_index = 0; callback_index < t->callbacks_length; callback_index++)
+    if (t->callbacks_registration[callback_index] & event_type)
+      t->callbacks[callback_index](t, row_index, column_index, event_type, t->callbacks_data[callback_index]);
 }
 
 /**
