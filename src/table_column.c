@@ -1,3 +1,4 @@
+#include <string.h>
 #include "table_defs.h"
 
 static void table_add_column_block(table *t);
@@ -15,7 +16,9 @@ static int table_column_remove(table *t, int col_num);
 void table_column_init(table *t, int column_index, const char *name, table_data_type type, table_compare_function func)
 {
   table_column *column = table_get_col_ptr(t, column_index);
-  column->name = strdup(name);
+  column->name = malloc(strlen(name) + 1);
+  if (column->name)
+	  strcpy(column->name, name);
   column->type = type;
   column->compare = func;
 }

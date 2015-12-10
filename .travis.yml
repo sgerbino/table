@@ -1,0 +1,8 @@
+compiler:
+  - clang
+  - gcc
+
+script:
+  - cmake .
+  - make
+  - ./bin/test_driver
