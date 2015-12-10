@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project(TABLE)
+project(TABLE C)
 
 set(${PROJECT_NAME}_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
 string(TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWER)
@@ -8,7 +8,6 @@ string(TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWER)
 # will set the up the build structure.
 if (${CMAKE_CURRENT_SOURCE_DIR} MATCHES ${CMAKE_SOURCE_DIR})
   set(CMAKE_C_FLAGS "-Wall -std=c99")
-  set(CMAKE_CXX_FLAGS "-Wall")
   set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin CACHE PATH "Executable directory" FORCE)
   set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib CACHE PATH "Library directory" FORCE)
 endif()
@@ -25,6 +24,12 @@ if(DOXYGEN_FOUND)
     COMMENT "Generating API documentation with Doxygen" VERBATIM
   )
 endif(DOXYGEN_FOUND)
+
+add_custom_target(check
+  test_driver
+  WORKING_DIRECTORY ${EXECUTABLE_OUTPUT_PATH}
+  COMMENT "Running Table unit tests"
+)
 
 add_subdirectory(include)
 add_subdirectory(src)

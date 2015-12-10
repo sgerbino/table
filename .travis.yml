@@ -5,5 +5,4 @@ compiler:
 
 script:
   - cmake .
-  - make
-  - ./bin/test_driver
+  - make check
