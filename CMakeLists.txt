@@ -2,22 +2,23 @@ cmake_minimum_required(VERSION 2.8)
 project(TABLE C)
 
 set(${PROJECT_NAME}_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
-string(TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWER)
 
 # If cmake was called with this CMakeLists.txt as the top level, then we
 # will set the up the build structure.
 if (${CMAKE_CURRENT_SOURCE_DIR} MATCHES ${CMAKE_SOURCE_DIR})
   set(CMAKE_C_FLAGS "-Wall -std=c99")
-  set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin CACHE PATH "Executable directory" FORCE)
-  set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib CACHE PATH "Library directory" FORCE)
+  set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+  set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 endif()
 
 # Add a target to generate API documentation with Doxygen
 find_package(Doxygen)
 if(DOXYGEN_FOUND)
+  string(TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWER)
   set(DOXYGEN_OUTPUT_DIR ${CMAKE_SOURCE_DIR}/doc/${PROJECT_NAME_LOWER})
   execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory ${DOXYGEN_OUTPUT_DIR})
-  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile ${DOXYGEN_OUTPUT_DIR}/Doxyfile @ONLY)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in ${DOXYGEN_OUTPUT_DIR}/Doxyfile @ONLY)
   add_custom_target(doc
     ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUTPUT_DIR}/Doxyfile
     WORKING_DIRECTORY ${DOXYGEN_OUTPUT_DIR}
