@@ -24,7 +24,8 @@ ABBREVIATE_BRIEF       = "The $name class" \
 ALWAYS_DETAILED_SEC    = NO
 INLINE_INHERITED_MEMB  = NO
 FULL_PATH_NAMES        = YES
-STRIP_FROM_PATH        = @CMAKE_CURRENT_SOURCE_DIR@/src
+STRIP_FROM_PATH        = @CMAKE_CURRENT_SOURCE_DIR@/src \
+		         @CMAKE_CURRENT_SOURCE_DIR@/include
 STRIP_FROM_INC_PATH    = 
 SHORT_NAMES            = NO
 JAVADOC_AUTOBRIEF      = NO
@@ -99,7 +100,8 @@ WARN_FORMAT            = "$file:$line: $text"
 WARN_LOGFILE           = 
 INPUT                  =  \
 		         @CMAKE_CURRENT_SOURCE_DIR@/README.md \
-                         @CMAKE_CURRENT_SOURCE_DIR@/src
+                         @CMAKE_CURRENT_SOURCE_DIR@/src \
+			 @CMAKE_CURRENT_SOURCE_DIR@/include
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.c \
                          *.cc \
@@ -277,7 +279,6 @@ GENERATE_TAGFILE       =
 ALLEXTERNALS           = NO
 EXTERNAL_GROUPS        = YES
 EXTERNAL_PAGES         = YES
-PERL_PATH              = /usr/bin/perl
 CLASS_DIAGRAMS         = YES
 MSCGEN_PATH            = 
 DIA_PATH               = 
