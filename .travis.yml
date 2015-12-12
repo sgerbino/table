@@ -1,8 +1,15 @@
 language: c
+
 compiler:
   - clang
   - gcc
 
+env:
+  - CMAKE_BUILD_TYPE=RELEASE
+  - CMAKE_BUILD_TYPE=DEBUG
+
+before_script:
+  - cmake -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+
 script:
-  - cmake .
   - make check
