@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(TABLE C)
 
-set(${PROJECT_NAME}_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(${PROJECT_NAME}_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # If cmake was called with this CMakeLists.txt as the top level, then we
 # will set the up the build structure.
@@ -31,6 +31,8 @@ add_custom_target(check
   WORKING_DIRECTORY ${EXECUTABLE_OUTPUT_PATH}
   COMMENT "Running Table unit tests"
 )
+
+install(FILES ${TABLE_INCLUDE_DIR}/table.h DESTINATION include)
 
 add_subdirectory(include)
 add_subdirectory(src)

@@ -1,4 +1,4 @@
-include_directories(${TABLE_INCLUDE_DIRS})
+include_directories(${TABLE_INCLUDE_DIR})
 link_directories(${LIBRARY_OUTPUT_PATH})
 
 set(TABLE_TEST_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/unit/table_test.h ${CMAKE_CURRENT_SOURCE_DIR}/test.h)
