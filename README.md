@@ -19,6 +19,19 @@ cmake
 make doc
 ```
 
+## Installation
+
+Currently the only method of obtaining libtable is by building the sources.
+The project requires a C99 compliant compiler and has no dependencies other
+than the C standard library. Continuous integration tests both clang and gcc.
+
+```bash
+git clone https://github.com/sgerbino/libtable.git
+cd libtable
+cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local
+make install
+```
+
 ## Examples
 
 
