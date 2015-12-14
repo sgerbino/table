@@ -75,7 +75,7 @@ int main(int argc, char **argv)
 
 ```
 
- And the resulting output:
+The resulting output:
  
 ```bash
 1	one	
@@ -100,21 +100,21 @@ static void table_callback(table *t, int row, int col, table_event_type event_ty
 	char *event_name = "UNKNOWN";
 	switch (event_type)
 	{
-	case TABLE_ROW_ADDED:
-		event_name = "TABLE_ROW_ADDED";
-		break;
-	case TABLE_COLUMN_ADDED:
-		event_name = "TABLE_COLUMN_ADDED";
-		break;
-	case TABLE_DATA_MODIFIED:
-		event_name = "TABLE_DATA_MODIFIED";
-		break;
-	case TABLE_ROW_REMOVED:
-		event_name = "TABLE_ROW_REMOVED";
-		break;
-	case TABLE_COLUMN_REMOVED:
-		event_name = "TABLE_COLUMN_REMOVED";
-		break;
+		case TABLE_ROW_ADDED:
+			event_name = "TABLE_ROW_ADDED";
+			break;
+		case TABLE_COLUMN_ADDED:
+			event_name = "TABLE_COLUMN_ADDED";
+			break;
+		case TABLE_DATA_MODIFIED:
+			event_name = "TABLE_DATA_MODIFIED";
+			break;
+		case TABLE_ROW_REMOVED:
+			event_name = "TABLE_ROW_REMOVED";
+			break;
+		case TABLE_COLUMN_REMOVED:
+			event_name = "TABLE_COLUMN_REMOVED";
+			break;
 	}
 	printf("received %s notification (row: %d, col: %d)\n", event_name, row, col);
 }
@@ -151,15 +151,15 @@ int main(int argc, char **argv)
 	printf("\n");
 	
    for (row = 0; row < num_rows; row++)
-   {
-      for (col = 0; col < num_cols; col++)
-      {
-         char buf[255];
-         table_cell_to_buffer(&t, row, col, buf, sizeof(buf));
-         printf("%25s\t", buf);
-      }
-      printf("\n");
-   }
+	{
+		for (col = 0; col < num_cols; col++)
+		{
+			char buf[255];
+			table_cell_to_buffer(&t, row, col, buf, sizeof(buf));
+			printf("%25s\t", buf);
+		}
+		printf("\n");
+	}
 
 	for (row = table_get_row_length(&t) - 1; row >= 0; row--)
 		table_remove_row(&t, row);
@@ -171,10 +171,9 @@ int main(int argc, char **argv)
 
    return 0;
 }
-
 ```
 
-Output:
+The resulting output:
 
 ```bash
 received TABLE_COLUMN_ADDED notification (row: -1, col: 0)
