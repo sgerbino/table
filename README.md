@@ -222,4 +222,4 @@ received TABLE_COLUMN_REMOVED notification (row: -1, col: 0)
 
 This project uses the "FreeBSD License" or "Simplified BSD License" making it
 compatible with both commercial software licenses and the GNU/GPL. For more
-information see COPYING.
+information see [COPYING](https://github.com/sgerbino/libtable/blob/master/COPYING).
