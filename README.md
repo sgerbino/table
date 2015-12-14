@@ -4,6 +4,15 @@
 [![Build Status](https://travis-ci.org/sgerbino/libtable.svg)](https://travis-ci.org/sgerbino/libtable)
 [![Coverity Status](https://scan.coverity.com/projects/7249/badge.svg)](https://scan.coverity.com/projects/sgerbino-libtable)
 
+## Table of contents
+
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Usage](#usage)
+	- [Simple example](#simple-example)
+	- [Complex example](#complex-example)
+- [License](#license)
+
 ## Introduction
 
 The table library is a C implementation of a relational table with useful
@@ -32,7 +41,7 @@ cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local
 make install
 ```
 
-## Examples
+## Usage
 
 
 ### Simple example
@@ -101,8 +110,8 @@ The resulting output:
 This snippet demonstrates the callback functionality. Like the simple example,
 we're creating several rows and column; only this time we've registered a
 callback function to notify us of changes. We've also decided to use table as
-a stack variable, so table_init() and table_destroy() are used instead of new
-and delete.
+a stack variable, so table_init() and table_destroy() are used instead of
+table_new() and table_delete().
 
 ```c
 #include <stdio.h>
@@ -209,3 +218,8 @@ received TABLE_COLUMN_REMOVED notification (row: -1, col: 2)
 received TABLE_COLUMN_REMOVED notification (row: -1, col: 1)
 received TABLE_COLUMN_REMOVED notification (row: -1, col: 0)
 ```
+## License
+
+This project uses the "FreeBSD License" or "Simplified BSD License" making it
+compatible with both commercial software licenses and the GNU/GPL. For more
+information see COPYING.
