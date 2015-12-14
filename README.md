@@ -110,65 +110,65 @@ and delete.
 
 static void table_callback(table *t, int row, int col, table_event_type event_type, void *data)
 {
-	char *event_name = "UNKNOWN";
-	switch (event_type)
-	{
-		case TABLE_ROW_ADDED:
-			event_name = "TABLE_ROW_ADDED";
-			break;
-		case TABLE_COLUMN_ADDED:
-			event_name = "TABLE_COLUMN_ADDED";
-			break;
-		case TABLE_DATA_MODIFIED:
-			event_name = "TABLE_DATA_MODIFIED";
-			break;
-		case TABLE_ROW_REMOVED:
-			event_name = "TABLE_ROW_REMOVED";
-			break;
-		case TABLE_COLUMN_REMOVED:
-			event_name = "TABLE_COLUMN_REMOVED";
-			break;
-	}
-	printf("received %s notification (row: %d, col: %d)\n", event_name, row, col);
+   char *event_name = "UNKNOWN";
+   switch (event_type)
+   {
+      case TABLE_ROW_ADDED:
+         event_name = "TABLE_ROW_ADDED";
+         break;
+      case TABLE_COLUMN_ADDED:
+         event_name = "TABLE_COLUMN_ADDED";
+         break;
+      case TABLE_DATA_MODIFIED:
+         event_name = "TABLE_DATA_MODIFIED";
+         break;
+      case TABLE_ROW_REMOVED:
+         event_name = "TABLE_ROW_REMOVED";
+         break;
+      case TABLE_COLUMN_REMOVED:
+         event_name = "TABLE_COLUMN_REMOVED";
+         break;
+   }
+   printf("received %s notification (row: %d, col: %d)\n", event_name, row, col);
 }
 
 int main(int argc, char **argv)
 {
    int int64_col, uint64_col, boundary_col, row, col, num_rows, num_cols;
    table t;
-	
-	table_init(&t);
+   
+   table_init(&t);
 
-	table_register_callback(&t, table_callback, NULL, ~0);
+   table_register_callback(&t, table_callback, NULL, ~0);
 
    int64_col = table_add_column(&t, "int64", TABLE_INT64);
-	uint64_col = table_add_column(&t, "uint64", TABLE_UINT64);
+   uint64_col = table_add_column(&t, "uint64", TABLE_UINT64);
    boundary_col = table_add_column(&t, "boundary", TABLE_STRING);
 
    row = table_add_row(&t);
    table_set_int64(&t, row, int64_col, INT64_MAX);
-	table_set_uint64(&t, row, uint64_col, UINT64_MAX);
+   table_set_uint64(&t, row, uint64_col, UINT64_MAX);
    table_set_string(&t, row, boundary_col, "MAX");
 
    row = table_add_row(&t);
    table_set_int64(&t, row, int64_col, INT64_MIN);
-	table_set_uint64(&t, row, uint64_col, 0);
+   table_set_uint64(&t, row, uint64_col, 0);
    table_set_string(&t, row, boundary_col, "MIN");
 
    num_rows = table_get_row_length(&t);
    num_cols = table_get_column_length(&t);
 
-	for (col = 0; col < num_cols; col++)
-		printf("%25s\t", table_get_column_name(&t, col));
+   for (col = 0; col < num_cols; col++)
+      printf("%25s\t", table_get_column_name(&t, col));
 
-	printf("\n");
-	
+   printf("\n");
+   
    for (row = 0; row < num_rows; row++)
-	{
-		for (col = 0; col < num_cols; col++)
-		{
-			char buf[255];
-			table_cell_to_buffer(&t, row, col, buf, sizeof(buf));
+   {
+      for (col = 0; col < num_cols; col++)
+      {
+         char buf[255];
+         table_cell_to_buffer(&t, row, col, buf, sizeof(buf));
 			printf("%25s\t", buf);
 		}
 		printf("\n");
