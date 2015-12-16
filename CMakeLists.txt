@@ -32,8 +32,6 @@ add_custom_target(check
   COMMENT "Running Table unit tests"
 )
 
-install(FILES ${TABLE_INCLUDE_DIR}/table.h DESTINATION include)
-
 add_subdirectory(include)
 add_subdirectory(src)
 add_subdirectory(test)
