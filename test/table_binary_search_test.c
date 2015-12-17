@@ -1,6 +1,7 @@
-#include "table_test.h"
+#include <table.h>
+#include <stdio.h>
 
-bool table_binary_search_test(char *buf, size_t len)
+int main(int argc, char **argv)
 {
    table t;
    int a_col, b_col;
@@ -9,7 +10,7 @@ bool table_binary_search_test(char *buf, size_t len)
    int row;
    int first, last;
    int inner_first, inner_last;
-   bool rc = true;
+   int rc = 0;
 
    table_init(&t);
 
@@ -39,14 +40,14 @@ bool table_binary_search_test(char *buf, size_t len)
 
    if (first != 40)
    {
-      snprintf(buf, len, "Expected first row to be 40 on column A, instead got %d", first);
-      rc = false;
+      printf("Expected first row to be 40 on column A, instead got %d", first);
+      rc = -1;
    }
 
    if (last != 49)
    {
-      snprintf(buf, len, "Expected last row to be 49 on column A, instead got %d", last);
-      rc = false;
+      printf("Expected last row to be 49 on column A, instead got %d", last);
+      rc = -1;
    }
 
    inner_first = table_sorted_subset_find_float(&t, b_col, 0.5, TABLE_FIRST, first, last);
@@ -54,14 +55,14 @@ bool table_binary_search_test(char *buf, size_t len)
 
    if (inner_first != 42)
    {
-      snprintf(buf, len, "Expected inner first row to be 42 on column B, instead got %d", inner_first);
-      rc = false;
+      printf("Expected inner first row to be 42 on column B, instead got %d", inner_first);
+      rc = -1;
    }
 
    if (inner_last != 43)
    {
-      snprintf(buf, len, "Expected inner last row to be 43 on column B, instead got %d", inner_last);
-      rc = false;
+      printf("Expected inner last row to be 43 on column B, instead got %d", inner_last);
+      rc = -1;
    }
 
 

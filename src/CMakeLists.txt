@@ -17,5 +17,5 @@ set(TABLE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/table.c
                   ${CMAKE_CURRENT_SOURCE_DIR}/table_serialize.c
                   ${CMAKE_CURRENT_SOURCE_DIR}/table_deserialize.c)
 		
-add_library(table SHARED ${TABLE_SOURCES} ${TABLE_HEADERS})
+add_library(table ${TABLE_SOURCES} ${TABLE_HEADERS})
 install(TARGETS table DESTINATION lib)

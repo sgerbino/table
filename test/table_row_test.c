@@ -1,11 +1,13 @@
-#include "table_test.h"
+#include <table.h>
+#include <stdio.h>
+#include <time.h>
 
-bool table_row_test(char *buf, size_t len)
+int main(int argc, char **argv)
 {
    table t;
    time_t now;
    int i, num_rows, random_number;
-   bool rc = true;
+   int rc = 0;
    const size_t range = 100;
    const size_t minimum = 100;
 
@@ -22,8 +24,8 @@ bool table_row_test(char *buf, size_t len)
 
    if (num_rows != random_number)
    {
-      snprintf(buf, len, "Failed to retrieve row length, expected %d but received %d", random_number, num_rows);
-      rc = false;
+      printf("Failed to retrieve row length, expected %d but received %d", random_number, num_rows);
+      rc = -1;
    }
 
    table_destroy(&t);
