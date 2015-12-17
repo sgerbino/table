@@ -1,11 +1,13 @@
-#include "table_test.h"
+#include <table.h>
+#include <stdio.h>
+#include <time.h>
 
-bool table_sort_test(char *buf, size_t len)
+int main(int argc, char **argv)
 {
    table t;
    time_t now;
    int row, col, num_rows, num_cols, random_number, value_range = 20;
-   bool rc = true;
+   int rc = 0;
    const size_t row_range = 100, col_range = 5;
    const size_t row_minimum = 100, col_minimum = 2;
    int error_row = -1;
@@ -78,20 +80,20 @@ bool table_sort_test(char *buf, size_t len)
             {
                if (table_get_int(&t, row - 1, col) > table_get_int(&t, row, col))
                {
-                  snprintf(buf, len, "Row %d is not sorted correctly on column %d, sort order TABLE_ASCENDING", row, col);
+                  printf("Row %d is not sorted correctly on column %d, sort order TABLE_ASCENDING", row, col);
                   error_row = row;
                   error_column = col;
-                  rc = false;
+                  rc = -1;
                }
             }
             else
             {
                if (table_get_int(&t, row - 1, col) < table_get_int(&t, row, col))
                {
-                  snprintf(buf, len, "Row %d is not sorted correctly on column %d, sort order TABLE_DESCENDING", row, col);
+                  printf("Row %d is not sorted correctly on column %d, sort order TABLE_DESCENDING", row, col);
                   error_row = row;
                   error_column = col;
-                  rc = false;
+                  rc = -1;
                }
             }
          }

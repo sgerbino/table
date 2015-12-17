@@ -1,6 +1,10 @@
-#include "table_test.h"
+#include <table.h>
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
+#include <stdbool.h>
 
-bool table_serialize_test(char *buf, size_t len)
+int main(int argc, char **argv)
 {
    table t1, *t2;
    int random_number;
@@ -13,7 +17,7 @@ bool table_serialize_test(char *buf, size_t len)
    char byte_array[100000];
    const int range = 100;
    const int minimum = 100;
-   bool rc = true;
+   int rc = 0;
 
    random_number = rand() % range + minimum;
 
@@ -41,16 +45,16 @@ bool table_serialize_test(char *buf, size_t len)
 
    if (t2_num_rows != t1_num_rows)
    {
-      snprintf(buf, len, "Failed to retrieve row length, expected %d but received %d", t1_num_rows, t2_num_rows);
-      rc = false;
+      printf("Failed to retrieve row length, expected %d but received %d", t1_num_rows, t2_num_rows);
+      rc = -1;
    }
 
    t1_num_cols = table_get_column_length(&t1);
    t2_num_cols = table_get_column_length(t2);
    if (t2_num_cols != t1_num_cols)
    {
-      snprintf(buf, len, "Failed to retrieve column length, expected %d but received %d", t1_num_cols, t2_num_cols);
-      rc = false;
+      printf("Failed to retrieve column length, expected %d but received %d", t1_num_cols, t2_num_cols);
+      rc = -1;
    }
 
    if (t1_num_cols == t2_num_cols && t1_num_rows == t2_num_rows)
@@ -139,8 +143,8 @@ bool table_serialize_test(char *buf, size_t len)
             
             if (mismatch)
             {
-               snprintf(buf, len, "Failed to receive correct value from cell (%d, %d)\n", row, col);
-               rc = false;
+               printf("Failed to receive correct value from cell (%d, %d)\n", row, col);
+               rc = -1;
                break;
             }
          }

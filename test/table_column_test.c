@@ -1,10 +1,12 @@
-#include "table_test.h"
+#include <table.h>
+#include <stdio.h>
+#include <string.h>
 
-bool table_column_test(char *buf, size_t len)
+int main(int argc, char **argv)
 {
    table t;
    int num_cols, id_col, name_col;
-   bool rc = true;
+   int rc = 0;
 
    table_init(&t);
    
@@ -15,20 +17,20 @@ bool table_column_test(char *buf, size_t len)
 
    if (num_cols != 2)
    {
-      snprintf(buf, len, "Failed to retrieve number of columns");
-      rc = false;
+      printf("Failed to retrieve number of columns");
+      rc = -1;
    }
 
    if (strcmp(table_get_column_name(&t, id_col), "id"))
    {
-      snprintf(buf, len, "Failed to retrieve column name");
-      rc = false;
+      printf("Failed to retrieve column name");
+      rc = -1;
    }
 
    if (strcmp(table_get_column_name(&t, name_col), "name"))
    {
-      snprintf(buf, len, "Failed to retrieve column name");
-      rc = false;
+      printf("Failed to retrieve column name");
+      rc = -1;
    }
 
    table_destroy(&t);
