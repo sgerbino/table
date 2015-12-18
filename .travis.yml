@@ -20,4 +20,4 @@ before_script:
 script:
   - make
   - make test
-  - cd bin && find . -type f -print -exec valgrind --leak-check=yes --error-exitcode=-1 {} \;
+  - find bin -type f -print -exec valgrind --leak-check=yes --error-exitcode=-1 {} \;
