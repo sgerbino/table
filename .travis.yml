@@ -1,18 +1,34 @@
 language: c
 
+os:
+  - linux
+  - osx
+
 compiler:
   - clang
   - gcc
 
 env:
-  - CMAKE_BUILD_TYPE=RELEASE BUILD_SHARED_LIBS=TRUE
-  - CMAKE_BUILD_TYPE=RELEASE BUILD_SHARED_LIBS=FALSE
-  - CMAKE_BUILD_TYPE=DEBUG BUILD_SHARED_LIBS=TRUE
-  - CMAKE_BUILD_TYPE=DEBUG BUILD_SHARED_LIBS=FALSE
+  - CMAKE_BUILD_TYPE=RELEASE
+  - CMAKE_BUILD_TYPE=DEBUG
+
+matrix:
+  exclude:
+    - os: osx
+      compiler: gcc
+
+before_install:
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get update -qq; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update; fi
+  
+install:
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install -qq valgrind; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install valgrind; fi
 
 before_script:
-  - cmake -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DBUILD_SHARED_LIBS=${BUILD_SHARED_LIBS}
+  - cmake -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 
 script:
   - make
   - make test
+  - find bin -type f -print -exec valgrind --error-exitcode=-1 {} \;
