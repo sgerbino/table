@@ -1,23 +1,25 @@
 language: c
 
+os:
+  - linux
+  - osx
+
 compiler:
   - clang
   - gcc
 
 env:
-  - CMAKE_BUILD_TYPE=RELEASE BUILD_SHARED_LIBS=TRUE
-  - CMAKE_BUILD_TYPE=RELEASE BUILD_SHARED_LIBS=FALSE
-  - CMAKE_BUILD_TYPE=DEBUG BUILD_SHARED_LIBS=TRUE
-  - CMAKE_BUILD_TYPE=DEBUG BUILD_SHARED_LIBS=FALSE
+  - CMAKE_BUILD_TYPE=RELEASE
+  - CMAKE_BUILD_TYPE=DEBUG
 
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq valgrind
 
 before_script:
-  - cmake -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DBUILD_SHARED_LIBS=${BUILD_SHARED_LIBS}
+  - cmake -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 
 script:
   - make
   - make test
-  - find bin -type f -print -exec valgrind --leak-check=yes --error-exitcode=-1 {} \;
+  - find bin -type f -print -exec valgrind --error-exitcode=-1 {} \;
