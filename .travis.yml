@@ -31,4 +31,4 @@ before_script:
 script:
   - make
   - make test
-  - find bin -type f -print -exec valgrind --error-exitcode=-1 {} \;
+  - find bin -type f -exec valgrind --error-exitcode=-1 --leak-check=full -q {} \;
