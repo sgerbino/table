@@ -65,6 +65,7 @@ typedef enum table_event_type
  ,TABLE_COLUMN_ADDED   = 1 << 3
  ,TABLE_COLUMN_REMOVED = 1 << 4
  ,TABLE_SORTED         = 1 << 5
+ ,TABLE_DESTROYED      = 1 << 6
 } table_event_type;
 
 /**
