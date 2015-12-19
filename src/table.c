@@ -97,6 +97,8 @@ void table_destroy(table *t)
 {
   if (!t)
     return;
+
+  table_notify(t, TABLE_INDEX_NOT_FOUND, TABLE_INDEX_NOT_FOUND, TABLE_DESTROYED);
   
   table_destroy_rows(t);
   table_destroy_columns(t);
@@ -131,6 +133,9 @@ static void table_destroy_callbacks(table *t)
   
   if (t->callbacks_data)
     free(t->callbacks_data);
+
+  if (t->callbacks_registration)
+    free(t->callbacks_registration);
 }
 
 /**

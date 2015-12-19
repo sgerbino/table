@@ -52,7 +52,12 @@ int main(int argc, char **argv)
       rc = -1;
    }
 
-   table_unregister_callback(&t, table_callback, &result);
    table_destroy(&t);
+   if (!(result & TABLE_DESTROYED))
+   {
+      printf("Failed to receive TABLE_DESTROYED event");
+      rc = -1;
+   }
+   
    return rc;
 }
