@@ -9,8 +9,8 @@
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Usage](#usage)
-	- [Simple example](#simple-example)
-	- [Complex example](#complex-example)
+	- [Basic example](#basic-example)
+	- [Callback example](#callback-example)
 - [License](#license)
 
 ## Introduction
@@ -44,7 +44,7 @@ make install
 ## Usage
 
 
-### Simple example
+### Basic example
 
 This snippet demonstrates instantiating a table object, adding a basic schema 
 of a several of columns and rows, then populating their values. The table knows 
@@ -105,7 +105,7 @@ The resulting output:
 3	three	
 ```
 
-### Complex example
+### Callback example
 
 This snippet demonstrates the callback functionality. Like the simple example,
 we're creating several rows and column; only this time we've registered a
