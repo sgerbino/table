@@ -123,8 +123,8 @@ void table_serialize(table *t, void *buf, size_t len)
          }
       }
    }
-   PACK(buf, &t->callbacks_length, uint64_t);
-   PACK(buf, &t->callbacks_block, uint64_t);
+   PACK(buf, &t->callbacks_length, int);
+   PACK(buf, &t->callbacks_block, size_t);
    for (i = 0; i < t->callbacks_length; ++i)
    {
       PACK(buf, &t->callbacks[i], table_callback_function);

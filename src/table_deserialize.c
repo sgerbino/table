@@ -217,8 +217,8 @@ table *table_deserialize(void *buf, size_t len)
       }
    }
 
-   UNPACK(&callback_len, buf, uint64_t);
-   UNPACK(&t->callbacks_block, buf, uint64_t);
+   UNPACK(&callback_len, buf, int);
+   UNPACK(&t->callbacks_block, buf, size_t);
    for (i = 0; i < callback_len; ++i)
    {
       table_callback_function callback;
