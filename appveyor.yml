@@ -1,5 +1,11 @@
-install:
+environment:
+  matrix:
+    - CMAKE_BUILD_TYPE: DEBUG
+    - CMAKE_BUILD_TYPE: RELEASE
+
+before_build:
   - cmake .
 
-build:
-  project: TABLE.sln
+build_script:
+  - cmake .
+  - cmake --build . --config %CMAKE_BUILD_TYPE%
