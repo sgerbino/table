@@ -7,6 +7,5 @@ before_build:
   - cmake .
 
 build_script:
-  - cmake .
   - cmake --build . --config %CMAKE_BUILD_TYPE%
-  - ctest
+  - ctest -C %CMAKE_BUILD_TYPE%
