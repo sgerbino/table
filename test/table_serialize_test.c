@@ -13,7 +13,7 @@ int main(int argc, char **argv)
    int int_col, string_col;
    int row, col;
    time_t now;
-   srand(time(&now));
+   srand((unsigned int)time(&now));
    char byte_array[100000];
    const int range = 100;
    const int minimum = 100;

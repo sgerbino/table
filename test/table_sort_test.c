@@ -13,7 +13,7 @@ int main(int argc, char **argv)
    int error_row = -1;
    int error_column = -1;
 
-   srand(time(&now));
+   srand((unsigned int)time(&now));
 
    random_number = rand() % row_range + row_minimum;
 

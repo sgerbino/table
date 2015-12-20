@@ -15,9 +15,9 @@ static void table_destroy_rows(table *t);
 static void table_destroy_columns(table *t);
 static void table_destroy_callbacks(table *t);
 
-static const uint64_t DEFAULT_COLUMN_BLOCK = 10;
-static const uint64_t DEFAULT_ROW_BLOCK = 20;
-static const uint64_t DEFAULT_CALLBACK_BLOCK = 10;
+static const size_t DEFAULT_COLUMN_BLOCK = 10;
+static const size_t DEFAULT_ROW_BLOCK = 20;
+static const size_t DEFAULT_CALLBACK_BLOCK = 10;
 
 /**
  * \brief Return a fully constructed table pointer

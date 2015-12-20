@@ -11,7 +11,7 @@ int main(int argc, char **argv)
    const size_t range = 100;
    const size_t minimum = 100;
 
-   srand(time(&now));
+   srand((unsigned int)time(&now));
    
    random_number = rand() % range + minimum;
 

@@ -10,9 +10,9 @@ int main(int argc, char **argv)
    table t;
    time_t now;
 
-   srand(time(&now));
+   srand((unsigned int)time(&now));
    row = rand();
-   srand(time(&now));
+   srand((unsigned int)time(&now));
    col = rand();
 
    table_init(&t);

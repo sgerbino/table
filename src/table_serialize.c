@@ -20,12 +20,12 @@
 
 void table_serialize(table *t, void *buf, size_t len)
 {
-   uint64_t row_len = table_get_row_length(t);
-   uint64_t col_len = table_get_column_length(t);
-   uint64_t row, col, i;
+   int row_len = table_get_row_length(t);
+   int col_len = table_get_column_length(t);
+   int row, col, i;
 
-   PACK(buf, &col_len, uint64_t);
-   PACK(buf, &t->column_block, uint64_t);
+   PACK(buf, &col_len, int);
+   PACK(buf, &t->column_block, size_t);
    for (col = 0; col < col_len; ++col)
    {
       const char *name = table_get_column_name(t, col);
@@ -35,8 +35,8 @@ void table_serialize(table *t, void *buf, size_t len)
       PACK_STRING(buf, name, name_len);
    }
 
-   PACK(buf, &row_len, uint64_t);
-   PACK(buf, &t->row_block, uint64_t);
+   PACK(buf, &row_len, int);
+   PACK(buf, &t->row_block, size_t);
    for (row = 0; row < row_len; ++row)
    {
       for (col = 0; col < col_len; ++col)
@@ -123,8 +123,8 @@ void table_serialize(table *t, void *buf, size_t len)
          }
       }
    }
-   PACK(buf, &t->callbacks_length, uint64_t);
-   PACK(buf, &t->callbacks_block, uint64_t);
+   PACK(buf, &t->callbacks_length, int);
+   PACK(buf, &t->callbacks_block, size_t);
    for (i = 0; i < t->callbacks_length; ++i)
    {
       PACK(buf, &t->callbacks[i], table_callback_function);

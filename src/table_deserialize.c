@@ -20,14 +20,14 @@
 
 table *table_deserialize(void *buf, size_t len)
 {
-   uint64_t row_len;
-   uint64_t col_len;
-   uint64_t callback_len;
-   uint64_t row, col, i;
+   int row_len;
+   int col_len;
+   int callback_len;
+   int row, col, i;
    table *t = table_new();
 
-   UNPACK(&col_len, buf, uint64_t);
-   UNPACK(&t->column_block, buf, uint64_t);
+   UNPACK(&col_len, buf, int);
+   UNPACK(&t->column_block, buf, size_t);
    for (col = 0; col < col_len; ++col)
    {
       table_data_type type;
@@ -36,8 +36,8 @@ table *table_deserialize(void *buf, size_t len)
       buf = (char*)buf + strlen(buf) + 1;
    }
 
-   UNPACK(&row_len, buf, uint64_t);
-   UNPACK(&t->row_block, buf, uint64_t);
+   UNPACK(&row_len, buf, int);
+   UNPACK(&t->row_block, buf, size_t);
    for (row = 0; row < row_len; ++row)
    {
       table_add_row(t);
@@ -217,8 +217,8 @@ table *table_deserialize(void *buf, size_t len)
       }
    }
 
-   UNPACK(&callback_len, buf, uint64_t);
-   UNPACK(&t->callbacks_block, buf, uint64_t);
+   UNPACK(&callback_len, buf, int);
+   UNPACK(&t->callbacks_block, buf, size_t);
    for (i = 0; i < callback_len; ++i)
    {
       table_callback_function callback;
