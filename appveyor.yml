@@ -2,6 +2,4 @@ install:
   - cmake .
 
 build:
-  parallel: true
   project: TABLE.sln
-  verbosity: detailed
