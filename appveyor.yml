@@ -1,5 +1,5 @@
 install:
-  - cmake
+  - cmake .
 
 build:
   parallel: true
