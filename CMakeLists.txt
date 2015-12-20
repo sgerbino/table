@@ -5,7 +5,7 @@ enable_testing()
 if (${CMAKE_C_COMPILER_ID} MATCHES "Clang" OR ${CMAKE_C_COMPILER_ID} MATCHES "GNU")
   set(CMAKE_C_FLAGS "-Wall -Werror -std=c99")
 elseif (${CMAKE_C_COMPILER_ID} MATCHES "MSVC")
-  set(CMAKE_C_FLAGS "/D_CRT_SECURE_NO_WARNINGS")
+  add_definitions("/W3 /D_CRT_SECURE_NO_WARNINGS /wd4005 /wd4996 /nologo")
 endif ()
 
 set(${PROJECT_NAME}_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
