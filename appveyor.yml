@@ -1,0 +1,15 @@
+environment:
+  matrix:
+    - CMAKE_BUILD_TYPE: DEBUG
+    - CMAKE_BUILD_TYPE: RELEASE
+
+platform:
+  - x86
+  - x64
+
+before_build:
+  - cmake .
+
+build_script:
+  - cmake --build . --config %CMAKE_BUILD_TYPE%
+  - ctest -C %CMAKE_BUILD_TYPE%

@@ -2,6 +2,7 @@
 
 [![FreeBSD License](https://img.shields.io/:license-freebsd-red.svg)](https://github.com/sgerbino/libtable/blob/master/COPYING)
 [![Build Status](https://travis-ci.org/sgerbino/libtable.svg)](https://travis-ci.org/sgerbino/libtable)
+[![Build Status](https://ci.appveyor.com/api/projects/status/cus5euiynm2dmvum?svg=true)](https://ci.appveyor.com/project/sgerbino/libtable)
 [![Coverity Status](https://scan.coverity.com/projects/7249/badge.svg)](https://scan.coverity.com/projects/sgerbino-libtable)
 
 ## Table of contents
