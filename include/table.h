@@ -119,22 +119,22 @@ struct table
 {
   /* Columns */
   table_column *columns; /**< A pointer to an array of table columns */
-  uint64_t column_length; /**< The length of the array of table columns */
-  uint64_t column_block; /**< The column block size */
+  int column_length; /**< The length of the array of table columns */
+  size_t column_block; /**< The column block size */
   size_t columns_allocated; /**< The number of columns allocated */
 
   /* Rows */
   table_row *rows; /**< A pointer to an array of table rows */
-  uint64_t rows_length; /**< The length of the array of table rows */
-  uint64_t row_block; /**< The row block size */
+  int rows_length; /**< The length of the array of table rows */
+  size_t row_block; /**< The row block size */
   size_t rows_allocated; /**< The number of rows allocated */
 
   /* Callbacks */
-  uint64_t callbacks_length; /**< The length of the array of table callbacks */
+  int callbacks_length; /**< The length of the array of table callbacks */
   table_callback_function *callbacks; /**< A pointer to an array of callbacks */
   void **callbacks_data; /**< A pointer to an array of callback data */
   table_bitfield *callbacks_registration; /**< The registration bits */
-  uint64_t callbacks_block; /**< The callback block size */
+  size_t callbacks_block; /**< The callback block size */
   size_t callbacks_allocated; /**< The number of callbacks allocated */
 };
 
