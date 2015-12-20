@@ -9,3 +9,4 @@ before_build:
 build_script:
   - cmake .
   - cmake --build . --config %CMAKE_BUILD_TYPE%
+  - ctest
