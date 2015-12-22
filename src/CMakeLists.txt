@@ -1,6 +1,5 @@
-include_directories(${TABLE_INCLUDE_DIR})
-
 set(TABLE_HEADERS ${TABLE_INCLUDE_DIR}/table.h
+                  ${TABLE_GENERATED_INCLUDE_DIR}/version.h
                   ${CMAKE_CURRENT_SOURCE_DIR}/table_defs.h)
 
 set(TABLE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/table.c
@@ -18,4 +17,5 @@ set(TABLE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/table.c
                   ${CMAKE_CURRENT_SOURCE_DIR}/table_deserialize.c)
 		
 add_library(table ${TABLE_SOURCES} ${TABLE_HEADERS})
+add_dependencies(table version)
 install(TARGETS table DESTINATION lib)

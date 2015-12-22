@@ -362,3 +362,39 @@ table *table_dupe(table *t)
   }
   return return_table;
 }
+
+/**
+ * \brief Retrieve the table major version
+ * \return The major version of the table library
+ */
+int table_get_major_version(void)
+{
+  return TABLE_MAJOR_VERSION;
+}
+
+/**
+ * \brief Retrieve the table minor version
+ * \return The minor version of the table library
+ */
+int table_get_minor_version(void)
+{
+  return TABLE_MINOR_VERSION;
+}
+
+/**
+ * \brief Retrieve the table patch version
+ * \return The patch version of the table library
+ */
+int table_get_patch_version(void)
+{
+  return TABLE_PATCH_VERSION;
+}
+
+/**
+ * \brief Retrieve the table version
+ * \return The version of the table library
+ */
+const char *table_get_version(void)
+{
+  return TABLE_VERSION;
+}
