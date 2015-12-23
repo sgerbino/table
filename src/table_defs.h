@@ -5,6 +5,7 @@
 #include <string.h>
 #include <inttypes.h>
 #include <table.h>
+#include <version.h>
 
 /* Print formatters */
 #define TABLE_CHARF    "%c"

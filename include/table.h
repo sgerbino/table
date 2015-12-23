@@ -323,5 +323,11 @@ table *table_deserialize(void *buf, size_t len);
 
 table_compare_function table_get_default_compare_function_for_data_type(table_data_type type);
 
+/* Versioning */
+int table_get_major_version(void);
+int table_get_minor_version(void);
+int table_get_patch_version(void);
+const char *table_get_version(void);
+
 #endif /* TABLE_H_ */
 

@@ -1,0 +1,7 @@
+if (UNIX)
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -std=c99")
+elseif (WIN32)
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /WX /D_CRT_SECURE_NO_WARNINGS /nologo")
+else()
+  message(WARNING "Unknown platform")
+endif()
