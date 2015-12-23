@@ -36,3 +36,4 @@ script:
 after_success:
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G DEB -C ${CMAKE_BUILD_TYPE}; fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G RPM -C ${CMAKE_BUILD_TYPE}; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then cpack -G Bundle -C ${CMAKE_BUILD_TYPE}; fi
