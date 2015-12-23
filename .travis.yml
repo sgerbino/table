@@ -37,13 +37,21 @@ after_success:
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G DEB -C ${CMAKE_BUILD_TYPE}; fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G RPM -C ${CMAKE_BUILD_TYPE}; fi
 
+before_deploy:
+  - export RELEASE_DEB_FILE=$(ls *.deb)
+  - export RELEASE_RPM_FILE=$(ls *.rpm)
+  - echo "Deploying $RELEASE_DEB_FILE and $RELEASE_RPM_FILE to GitHub releases"
+
 deploy:
   provider: releases
   api-key: "$GITHUB_TOKEN"
   file:
-    - "*.deb"
-    - "*.rpm"
+    - "${RELEASE_DEB_FILE}"
+    - "${RELEASE_RPM_FILE}"
   skip_cleanup: true
   on:
     tags: true
-    condition: "$CMAKE_BUILD_TYPE=RELEASE && $TRAVIS_OS_NAME=linux && $CC=gcc"
+    condition:
+      - "$CMAKE_BUILD_TYPE == RELEASE"
+      - "$TRAVIS_OS_NAME == linux"
+      - "$CC == gcc"
