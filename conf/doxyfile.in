@@ -1,4 +1,4 @@
-PROJECT_NAME           = libtable
+PROJECT_NAME           = @TABLE_PACKAGE_NAME@
 PROJECT_NUMBER         = @TABLE_VERSION@
 PROJECT_BRIEF          = "@TABLE_DESCRIPTION@"
 PROJECT_LOGO           = 
