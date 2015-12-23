@@ -16,5 +16,5 @@ build_script:
 test_script:
   - ctest -C %CMAKE_BUILD_TYPE%
 
-on_success:
-  - cpack -C %CMAKE_BUILD_TYPE% -G WIX
+#on_success:
+#  - cpack -C %CMAKE_BUILD_TYPE% -G WIX
