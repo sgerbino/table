@@ -46,6 +46,4 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    condition: $CMAKE_BUILD_TYPE=RELEASE
-    os: linux
-    compiler: gcc
+    condition: "$CMAKE_BUILD_TYPE=RELEASE && $TRAVIS_OS_NAME=linux && $CC=gcc"
