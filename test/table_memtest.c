@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 
 	int num_cols = table_get_column_length(t);
 	for (int row = 0; row < NUM_ROWS; row++) {
-		size_t data_size = 10;
+		size_t data_size = 64;
 		char *data = malloc(data_size);
 
 		/* Random number and valid string */
