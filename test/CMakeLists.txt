@@ -51,3 +51,9 @@ target_link_libraries(table_version_test table)
 add_test(NAME table-version-test
   COMMAND table_version_test
   WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
+
+add_executable(table_memtest ${CMAKE_CURRENT_SOURCE_DIR}/table_memtest.c)
+target_link_libraries(table_memtest table)
+add_test(NAME table-memtest
+  COMMAND table_memtest
+  WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
