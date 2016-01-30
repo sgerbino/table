@@ -40,7 +40,6 @@ after_success:
 before_deploy:
   - export RELEASE_DEB_FILE=$(ls *.deb)
   - export RELEASE_RPM_FILE=$(ls *.rpm)
-  - echo "Deploying $RELEASE_DEB_FILE and $RELEASE_RPM_FILE to GitHub releases"
 
 deploy:
   provider: releases
