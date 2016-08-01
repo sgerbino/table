@@ -46,10 +46,11 @@ before_deploy:
 deploy:
   provider: releases
   api-key: "$GITHUB_TOKEN"
+  file_glob: true
   file:
-    - "${RELEASE_DEB_FILE}"
-    - "${RELEASE_RPM_FILE}"
-    - "${RELEASE_DMG_FILE}"
+    - *.deb
+    - *.rpm
+    - *.dmg
   skip_cleanup: true
   on:
     tags: true
