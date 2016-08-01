@@ -9,6 +9,9 @@ platform:
   - x86
   - x64
 
+init:
+  - cmd: set PATH=C:\Program Files (x86)\CMake\bin\;%PATH%
+
 before_build:
   - cmake .
 
