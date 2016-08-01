@@ -2,6 +2,8 @@ environment:
   matrix:
     - CMAKE_BUILD_TYPE: DEBUG
     - CMAKE_BUILD_TYPE: RELEASE
+  github_token:
+    secure: AtMhevKUU0Cf+huWpOz+axnd0TdO5fO+m6yjLR34qYKRqdsBIPI508k/sMxDxzLj
 
 platform:
   - x86
@@ -15,3 +17,20 @@ build_script:
 
 test_script:
   - ctest -C %CMAKE_BUILD_TYPE%
+
+before_deploy:
+  - cpack -G WIX -C %CMAKE_BUILD_TYPE%
+
+deploy:
+  release: libtable-v$(appveyor_build_version)
+  description: ''
+  provider: GitHub
+  auth_token:
+    secure: $env:github_token
+  artifact: /.*\.msi/
+  draft: false
+  prerelease: false
+  on:
+    branch: master
+    appveyor_repo_tag: true
+ 
