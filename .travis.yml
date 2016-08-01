@@ -47,10 +47,7 @@ deploy:
   provider: releases
   api-key: "$GITHUB_TOKEN"
   file_glob: true
-  file:
-    - *.deb
-    - *.rpm
-    - *.dmg
+  file: libtable*.*
   skip_cleanup: true
   on:
     tags: true
