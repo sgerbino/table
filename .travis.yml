@@ -36,10 +36,12 @@ script:
 after_success:
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G DEB -C ${CMAKE_BUILD_TYPE}; fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G RPM -C ${CMAKE_BUILD_TYPE}; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then cpack -G DragNDrop -C ${CMAKE_BUILD_TYPE}; fi
 
 before_deploy:
   - export RELEASE_DEB_FILE=$(ls *.deb)
   - export RELEASE_RPM_FILE=$(ls *.rpm)
+  - export RELEASE_DMG_FILE=$(ls *.dmg)
 
 deploy:
   provider: releases
@@ -47,10 +49,10 @@ deploy:
   file:
     - "${RELEASE_DEB_FILE}"
     - "${RELEASE_RPM_FILE}"
+    - "${RELEASE_DMG_FILE}"
   skip_cleanup: true
   on:
     tags: true
     condition:
       - "$CMAKE_BUILD_TYPE == RELEASE"
-      - "$TRAVIS_OS_NAME == linux"
-      - "$CC == gcc"
+      - "$CC == clang"
