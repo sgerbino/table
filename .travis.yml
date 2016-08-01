@@ -39,9 +39,9 @@ after_success:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then cpack -G DragNDrop -C ${CMAKE_BUILD_TYPE}; fi
 
 before_deploy:
-  - export RELEASE_DEB_FILE=$(ls *.deb)
-  - export RELEASE_RPM_FILE=$(ls *.rpm)
-  - export RELEASE_DMG_FILE=$(ls *.dmg)
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then export RELEASE_DEB_FILE=$(ls *.deb); fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then export RELEASE_RPM_FILE=$(ls *.rpm); fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then export RELEASE_DMG_FILE=$(ls *.dmg); fi
 
 deploy:
   provider: releases
