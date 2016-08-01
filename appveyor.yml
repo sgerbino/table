@@ -2,8 +2,6 @@ environment:
   matrix:
     - CMAKE_BUILD_TYPE: DEBUG
     - CMAKE_BUILD_TYPE: RELEASE
-  github_token:
-    secure: AtMhevKUU0Cf+huWpOz+axnd0TdO5fO+m6yjLR34qYKRqdsBIPI508k/sMxDxzLj
 
 platform:
   - x86
@@ -29,7 +27,7 @@ deploy:
   description: ''
   provider: GitHub
   auth_token:
-    secure: $env:github_token
+    secure: AtMhevKUU0Cf+huWpOz+axnd0TdO5fO+m6yjLR34qYKRqdsBIPI508k/sMxDxzLj
   artifact: /.*\.msi/
   draft: false
   prerelease: false
