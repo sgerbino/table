@@ -23,8 +23,6 @@ before_deploy:
   - cpack -G WIX -C %CMAKE_BUILD_TYPE%
 
 deploy:
-  release: libtable-v$(appveyor_build_version)
-  description: ''
   provider: GitHub
   auth_token:
     secure: AtMhevKUU0Cf+huWpOz+axnd0TdO5fO+m6yjLR34qYKRqdsBIPI508k/sMxDxzLj
@@ -34,4 +32,5 @@ deploy:
   on:
     branch: master
     appveyor_repo_tag: true
- 
+    CMAKE_BUILD_TYPE: RELEASE
+    platform: x64
