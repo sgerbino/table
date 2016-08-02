@@ -15,9 +15,7 @@ before_build:
 
 build_script:
   - cmake --build . --config %CMAKE_BUILD_TYPE%
-
-after_build:
-  - cpack -G WIX -C %CMAKE_BUILD_TYPE% -V
+  - cpack -G WIX -C %CMAKE_BUILD_TYPE%
 
 test_script:
   - ctest -C %CMAKE_BUILD_TYPE%
