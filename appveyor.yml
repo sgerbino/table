@@ -19,7 +19,7 @@ build_script:
 test_script:
   - ctest -C %CMAKE_BUILD_TYPE%
 
-before_deploy:
+after_build:
   - cpack -G WIX -C %CMAKE_BUILD_TYPE%
 
 artifacts:
