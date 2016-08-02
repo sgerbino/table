@@ -39,4 +39,4 @@ deploy:
     platform: x64
 
 on_finish:
-  - type C:/projects/libtable/_CPack_Packages/win32/WIX/wix.log
+  - type C:\projects\libtable\_CPack_Packages\win32\WIX\wix.log
