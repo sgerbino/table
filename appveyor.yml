@@ -17,7 +17,7 @@ build_script:
   - cmake --build . --config %CMAKE_BUILD_TYPE%
 
 after_build:
-  - cpack -G WIX -C %CMAKE_BUILD_TYPE%
+  - IF %APPVEYOR_REPO_TAG% == "true" cpack -G WIX -C %CMAKE_BUILD_TYPE%
 
 test_script:
   - ctest -C %CMAKE_BUILD_TYPE%
@@ -37,6 +37,3 @@ deploy:
     appveyor_repo_tag: true
     CMAKE_BUILD_TYPE: RELEASE
     platform: x64
-
-on_finish:
-  - type C:\projects\libtable\_CPack_Packages\win32\WIX\wix.log
