@@ -36,4 +36,3 @@ deploy:
     branch: master
     appveyor_repo_tag: true
     CMAKE_BUILD_TYPE: RELEASE
-    platform: x64
