@@ -22,11 +22,13 @@ test_script:
 before_deploy:
   - cpack -G WIX -C %CMAKE_BUILD_TYPE%
 
+artifacts:
+  - path: '*.msi'
+
 deploy:
   provider: GitHub
   auth_token:
     secure: AtMhevKUU0Cf+huWpOz+axnd0TdO5fO+m6yjLR34qYKRqdsBIPI508k/sMxDxzLj
-  artifact: /.*\.msi/
   draft: false
   prerelease: false
   force_update: true
