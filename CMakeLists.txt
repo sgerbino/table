@@ -12,9 +12,13 @@ set(CMAKE_MODULE_PATH ${TABLE_CMAKE_DIR})
 
 string(TOLOWER "lib${PROJECT_NAME}" TABLE_PACKAGE_NAME)
 
+find_program(MEMORYCHECK_COMMAND valgrind)
+set(MEMORYCHECK_COMMAND_OPTIONS "--trace-children=yes --leak-check=full")
+
 include_directories(${TABLE_INCLUDE_DIR})
 include_directories(${TABLE_GENERATED_INCLUDE_DIR})
 
+include(CTest)
 include(platform)
 include(versioning)
 include(arch)
