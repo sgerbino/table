@@ -29,9 +29,8 @@ before_script:
   - cmake -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 
 script:
-  - make
-  - make test
-  - find bin -type f -exec valgrind --error-exitcode=-1 --leak-check=full -q {} \;
+  - cmake --build . --config ${CMAKE_BUILD_TYPE}
+  - ctest -D ExperimentalMemCheck
 
 after_success:
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G DEB -C ${CMAKE_BUILD_TYPE}; fi
