@@ -3,6 +3,8 @@ environment:
     - CMAKE_BUILD_TYPE: DEBUG
     - CMAKE_BUILD_TYPE: RELEASE
 
+os: Visual Studio 2015
+
 platform:
   - x86
   - x64
@@ -11,7 +13,7 @@ init:
   - cmd: set PATH=C:\Program Files (x86)\CMake\bin\;%PATH%
 
 before_build:
-  - cmake .
+  - cmd: IF "%PLATFORM%" == "x64" (cmake . -G "Visual Studio 2015 Win64") ELSE (cmake .)
 
 build_script:
   - cmake --build . --config %CMAKE_BUILD_TYPE%
