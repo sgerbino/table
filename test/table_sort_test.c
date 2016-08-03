@@ -8,8 +8,8 @@ int main(int argc, char **argv)
    time_t now;
    int row, col, num_rows, num_cols, random_number, value_range = 20;
    int rc = 0;
-   const size_t row_range = 100, col_range = 5;
-   const size_t row_minimum = 100, col_minimum = 2;
+   const int row_range = 100, col_range = 5;
+   const int row_minimum = 100, col_minimum = 2;
    int error_row = -1;
    int error_column = -1;
 

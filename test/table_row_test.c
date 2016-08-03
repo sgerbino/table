@@ -8,8 +8,8 @@ int main(int argc, char **argv)
    time_t now;
    int i, num_rows, random_number;
    int rc = 0;
-   const size_t range = 100;
-   const size_t minimum = 100;
+   const int range = 100;
+   const int minimum = 100;
 
    srand((unsigned int)time(&now));
    
