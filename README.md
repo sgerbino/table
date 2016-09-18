@@ -1,9 +1,9 @@
-# libtable
+# table
 
-[![FreeBSD License](https://img.shields.io/:license-freebsd-red.svg)](https://github.com/sgerbino/libtable/blob/master/COPYING)
-[![Build Status](https://travis-ci.org/sgerbino/libtable.svg)](https://travis-ci.org/sgerbino/libtable)
-[![Build Status](https://ci.appveyor.com/api/projects/status/cus5euiynm2dmvum?svg=true)](https://ci.appveyor.com/project/sgerbino/libtable)
-[![Coverity Status](https://scan.coverity.com/projects/7249/badge.svg)](https://scan.coverity.com/projects/sgerbino-libtable)
+[![FreeBSD License](https://img.shields.io/:license-freebsd-red.svg)](https://github.com/sgerbino/table/blob/master/COPYING.txt)
+[![Build Status](https://travis-ci.org/sgerbino/table.svg)](https://travis-ci.org/sgerbino/table)
+[![Build Status](https://ci.appveyor.com/api/projects/status/cus5euiynm2dmvum?svg=true)](https://ci.appveyor.com/project/sgerbino/table)
+[![Coverity Status](https://scan.coverity.com/projects/7249/badge.svg)](https://scan.coverity.com/projects/sgerbino-table)
 
 ## Table of contents
 
@@ -21,7 +21,7 @@ features such as sorting, searching, and callback mechanisms. This document
 describes the high level design of the table library and examples of its
 usage.
 
-If you are looking for the API documentation for libtable, please download
+If you are looking for the API documentation for table, please download
 the source and generate the Doxygen documents.
 
 ```bash
@@ -31,13 +31,13 @@ make doc
 
 ## Installation
 
-Currently the only method of obtaining libtable is by building the sources.
+Currently the only method of obtaining table is by building the sources.
 The project requires a C99 compliant compiler and has no dependencies other
 than the C standard library. Continuous integration tests both clang and gcc.
 
 ```bash
-git clone https://github.com/sgerbino/libtable.git
-cd libtable
+git clone https://github.com/sgerbino/table.git
+cd table
 cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local
 make install
 ```
@@ -226,4 +226,4 @@ received TABLE_DESTROYED notification (row: -1, col: -1)
 
 This project uses the "FreeBSD License" or "Simplified BSD License" making it
 compatible with both commercial software licenses and the GNU/GPL. For more
-information see [COPYING.txt](https://github.com/sgerbino/libtable/blob/master/COPYING.txt).
+information see [COPYING.txt](https://github.com/sgerbino/table/blob/master/COPYING.txt).
