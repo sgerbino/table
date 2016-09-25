@@ -18,7 +18,6 @@ add_test(NAME table-callback-test
   COMMAND table_callback_test
   WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
 
-
 add_executable(table_validator_test ${CMAKE_CURRENT_SOURCE_DIR}/table_validator_test.c)
 target_link_libraries(table_validator_test table)
 add_test(NAME table-validator-test
@@ -30,7 +29,6 @@ target_link_libraries(table_sort_test table)
 add_test(NAME table-sort-test
   COMMAND table_sort_test
   WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
-
 
 add_executable(table_binary_search_test ${CMAKE_CURRENT_SOURCE_DIR}/table_binary_search_test.c)
 target_link_libraries(table_binary_search_test table)

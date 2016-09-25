@@ -15,11 +15,16 @@ string(TOLOWER "lib${PROJECT_NAME}" TABLE_PACKAGE_NAME)
 find_program(MEMORYCHECK_COMMAND valgrind)
 set(MEMORYCHECK_COMMAND_OPTIONS "--trace-children=yes --leak-check=full")
 
-find_package(JSON-C REQUIRED)
+include(ExternalProject)
+ExternalProject_Add(
+   json-c
+   SOURCE_DIR "${CMAKE_SOURCE_DIR}/deps/json-c"
+   CMAKE_ARGS -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR})
+set(JSON-C_LIBRARIES ${CMAKE_BINARY_DIR}/lib/${CMAKE_SHARED_MODULE_PREFIX}json-c${CMAKE_STATIC_LIBRARY_SUFFIX})
 
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/include)
 include_directories(${TABLE_INCLUDE_DIR})
 include_directories(${TABLE_GENERATED_INCLUDE_DIR})
-include_directories(${JSON-C_INCLUDE_DIR})
 
 include(CTest)
 include(platform)

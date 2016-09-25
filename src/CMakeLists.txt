@@ -17,5 +17,5 @@ set(TABLE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/table.c
 		
 add_library(table ${TABLE_SOURCES} ${TABLE_HEADERS})
 target_link_libraries(table ${JSON-C_LIBRARIES})
-add_dependencies(table version)
+add_dependencies(table version json-c)
 install(TARGETS table DESTINATION lib)
