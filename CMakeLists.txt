@@ -23,6 +23,7 @@ ExternalProject_Add(
 set(JSON-C_LIBRARIES ${CMAKE_BINARY_DIR}/lib/${CMAKE_SHARED_MODULE_PREFIX}json-c${CMAKE_STATIC_LIBRARY_SUFFIX})
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/include)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/include/json-c)
 include_directories(${TABLE_INCLUDE_DIR})
 include_directories(${TABLE_GENERATED_INCLUDE_DIR})
 
