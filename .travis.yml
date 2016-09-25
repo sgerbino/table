@@ -26,6 +26,7 @@ install:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install valgrind; fi
 
 before_script:
+  - git submodule update --init --recursive
   - cmake -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 
 script:

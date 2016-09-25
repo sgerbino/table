@@ -14,6 +14,7 @@ init:
 
 before_build:
   - cmd: IF "%PLATFORM%" == "x64" (cmake -DCMAKE_BUILD_TYPE=%CMAKE_BUILD_TYPE% -G "Visual Studio 14 2015 Win64") ELSE (cmake -DCMAKE_BUILD_TYPE=%CMAKE_BUILD_TYPE%)
+  - cmd: git submodule update --init --recursive
 
 build_script:
   - cmake --build . --config %CMAKE_BUILD_TYPE%
