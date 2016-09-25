@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <json.h>
 
 /**
  * \brief Table position
@@ -317,10 +318,13 @@ void table_unregister_callback(table *t, table_callback_function func, void *dat
 int table_cell_to_buffer(table *t, int row, int col, char *buf, size_t size);
 int table_cell_from_buffer(table *t, int row, int col, const char *buf);
 
-/* Serialization */
-void table_serialize(table *t, void *buf, size_t len);
-table *table_deserialize(void *buf, size_t len);
+/* JSON */
+json_object *table_to_json_object(table *t);
+const char *table_to_json_string(table *t);
+table* table_from_json_object(json_object *json);
+table* table_from_json_string(const char *json);
 
+/* Comparison */
 table_compare_function table_get_default_compare_function_for_data_type(table_data_type type);
 
 /* Versioning */
@@ -330,4 +334,3 @@ int table_get_patch_version(void);
 const char *table_get_version(void);
 
 #endif /* TABLE_H_ */
-

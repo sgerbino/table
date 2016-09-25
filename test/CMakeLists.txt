@@ -25,14 +25,6 @@ add_test(NAME table-validator-test
   COMMAND table_validator_test
   WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
 
-
-add_executable(table_serialize_test ${CMAKE_CURRENT_SOURCE_DIR}/table_serialize_test.c)
-target_link_libraries(table_serialize_test table)
-add_test(NAME table-serialize-test
-  COMMAND table_serialize_test
-  WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
-
-
 add_executable(table_sort_test ${CMAKE_CURRENT_SOURCE_DIR}/table_sort_test.c)
 target_link_libraries(table_sort_test table)
 add_test(NAME table-sort-test
@@ -56,4 +48,10 @@ add_executable(table_memtest ${CMAKE_CURRENT_SOURCE_DIR}/table_memtest.c)
 target_link_libraries(table_memtest table)
 add_test(NAME table-memtest
   COMMAND table_memtest
+  WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
+
+add_executable(table_json_test ${CMAKE_CURRENT_SOURCE_DIR}/table_json_test.c)
+target_link_libraries(table_json_test table)
+add_test(NAME table-json-test
+  COMMAND table_json_test
   WORKING_DIRECTORY ${CMAKE_BINARY_DIR})

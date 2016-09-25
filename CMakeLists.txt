@@ -15,8 +15,11 @@ string(TOLOWER "lib${PROJECT_NAME}" TABLE_PACKAGE_NAME)
 find_program(MEMORYCHECK_COMMAND valgrind)
 set(MEMORYCHECK_COMMAND_OPTIONS "--trace-children=yes --leak-check=full")
 
+find_package(JSON-C REQUIRED)
+
 include_directories(${TABLE_INCLUDE_DIR})
 include_directories(${TABLE_GENERATED_INCLUDE_DIR})
+include_directories(${JSON-C_INCLUDE_DIR})
 
 include(CTest)
 include(platform)
