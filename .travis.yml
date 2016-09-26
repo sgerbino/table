@@ -22,8 +22,8 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update; fi
   
 install:
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install -qq valgrind rpm autotools-dev autoconf; fi
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install valgrind autoconf automake; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install -qq valgrind rpm; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install valgrind; fi
 
 before_script:
   - git submodule update --init --recursive
