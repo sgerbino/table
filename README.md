@@ -1,8 +1,8 @@
 # table
 
 [![FreeBSD License](https://img.shields.io/:license-freebsd-red.svg)](https://github.com/sgerbino/table/blob/master/COPYING.txt)
-[![Build Status](https://travis-ci.org/sgerbino/table.svg)](https://travis-ci.org/sgerbino/table)
-[![Build Status](https://ci.appveyor.com/api/projects/status/cus5euiynm2dmvum?svg=true)](https://ci.appveyor.com/project/sgerbino/table)
+[![Build Status](https://travis-ci.org/sgerbino/table.svg?branch=master)](https://travis-ci.org/sgerbino/table)
+[![Build Status](https://ci.appveyor.com/api/projects/status/cus5euiynm2dmvum/branch/master?svg=true)](https://ci.appveyor.com/project/sgerbino/table)
 [![Coverity Status](https://scan.coverity.com/projects/7249/badge.svg)](https://scan.coverity.com/projects/sgerbino-table)
 
 ## Table of contents
