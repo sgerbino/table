@@ -29,16 +29,18 @@ int main(int argc, char **argv)
 
 	num_cols = table_get_column_length(t);
 	for (row = 0; row < NUM_ROWS; row++) {
+		size_t pos;
 		size_t data_size = 64;
+		int col;
 		char *data = malloc(data_size);
 
 		/* Random number and valid string */
-		for (size_t pos = 0; pos < data_size - 1; pos++)
+		for (pos = 0; pos < data_size - 1; pos++)
 			data[pos] = rand() % 128;
 		data[data_size - 1] = '\0';
 		
 		table_add_row(t);
-		for (int col = 0; col < num_cols; col++) {
+		for (col = 0; col < num_cols; col++) {
 			table_set(t, row, col, (void*)data, table_get_column_data_type(t, col));
 		}
 		
