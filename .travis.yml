@@ -26,7 +26,7 @@ install:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install valgrind; fi
 
 before_script:
-  - cmake -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+  - cmake -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DTABLE_BUILD_TESTS:BOOL=ON
 
 script:
   - cmake --build . --config ${CMAKE_BUILD_TYPE}

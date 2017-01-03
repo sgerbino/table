@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8)
 project(TABLE C)
 
+set(TABLE_BUILD_TESTS OFF CACHE BOOL "Determines whether table tests are built or not")
+
 set(TABLE_MAINTAINER "Steve Gerbino <steve@gerbino.co>")
 set(TABLE_DESCRIPTION "A C implementation of a relational table with useful features such as sorting, searching, and callback mechanisms.")
 
@@ -18,7 +20,12 @@ set(MEMORYCHECK_COMMAND_OPTIONS "--trace-children=yes --leak-check=full")
 include_directories(${TABLE_INCLUDE_DIR})
 include_directories(${TABLE_GENERATED_INCLUDE_DIR})
 
-include(CTest)
+if(TABLE_BUILD_TESTS)
+	include(CTest)
+	enable_testing()
+	add_subdirectory(test)
+endif(TABLE_BUILD_TESTS)
+
 include(platform)
 include(versioning)
 include(arch)
@@ -27,11 +34,8 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-enable_testing()
-
 add_subdirectory(include)
 add_subdirectory(src)
-add_subdirectory(test)
 
 include(documentation)
 include(packaging)
