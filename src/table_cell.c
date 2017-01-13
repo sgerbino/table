@@ -49,7 +49,7 @@ void table_cell_destroy(table *t, int row_index, int column_index)
  * \param[in] size The buffer size
  * \return A corresponding int
  */
-int table_cell_to_buffer(table *t, int row, int col, char *buf, size_t size)
+int table_cell_to_buffer(const table *t, int row, int col, char *buf, size_t size)
 {
   int retcode = 0;
   switch(table_get_column_data_type(t, col))
@@ -611,7 +611,7 @@ int table_cell_nullify(table *t, int row, int col)
  * \param[in] column_index The table column
  * \return The table cell pointer
  */
-table_cell* table_get_cell_ptr(table *t, int row_index, int column_index)
+table_cell* table_get_cell_ptr(const table *t, int row_index, int column_index)
 {
   table_row *row_ptr = table_get_row_ptr(t, row_index);
   return row_ptr->cells + column_index;

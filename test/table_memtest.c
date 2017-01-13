@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-static void table_callback(table *t, int row, int col, table_event_type event_type, void *data)
+static void callback(table *t, int row, int col, table_event_type event_type, void *data)
 {
    *(table_bitfield*)data |= event_type;
 }
@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 
 	srand((unsigned int)time(&now));
 
-	table_register_callback(t, table_callback, &result, ~0);
+	table_register_callback(t, callback, &result, ~0);
 	
 	for (column_index = 0; column_index < NUM_DATA_TYPES; column_index++) {
 		char name[2] = {0};

@@ -12,10 +12,8 @@ set(TABLE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/table.c
 		  ${CMAKE_CURRENT_SOURCE_DIR}/table_row.c
 		  ${CMAKE_CURRENT_SOURCE_DIR}/table_set.c
 		  ${CMAKE_CURRENT_SOURCE_DIR}/table_sort.c
-		  ${CMAKE_CURRENT_SOURCE_DIR}/table_validator.c
-                  ${CMAKE_CURRENT_SOURCE_DIR}/table_serialize.c
-                  ${CMAKE_CURRENT_SOURCE_DIR}/table_deserialize.c)
-		
+		  ${CMAKE_CURRENT_SOURCE_DIR}/table_validator.c)
+
 add_library(table ${TABLE_SOURCES} ${TABLE_HEADERS})
 add_dependencies(table version)
 install(TARGETS table DESTINATION lib)

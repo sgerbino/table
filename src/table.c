@@ -367,7 +367,7 @@ table *table_dupe(table *t)
  * \brief Retrieve the table major version
  * \return The major version of the table library
  */
-int table_get_major_version(void)
+unsigned int table_get_major_version(void)
 {
   return TABLE_MAJOR_VERSION;
 }
@@ -376,7 +376,7 @@ int table_get_major_version(void)
  * \brief Retrieve the table minor version
  * \return The minor version of the table library
  */
-int table_get_minor_version(void)
+unsigned int table_get_minor_version(void)
 {
   return TABLE_MINOR_VERSION;
 }
@@ -385,7 +385,7 @@ int table_get_minor_version(void)
  * \brief Retrieve the table patch version
  * \return The patch version of the table library
  */
-int table_get_patch_version(void)
+unsigned int table_get_patch_version(void)
 {
   return TABLE_PATCH_VERSION;
 }

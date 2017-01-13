@@ -13,7 +13,7 @@
  * \param[in] col The table column
  * \return The cells raw pointer value
  */
-void *table_get(table *t, int row, int col)
+void *table_get(const table *t, int row, int col)
 {
   return table_get_cell_ptr(t, row, col)->value;
 }
@@ -25,7 +25,7 @@ void *table_get(table *t, int row, int col)
  * \param[in] col The table column
  * \return The boolean value
  */
-bool table_get_bool(table *t, int row, int col)
+bool table_get_bool(const table *t, int row, int col)
 {
   return *((bool*)table_get(t, row, col));
 }
@@ -37,7 +37,7 @@ bool table_get_bool(table *t, int row, int col)
  * \param[in] col The table column
  * \return The integer value
  */
-int table_get_int(table *t, int row, int col)
+int table_get_int(const table *t, int row, int col)
 {
   return *((int*)table_get(t, row, col));
 }
@@ -49,7 +49,7 @@ int table_get_int(table *t, int row, int col)
  * \param[in] col The table column
  * \return The unsigned integer value
  */
-unsigned int table_get_uint(table *t, int row, int col)
+unsigned int table_get_uint(const table *t, int row, int col)
 {
   return *((unsigned int*)table_get(t, row, col));
 }
@@ -61,7 +61,7 @@ unsigned int table_get_uint(table *t, int row, int col)
  * \param[in] col The table column
  * \return The 8-bit integer value
  */
-int8_t table_get_int8(table *t, int row, int col)
+int8_t table_get_int8(const table *t, int row, int col)
 {
   return *((int8_t*)table_get(t, row, col));
 }
@@ -73,7 +73,7 @@ int8_t table_get_int8(table *t, int row, int col)
  * \param[in] col The table column
  * \return The unsigned 8-bit integer value
  */
-uint8_t table_get_uint8(table *t, int row, int col)
+uint8_t table_get_uint8(const table *t, int row, int col)
 {
   return *((uint8_t*)table_get(t, row, col));
 }
@@ -85,7 +85,7 @@ uint8_t table_get_uint8(table *t, int row, int col)
  * \param[in] col The table column
  * \return The 16-bit integer value
  */
-int16_t table_get_int16(table *t, int row, int col)
+int16_t table_get_int16(const table *t, int row, int col)
 {
   return *((int16_t*)table_get(t, row, col));
 }
@@ -97,7 +97,7 @@ int16_t table_get_int16(table *t, int row, int col)
  * \param[in] col The table column
  * \return The unsigned 16-bit integer value
  */
-uint16_t table_get_uint16(table *t, int row, int col)
+uint16_t table_get_uint16(const table *t, int row, int col)
 {
   return *((uint16_t*)table_get(t, row, col));
 }
@@ -109,7 +109,7 @@ uint16_t table_get_uint16(table *t, int row, int col)
  * \param[in] col The table column
  * \return The 32-bit integer value
  */
-int32_t table_get_int32(table *t, int row, int col)
+int32_t table_get_int32(const table *t, int row, int col)
 {
   return *((int32_t*)table_get(t, row, col));
 }
@@ -121,7 +121,7 @@ int32_t table_get_int32(table *t, int row, int col)
  * \param[in] col The table column
  * \return The unsigned 32-bit integer value
  */
-uint32_t table_get_uint32(table *t, int row, int col)
+uint32_t table_get_uint32(const table *t, int row, int col)
 {
   return *((uint32_t*)table_get(t, row, col));
 }
@@ -133,7 +133,7 @@ uint32_t table_get_uint32(table *t, int row, int col)
  * \param[in] col The table column
  * \return The 64-bit integer value
  */
-int64_t table_get_int64(table *t, int row, int col)
+int64_t table_get_int64(const table *t, int row, int col)
 {
   return *((int64_t*)table_get(t, row, col));
 }
@@ -145,7 +145,7 @@ int64_t table_get_int64(table *t, int row, int col)
  * \param[in] col The table column
  * \return The unsigned 64-bit integer value
  */
-uint64_t table_get_uint64(table *t, int row, int col)
+uint64_t table_get_uint64(const table *t, int row, int col)
 {
   return *((uint64_t*)table_get(t, row, col));
 }
@@ -157,7 +157,7 @@ uint64_t table_get_uint64(table *t, int row, int col)
  * \param[in] col The table column
  * \return The short value
  */
-short table_get_short(table *t, int row, int col)
+short table_get_short(const table *t, int row, int col)
 {
   return *((short*)table_get(t, row, col));
 }
@@ -169,7 +169,7 @@ short table_get_short(table *t, int row, int col)
  * \param[in] col The table column
  * \return The unsigned short value
  */
-unsigned short table_get_ushort(table *t, int row, int col)
+unsigned short table_get_ushort(const table *t, int row, int col)
 {
   return *((unsigned short*)table_get(t, row, col));
 }
@@ -181,7 +181,7 @@ unsigned short table_get_ushort(table *t, int row, int col)
  * \param[in] col The table column
  * \return The long value
  */
-long table_get_long(table *t, int row, int col)
+long table_get_long(const table *t, int row, int col)
 {
   return *((long*)table_get(t, row, col));
 }
@@ -193,7 +193,7 @@ long table_get_long(table *t, int row, int col)
  * \param[in] col The table column
  * \return The unsigned long value
  */
-unsigned long table_get_ulong(table *t, int row, int col)
+unsigned long table_get_ulong(const table *t, int row, int col)
 {
   return *((unsigned long*)table_get(t, row, col));
 }
@@ -205,7 +205,7 @@ unsigned long table_get_ulong(table *t, int row, int col)
  * \param[in] col The table column
  * \return The long long value
  */
-long long table_get_llong(table *t, int row, int col)
+long long table_get_llong(const table *t, int row, int col)
 {
   return *((long long*)table_get(t, row, col));
 }
@@ -217,7 +217,7 @@ long long table_get_llong(table *t, int row, int col)
  * \param[in] col The table column
  * \return The unsigned long long value
  */
-unsigned long long table_get_ullong(table *t, int row, int col)
+unsigned long long table_get_ullong(const table *t, int row, int col)
 {
   return *((unsigned long long*)table_get(t, row, col));
 }
@@ -229,7 +229,7 @@ unsigned long long table_get_ullong(table *t, int row, int col)
  * \param[in] col The table column
  * \return The float value
  */
-float table_get_float(table *t, int row, int col)
+float table_get_float(const table *t, int row, int col)
 {
   return *((float*)table_get(t, row, col));
 }
@@ -241,7 +241,7 @@ float table_get_float(table *t, int row, int col)
  * \param[in] col The table column
  * \return The double value
  */
-double table_get_double(table *t, int row, int col)
+double table_get_double(const table *t, int row, int col)
 {
   return *((double*)table_get(t, row, col));
 }
@@ -253,7 +253,7 @@ double table_get_double(table *t, int row, int col)
  * \param[in] col The table column
  * \return The long double value
  */
-long double table_get_ldouble(table *t, int row, int col)
+long double table_get_ldouble(const table *t, int row, int col)
 {
   return *((long double*)table_get(t, row, col));
 }
@@ -265,7 +265,7 @@ long double table_get_ldouble(table *t, int row, int col)
  * \param[in] col The table column
  * \return The char value
  */
-char table_get_char(table *t, int row, int col)
+char table_get_char(const table *t, int row, int col)
 {
   return *((char*)table_get(t, row, col));
 }
@@ -277,7 +277,7 @@ char table_get_char(table *t, int row, int col)
  * \param[in] col The table column
  * \return The unsigned char value
  */
-unsigned char table_get_uchar(table *t, int row, int col)
+unsigned char table_get_uchar(const table *t, int row, int col)
 {
   return *((unsigned char*)table_get(t, row, col));
 }
@@ -289,7 +289,7 @@ unsigned char table_get_uchar(table *t, int row, int col)
  * \param[in] col The table column
  * \return The string value
  */
-const char* table_get_string(table *t, int row, int col)
+const char* table_get_string(const table *t, int row, int col)
 {
   return (const char*)table_get(t, row, col);
 }
@@ -301,7 +301,7 @@ const char* table_get_string(table *t, int row, int col)
  * \param[in] col The table column
  * \return The pointer value
  */
-void* table_get_ptr(table *t, int row, int col)
+void* table_get_ptr(const table *t, int row, int col)
 {
   return table_get(t, row, col);
 }

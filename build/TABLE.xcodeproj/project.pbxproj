@@ -1,0 +1,3755 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		1A8C155E62C846B8B24AACE7 /* version */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D1A60B20B39B487693E9B065 /* Build configuration list for PBXAggregateTarget "version" */;
+			buildPhases = (
+				FDEBC59AA06141698071AB6F /* CMake Rules */,
+			);
+			dependencies = (
+				473770E5043F49D384DF6E75 /* PBXTargetDependency */,
+			);
+			name = version;
+			productName = version;
+		};
+		2102B1078F65433799AE29D9 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = BF62C8A7562F4A2FAC3C2E4F /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				9279B8DEF0064B01BC684518 /* CMake Rules */,
+			);
+			dependencies = (
+				888A6FD9F2E64843A7BBE8B3 /* PBXTargetDependency */,
+				5AFA60EE7D9D4FD284EA1B43 /* PBXTargetDependency */,
+				A1779987EECE4A628F6975E4 /* PBXTargetDependency */,
+				E04E1C374E8841CBB5860AD4 /* PBXTargetDependency */,
+				2C34686431D24917B90C65DD /* PBXTargetDependency */,
+				273D3E5E91A7413DBA437EDF /* PBXTargetDependency */,
+				6BEEA7048A5C40BE977092DA /* PBXTargetDependency */,
+				7241775D77114D8CA00B1961 /* PBXTargetDependency */,
+				3925B6F6C86D44648C72A55D /* PBXTargetDependency */,
+				44E6A33270D0417E8B02D0DB /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		2E31CFC6FE794034B746116D /* doc */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 94EF0A2E27384C9B8E162DB0 /* Build configuration list for PBXAggregateTarget "doc" */;
+			buildPhases = (
+				E0333721CEDA4EDFBB73C98A /* CMake Rules */,
+			);
+			dependencies = (
+				7524138485F54910B1AB81CF /* PBXTargetDependency */,
+			);
+			name = doc;
+			productName = doc;
+		};
+		370E0BC2BA43470DB1DC3235 /* Nightly */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9B52C33EFF08494B950E7116 /* Build configuration list for PBXAggregateTarget "Nightly" */;
+			buildPhases = (
+				96492E17737746B3895200C3 /* CMake Rules */,
+			);
+			dependencies = (
+				D2FCEEA89CC746ED8B5E8A9D /* PBXTargetDependency */,
+			);
+			name = Nightly;
+			productName = Nightly;
+		};
+		748872BAF82E40B4B68B3081 /* RUN_TESTS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3DC996E4781548E3AD807705 /* Build configuration list for PBXAggregateTarget "RUN_TESTS" */;
+			buildPhases = (
+				ED29D67508F24D5D9804B8D5 /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+			);
+			name = RUN_TESTS;
+			productName = RUN_TESTS;
+		};
+		958845AF3B8B4A11AB79FBE1 /* NightlyMemoryCheck */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 27F7335791F242F28530069F /* Build configuration list for PBXAggregateTarget "NightlyMemoryCheck" */;
+			buildPhases = (
+				0F69789EC8A94669B6DDE930 /* CMake Rules */,
+			);
+			dependencies = (
+				22C9BE5B0C69405B96E12AFC /* PBXTargetDependency */,
+			);
+			name = NightlyMemoryCheck;
+			productName = NightlyMemoryCheck;
+		};
+		9E21A9CBF2A8423F9B0136A7 /* package */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 62DA9D35422441BBBBF6333B /* Build configuration list for PBXAggregateTarget "package" */;
+			buildPhases = (
+				64B30A137C3E46B6BF737DC1 /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+				AEE604B88DDB4791802C9DB0 /* PBXTargetDependency */,
+			);
+			name = package;
+			productName = package;
+		};
+		A3E4116A42094D469B9D0F61 /* Continuous */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F3111551F34F4B728041E9B7 /* Build configuration list for PBXAggregateTarget "Continuous" */;
+			buildPhases = (
+				859D6B53F9884B33A76173ED /* CMake Rules */,
+			);
+			dependencies = (
+				E59BCAD5DAFB43F9AE05D4D9 /* PBXTargetDependency */,
+			);
+			name = Continuous;
+			productName = Continuous;
+		};
+		B3C92B3BA23D480781E6383C /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 35AD28F9C55845AC8E6F5332 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				FF10F16FDA764D75A24ACBEC /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		C1D5A661C1B1403CB0D0A75B /* Experimental */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 5D0E248718C944E5AF212A1D /* Build configuration list for PBXAggregateTarget "Experimental" */;
+			buildPhases = (
+				1F9820E816CB41818FB72933 /* CMake Rules */,
+			);
+			dependencies = (
+				38AA1E69963E40D499968711 /* PBXTargetDependency */,
+			);
+			name = Experimental;
+			productName = Experimental;
+		};
+		DD6377508DB24024B7B43A0E /* install */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9EB9D02D865C4BE7AC48122A /* Build configuration list for PBXAggregateTarget "install" */;
+			buildPhases = (
+				ABDBBE09DB314E1B8C0ECEE9 /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+				66ED37AB6B224E7DAC911300 /* PBXTargetDependency */,
+			);
+			name = install;
+			productName = install;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		09A4900DB9DF4117958F8503 /* /Users/sgerbino/Workspace/table/src/table_get.c */ = {isa = PBXBuildFile; fileRef = 489FAB719750414F9B0F7C9A /* /Users/sgerbino/Workspace/table/src/table_get.c */; };
+		0E04C357B0594628B70C66DC /* /Users/sgerbino/Workspace/table/src/table_column.c */ = {isa = PBXBuildFile; fileRef = 1D1383526EFA43ADAC4AC704 /* /Users/sgerbino/Workspace/table/src/table_column.c */; };
+		164F45E80FD448A389CC0B2F /* /Users/sgerbino/Workspace/table/test/table_validator_test.c */ = {isa = PBXBuildFile; fileRef = BE0C500549F643708401A34F /* /Users/sgerbino/Workspace/table/test/table_validator_test.c */; };
+		1B43B8563B9E49A2816B1B7A /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 094DE48611864081ADB6E396 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */; };
+		261A3DD350B44767BEF6FACB /* /Users/sgerbino/Workspace/table/src/table_cell.c */ = {isa = PBXBuildFile; fileRef = F754FDC2ED8741079D4BB3CE /* /Users/sgerbino/Workspace/table/src/table_cell.c */; };
+		31A9B714D1B94D56A82ED065 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 6E01CBDE5F6D402FBBF2621B /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */; };
+		34CD4EBF6F3944768F9158E8 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = B36647A5D17C46C084839493 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */; };
+		373CF82D623345958730CB8E /* /Users/sgerbino/Workspace/table/src/table_row.c */ = {isa = PBXBuildFile; fileRef = 3BB7612510D5400CA4A552BB /* /Users/sgerbino/Workspace/table/src/table_row.c */; };
+		3BEAA5B56260428EA3C180AC /* /Users/sgerbino/Workspace/table/src/table_validator.c */ = {isa = PBXBuildFile; fileRef = B6AA14676B5F49499967E5C1 /* /Users/sgerbino/Workspace/table/src/table_validator.c */; };
+		42FAC7D9B53D409CA7BBA2EB /* /Users/sgerbino/Workspace/table/src/table_defs.h */ = {isa = PBXBuildFile; fileRef = 75452C3D09E0439E80599629 /* /Users/sgerbino/Workspace/table/src/table_defs.h */; };
+		4B7640B2845E4E47AC67B9CA /* /Users/sgerbino/Workspace/table/src/table_find.c */ = {isa = PBXBuildFile; fileRef = 43188881A85C4862BCD104D0 /* /Users/sgerbino/Workspace/table/src/table_find.c */; };
+		4C90A303867E4B43A9B9214D /* /Users/sgerbino/Workspace/table/src/table_sort.c */ = {isa = PBXBuildFile; fileRef = FA28DDE17C5444E98A7F772E /* /Users/sgerbino/Workspace/table/src/table_sort.c */; };
+		4D16ADD149064B5B88AF624E /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = BC2C5A0A616E4442AF8FA3F3 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */; };
+		5E6C947F2B264DB4B8DCFE16 /* /Users/sgerbino/Workspace/table/src/table.c */ = {isa = PBXBuildFile; fileRef = 3F821A17C36E46679B51C19C /* /Users/sgerbino/Workspace/table/src/table.c */; };
+		6104E316A5A1490B92859D51 /* /Users/sgerbino/Workspace/table/test/table_row_test.c */ = {isa = PBXBuildFile; fileRef = BB6D417EE9C143B28BFC4482 /* /Users/sgerbino/Workspace/table/test/table_row_test.c */; };
+		66C55A50247A4DBB95133896 /* /Users/sgerbino/Workspace/table/test/table_callback_test.c */ = {isa = PBXBuildFile; fileRef = E31F2255247546E99C78C029 /* /Users/sgerbino/Workspace/table/test/table_callback_test.c */; };
+		7577E1F9C6874CAAA74A2775 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 9FB84E967D6F4405970C985F /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */; };
+		83191AF5A7664B06A1EDF614 /* /Users/sgerbino/Workspace/table/src/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 6AF24AB9A528463A961AF027 /* /Users/sgerbino/Workspace/table/src/CMakeLists.txt */; };
+		86D9B28C9D03431DA6730584 /* /Users/sgerbino/Workspace/table/test/table_version_test.c */ = {isa = PBXBuildFile; fileRef = B192E17F56B34DF38D3EFE81 /* /Users/sgerbino/Workspace/table/test/table_version_test.c */; };
+		91EFC4B90D8344EFA0076850 /* /Users/sgerbino/Workspace/table/test/table_column_test.c */ = {isa = PBXBuildFile; fileRef = C4BE9038A03F4AEBA5CB6086 /* /Users/sgerbino/Workspace/table/test/table_column_test.c */; };
+		A0D2C9CB647044DCA465F312 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = EA0F8B6EA9754724A6EF333A /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */; };
+		A5F427A47B75484EB2D5C476 /* /Users/sgerbino/Workspace/table/build/include/version.h */ = {isa = PBXBuildFile; fileRef = 155E36B7AD494010A0EA1BB1 /* /Users/sgerbino/Workspace/table/build/include/version.h */; };
+		B5846091B23C4368B07215FC /* /Users/sgerbino/Workspace/table/src/table_compare.c */ = {isa = PBXBuildFile; fileRef = 6958D22C4CDF4BCB87ED3858 /* /Users/sgerbino/Workspace/table/src/table_compare.c */; };
+		B991D90B515A46D396FD3372 /* /Users/sgerbino/Workspace/table/src/table_set.c */ = {isa = PBXBuildFile; fileRef = 3C17FBBF012E459FA15AC5CE /* /Users/sgerbino/Workspace/table/src/table_set.c */; };
+		C8C2D7C00A8C46F3A8DC038D /* /Users/sgerbino/Workspace/table/test/table_binary_search_test.c */ = {isa = PBXBuildFile; fileRef = E28F093D02334BF78A94C8E8 /* /Users/sgerbino/Workspace/table/test/table_binary_search_test.c */; };
+		CECFAC4DF60F4F2E980B3E28 /* /Users/sgerbino/Workspace/table/src/table_callback.c */ = {isa = PBXBuildFile; fileRef = ADC4B4058F284EF386AAA370 /* /Users/sgerbino/Workspace/table/src/table_callback.c */; };
+		CF958FF6FED74D59B3427FB6 /* /Users/sgerbino/Workspace/table/include/table.h */ = {isa = PBXBuildFile; fileRef = 650E4A2A19A14081A0DD0381 /* /Users/sgerbino/Workspace/table/include/table.h */; };
+		EA5A4E0B81B0418BAAE7E271 /* /Users/sgerbino/Workspace/table/test/table_memtest.c */ = {isa = PBXBuildFile; fileRef = AEC556FD6BA3412B93D3729D /* /Users/sgerbino/Workspace/table/test/table_memtest.c */; };
+		EBD03F5AA941447AB76FD499 /* /Users/sgerbino/Workspace/table/test/table_sort_test.c */ = {isa = PBXBuildFile; fileRef = 8D98CA69D080487CBB1FEAC3 /* /Users/sgerbino/Workspace/table/test/table_sort_test.c */; };
+		F5E71CFBB30B42BF80F5B308 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = D20E87FF7576494787023092 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */; };
+		F7AA98F1854F4C99A6964141 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = B5FB1FEB7DE849669CFCCDB6 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		0F1DB41421F34A11A9F31CAA /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		1DB26B2D59FB479E8252880D /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		3B3A96CB4704448296EA3736 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		73B7658442EF422A9EC2A781 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		9258568D2EB84BFF93C05898 = {
+			isa = PBXBuildStyle;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		02896F3380AC41B2B1735B68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		0ACE809E7F5748C7BD46FCF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBF7BC92551B4A86BC76D20A;
+			remoteInfo = table_memtest;
+		};
+		1AA7ADCB5EAD4BE580AF04BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D10A33E00D4ABDAE9439CA;
+			remoteInfo = table;
+		};
+		1C2E7A8146904BBAB6F3A1C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		2B87918A8E2044D8AE9285A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		40866054A78C409BA4C456C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		445465F30F9442AFBD5F5A5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F244B5A4961641F487CF6A3C;
+			remoteInfo = table_validator_test;
+		};
+		44DF1ED36A30417EA3C07889 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		4A61281D890446C29AA83637 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		66BE9E12D27B4F51BD3FAC10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F418874AC06B44B280A46B86;
+			remoteInfo = table_binary_search_test;
+		};
+		68D61F7BA09949D08ACCA7B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		6FAED9EDD85340539F67A300 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A8C155E62C846B8B24AACE7;
+			remoteInfo = version;
+		};
+		724EA2E9822644D1BB0173DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D10A33E00D4ABDAE9439CA;
+			remoteInfo = table;
+		};
+		77504187B7804B6D8F63E0B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D10A33E00D4ABDAE9439CA;
+			remoteInfo = table;
+		};
+		7AB351CA50CC45B298F97D1C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		7EDDBB3828CD44449506D4F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		8327FCBA49D341A187EF1A38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		9232FBA12CD54305BD7CEFBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2102B1078F65433799AE29D9;
+			remoteInfo = ALL_BUILD;
+		};
+		958133F23A8A4E69A732426A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C2BB2692FB14043A6E7000B;
+			remoteInfo = table_callback_test;
+		};
+		9BAE668725DA4241A568F573 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D10A33E00D4ABDAE9439CA;
+			remoteInfo = table;
+		};
+		A1359A2DBC35442F9D1EBB5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC8E6B36413440B3951BED66;
+			remoteInfo = table_version_test;
+		};
+		A57C9DC6A5E544428E65E38F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		AA5C5997DC414113B164D664 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		AD5D82A16A34440DB53C80A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C81DAD43BD60487FBDC16B5D;
+			remoteInfo = table_column_test;
+		};
+		AEEC1C18DDD34DFC9D610854 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D10A33E00D4ABDAE9439CA;
+			remoteInfo = table;
+		};
+		AF4BF31DD749420C899506D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		B1174B5B3E834EEA84DCD1C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C646F42CC48749269B1A98CC;
+			remoteInfo = table_row_test;
+		};
+		C3D6CCE95A49453B8E484B88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0B81371E4F44CA887DE31A7;
+			remoteInfo = table_sort_test;
+		};
+		C4408EABB477436592A220F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D10A33E00D4ABDAE9439CA;
+			remoteInfo = table;
+		};
+		CCF278D07F1A4FCAA48739CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D10A33E00D4ABDAE9439CA;
+			remoteInfo = table;
+		};
+		D770E09F61D14C4B8C22E223 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		D8464D8C7B8647A694BEFDB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D10A33E00D4ABDAE9439CA;
+			remoteInfo = table;
+		};
+		F1B49A134CEE49D3B2734797 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D10A33E00D4ABDAE9439CA;
+			remoteInfo = table;
+		};
+		F49FD62BBC874C8B83E159C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+		F601A80FA05B4427B352F8B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2102B1078F65433799AE29D9;
+			remoteInfo = ALL_BUILD;
+		};
+		FDCD945AD0814BDB87776539 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5055FDCE2413AB457EB13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C92B3BA23D480781E6383C;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0531989D65AE47CFADFF87AE /* /Users/sgerbino/Workspace/table/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		094DE48611864081ADB6E396 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = test/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		1416BCF49FDB444DAC923B2D /* /Users/sgerbino/Workspace/table/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		155E36B7AD494010A0EA1BB1 /* /Users/sgerbino/Workspace/table/build/include/version.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = version.h; path = build/include/version.h; sourceTree = SOURCE_ROOT; };
+		17B18D9766A5433B90AF5EE4 /* /Users/sgerbino/Workspace/table/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		1D1383526EFA43ADAC4AC704 /* /Users/sgerbino/Workspace/table/src/table_column.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_column.c; path = src/table_column.c; sourceTree = SOURCE_ROOT; };
+		3BB7612510D5400CA4A552BB /* /Users/sgerbino/Workspace/table/src/table_row.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_row.c; path = src/table_row.c; sourceTree = SOURCE_ROOT; };
+		3C17FBBF012E459FA15AC5CE /* /Users/sgerbino/Workspace/table/src/table_set.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_set.c; path = src/table_set.c; sourceTree = SOURCE_ROOT; };
+		3F821A17C36E46679B51C19C /* /Users/sgerbino/Workspace/table/src/table.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table.c; path = src/table.c; sourceTree = SOURCE_ROOT; };
+		43188881A85C4862BCD104D0 /* /Users/sgerbino/Workspace/table/src/table_find.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_find.c; path = src/table_find.c; sourceTree = SOURCE_ROOT; };
+		489FAB719750414F9B0F7C9A /* /Users/sgerbino/Workspace/table/src/table_get.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_get.c; path = src/table_get.c; sourceTree = SOURCE_ROOT; };
+		49BAD97F612543BA8E5F26F8 /* table_sort_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = table_sort_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		64516893DA934A7CB15189A3 /* /Users/sgerbino/Workspace/table/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		650E4A2A19A14081A0DD0381 /* /Users/sgerbino/Workspace/table/include/table.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = table.h; path = include/table.h; sourceTree = SOURCE_ROOT; };
+		672A43FDFB7D4D86BE635220 /* table_row_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = table_row_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		6958D22C4CDF4BCB87ED3858 /* /Users/sgerbino/Workspace/table/src/table_compare.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_compare.c; path = src/table_compare.c; sourceTree = SOURCE_ROOT; };
+		6AF24AB9A528463A961AF027 /* /Users/sgerbino/Workspace/table/src/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = src/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		6E01CBDE5F6D402FBBF2621B /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = test/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		75452C3D09E0439E80599629 /* /Users/sgerbino/Workspace/table/src/table_defs.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = table_defs.h; path = src/table_defs.h; sourceTree = SOURCE_ROOT; };
+		77D0DB0A72C345E3AD2FBFB6 /* table_binary_search_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = table_binary_search_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B30E0825FCA4CA89664230B /* table */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libtable.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D786255954842E3BFF09F82 /* /Users/sgerbino/Workspace/table/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		89DC79878E7D4608B413D431 /* /Users/sgerbino/Workspace/table/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		8D98CA69D080487CBB1FEAC3 /* /Users/sgerbino/Workspace/table/test/table_sort_test.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_sort_test.c; path = test/table_sort_test.c; sourceTree = SOURCE_ROOT; };
+		90C1D797A8F245FCA6E2F0F1 /* table_memtest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = table_memtest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FB84E967D6F4405970C985F /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = test/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		A195DB2C258F4B3DA921EBFE /* table_column_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = table_column_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADC4B4058F284EF386AAA370 /* /Users/sgerbino/Workspace/table/src/table_callback.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_callback.c; path = src/table_callback.c; sourceTree = SOURCE_ROOT; };
+		AEC556FD6BA3412B93D3729D /* /Users/sgerbino/Workspace/table/test/table_memtest.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_memtest.c; path = test/table_memtest.c; sourceTree = SOURCE_ROOT; };
+		B192E17F56B34DF38D3EFE81 /* /Users/sgerbino/Workspace/table/test/table_version_test.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_version_test.c; path = test/table_version_test.c; sourceTree = SOURCE_ROOT; };
+		B36647A5D17C46C084839493 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = test/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		B5FB1FEB7DE849669CFCCDB6 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = test/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		B6AA14676B5F49499967E5C1 /* /Users/sgerbino/Workspace/table/src/table_validator.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_validator.c; path = src/table_validator.c; sourceTree = SOURCE_ROOT; };
+		B85B129E604F4DE7B6416A75 /* table_validator_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = table_validator_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB6D417EE9C143B28BFC4482 /* /Users/sgerbino/Workspace/table/test/table_row_test.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_row_test.c; path = test/table_row_test.c; sourceTree = SOURCE_ROOT; };
+		BC2C5A0A616E4442AF8FA3F3 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = test/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		BE0C500549F643708401A34F /* /Users/sgerbino/Workspace/table/test/table_validator_test.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_validator_test.c; path = test/table_validator_test.c; sourceTree = SOURCE_ROOT; };
+		C4BE9038A03F4AEBA5CB6086 /* /Users/sgerbino/Workspace/table/test/table_column_test.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_column_test.c; path = test/table_column_test.c; sourceTree = SOURCE_ROOT; };
+		CEDCFBE84B3A4EDBBC791A91 /* table_version_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = table_version_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		D20E87FF7576494787023092 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = test/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		E1DBCA6DDA5F4BBD9CB47A53 /* /Users/sgerbino/Workspace/table/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		E28F093D02334BF78A94C8E8 /* /Users/sgerbino/Workspace/table/test/table_binary_search_test.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_binary_search_test.c; path = test/table_binary_search_test.c; sourceTree = SOURCE_ROOT; };
+		E31F2255247546E99C78C029 /* /Users/sgerbino/Workspace/table/test/table_callback_test.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_callback_test.c; path = test/table_callback_test.c; sourceTree = SOURCE_ROOT; };
+		E3BF1EED308E48CDA3BBD375 /* table_callback_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = table_callback_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		E76E1947E0174F06B463E634 /* /Users/sgerbino/Workspace/table/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		EA0F8B6EA9754724A6EF333A /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = test/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		F754FDC2ED8741079D4BB3CE /* /Users/sgerbino/Workspace/table/src/table_cell.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_cell.c; path = src/table_cell.c; sourceTree = SOURCE_ROOT; };
+		FA28DDE17C5444E98A7F772E /* /Users/sgerbino/Workspace/table/src/table_sort.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = table_sort.c; path = src/table_sort.c; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		075FF7D41A5B4EC1A39EFD03 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE0C500549F643708401A34F /* /Users/sgerbino/Workspace/table/test/table_validator_test.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		081E478D2CAE4E11AB829144 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		118330E993A6492B994FC50C /* table_sort_test */ = {
+			isa = PBXGroup;
+			children = (
+				5AE26D06004041648020D64F /* Source Files */,
+				BC2C5A0A616E4442AF8FA3F3 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */,
+			);
+			name = table_sort_test;
+			sourceTree = "<group>";
+		};
+		1502E466FCAC44F8B6ACD672 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		15E77E489DD14CF9A4CECB56 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				155E36B7AD494010A0EA1BB1 /* /Users/sgerbino/Workspace/table/build/include/version.h */,
+				650E4A2A19A14081A0DD0381 /* /Users/sgerbino/Workspace/table/include/table.h */,
+				75452C3D09E0439E80599629 /* /Users/sgerbino/Workspace/table/src/table_defs.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		19EF274D1CD44910ADE5DEB9 = {
+			isa = PBXGroup;
+			children = (
+				B445911892F4431E8CDA9F88 /* Sources */,
+				62422EA6F0CC4CAFA340E2AC /* Resources */,
+				D934E21972D04C4EB10369FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		27B326359B1D498FB2ED5831 /* NightlyMemoryCheck */ = {
+			isa = PBXGroup;
+			children = (
+				D3AED23FCE2E4F01A0EAD347 /* CMake Rules */,
+				17B18D9766A5433B90AF5EE4 /* /Users/sgerbino/Workspace/table/CMakeLists.txt */,
+			);
+			name = NightlyMemoryCheck;
+			sourceTree = "<group>";
+		};
+		28673A2CFCB643CE9DB8BB85 /* CTestDashboardTargets */ = {
+			isa = PBXGroup;
+			children = (
+				27B326359B1D498FB2ED5831 /* NightlyMemoryCheck */,
+				A2278CFABF1D4505929A66F2 /* Nightly */,
+				C9F1923C14D54645BF5D302B /* Continuous */,
+				60C43627B90B40FB921A6D51 /* Experimental */,
+			);
+			name = CTestDashboardTargets;
+			sourceTree = "<group>";
+		};
+		352B9A4AC6AA425696508DA7 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				081E478D2CAE4E11AB829144 /* CMake Rules */,
+				0531989D65AE47CFADFF87AE /* /Users/sgerbino/Workspace/table/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		3969075DEA1D44049C915185 /* table_row_test */ = {
+			isa = PBXGroup;
+			children = (
+				9F7BAABF79934440A2464625 /* Source Files */,
+				B36647A5D17C46C084839493 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */,
+			);
+			name = table_row_test;
+			sourceTree = "<group>";
+		};
+		3E4C153664C04DA8B8C46095 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F821A17C36E46679B51C19C /* /Users/sgerbino/Workspace/table/src/table.c */,
+				ADC4B4058F284EF386AAA370 /* /Users/sgerbino/Workspace/table/src/table_callback.c */,
+				F754FDC2ED8741079D4BB3CE /* /Users/sgerbino/Workspace/table/src/table_cell.c */,
+				1D1383526EFA43ADAC4AC704 /* /Users/sgerbino/Workspace/table/src/table_column.c */,
+				6958D22C4CDF4BCB87ED3858 /* /Users/sgerbino/Workspace/table/src/table_compare.c */,
+				43188881A85C4862BCD104D0 /* /Users/sgerbino/Workspace/table/src/table_find.c */,
+				489FAB719750414F9B0F7C9A /* /Users/sgerbino/Workspace/table/src/table_get.c */,
+				3BB7612510D5400CA4A552BB /* /Users/sgerbino/Workspace/table/src/table_row.c */,
+				3C17FBBF012E459FA15AC5CE /* /Users/sgerbino/Workspace/table/src/table_set.c */,
+				FA28DDE17C5444E98A7F772E /* /Users/sgerbino/Workspace/table/src/table_sort.c */,
+				B6AA14676B5F49499967E5C1 /* /Users/sgerbino/Workspace/table/src/table_validator.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		4140C1865FB24E708BDE3E3C /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		4F6BC798B9714CBD8173412A /* table_memtest */ = {
+			isa = PBXGroup;
+			children = (
+				A698E561271A4DF6A9514731 /* Source Files */,
+				9FB84E967D6F4405970C985F /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */,
+			);
+			name = table_memtest;
+			sourceTree = "<group>";
+		};
+		53906B87ABB442F9A937DCC8 /* table_version_test */ = {
+			isa = PBXGroup;
+			children = (
+				6BED44B2593E48AF83B2CF01 /* Source Files */,
+				EA0F8B6EA9754724A6EF333A /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */,
+			);
+			name = table_version_test;
+			sourceTree = "<group>";
+		};
+		5AE26D06004041648020D64F /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				8D98CA69D080487CBB1FEAC3 /* /Users/sgerbino/Workspace/table/test/table_sort_test.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		5E369A4C98524621A30222A4 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				C4BE9038A03F4AEBA5CB6086 /* /Users/sgerbino/Workspace/table/test/table_column_test.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		60C43627B90B40FB921A6D51 /* Experimental */ = {
+			isa = PBXGroup;
+			children = (
+				1502E466FCAC44F8B6ACD672 /* CMake Rules */,
+				E76E1947E0174F06B463E634 /* /Users/sgerbino/Workspace/table/CMakeLists.txt */,
+			);
+			name = Experimental;
+			sourceTree = "<group>";
+		};
+		62422EA6F0CC4CAFA340E2AC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6BED44B2593E48AF83B2CF01 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				B192E17F56B34DF38D3EFE81 /* /Users/sgerbino/Workspace/table/test/table_version_test.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		79E2714FC4E540C48DE652F7 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				D9DE1E8A253D475CB92E529E /* CMake Rules */,
+				64516893DA934A7CB15189A3 /* /Users/sgerbino/Workspace/table/CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		7C763B2C7CBC4711882C8262 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		7EE05A09AF0C47AABF2F5AAC /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				E28F093D02334BF78A94C8E8 /* /Users/sgerbino/Workspace/table/test/table_binary_search_test.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		8261247634CA48518257D95B /* table_column_test */ = {
+			isa = PBXGroup;
+			children = (
+				5E369A4C98524621A30222A4 /* Source Files */,
+				6E01CBDE5F6D402FBBF2621B /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */,
+			);
+			name = table_column_test;
+			sourceTree = "<group>";
+		};
+		9F096DFFCA4E4D1691E981E8 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		9F7BAABF79934440A2464625 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				BB6D417EE9C143B28BFC4482 /* /Users/sgerbino/Workspace/table/test/table_row_test.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		A2278CFABF1D4505929A66F2 /* Nightly */ = {
+			isa = PBXGroup;
+			children = (
+				7C763B2C7CBC4711882C8262 /* CMake Rules */,
+				7D786255954842E3BFF09F82 /* /Users/sgerbino/Workspace/table/CMakeLists.txt */,
+			);
+			name = Nightly;
+			sourceTree = "<group>";
+		};
+		A24FC353E1FB4B5180ED59ED /* version */ = {
+			isa = PBXGroup;
+			children = (
+				BB5BC5E420244F3C87B332E6 /* CMake Rules */,
+				1416BCF49FDB444DAC923B2D /* /Users/sgerbino/Workspace/table/CMakeLists.txt */,
+			);
+			name = version;
+			sourceTree = "<group>";
+		};
+		A4A7540A53404921A03D638A /* table_callback_test */ = {
+			isa = PBXGroup;
+			children = (
+				D4511006832B4697A86131EE /* Source Files */,
+				D20E87FF7576494787023092 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */,
+			);
+			name = table_callback_test;
+			sourceTree = "<group>";
+		};
+		A698E561271A4DF6A9514731 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				AEC556FD6BA3412B93D3729D /* /Users/sgerbino/Workspace/table/test/table_memtest.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		B445911892F4431E8CDA9F88 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B692F66003F14AF693A9E555 /* doc */,
+				A24FC353E1FB4B5180ED59ED /* version */,
+				28673A2CFCB643CE9DB8BB85 /* CTestDashboardTargets */,
+				352B9A4AC6AA425696508DA7 /* ALL_BUILD */,
+				79E2714FC4E540C48DE652F7 /* ZERO_CHECK */,
+				D6FB6B7794F748ECAF9494A8 /* table_binary_search_test */,
+				53906B87ABB442F9A937DCC8 /* table_version_test */,
+				3969075DEA1D44049C915185 /* table_row_test */,
+				118330E993A6492B994FC50C /* table_sort_test */,
+				DDE8AFF3791543E3A0C485F4 /* table_validator_test */,
+				A4A7540A53404921A03D638A /* table_callback_test */,
+				4F6BC798B9714CBD8173412A /* table_memtest */,
+				8261247634CA48518257D95B /* table_column_test */,
+				CF3636D90E1D42B5AD43C35D /* table */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		B692F66003F14AF693A9E555 /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				4140C1865FB24E708BDE3E3C /* CMake Rules */,
+				E1DBCA6DDA5F4BBD9CB47A53 /* /Users/sgerbino/Workspace/table/CMakeLists.txt */,
+			);
+			name = doc;
+			sourceTree = "<group>";
+		};
+		BB5BC5E420244F3C87B332E6 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		C9F1923C14D54645BF5D302B /* Continuous */ = {
+			isa = PBXGroup;
+			children = (
+				9F096DFFCA4E4D1691E981E8 /* CMake Rules */,
+				89DC79878E7D4608B413D431 /* /Users/sgerbino/Workspace/table/CMakeLists.txt */,
+			);
+			name = Continuous;
+			sourceTree = "<group>";
+		};
+		CF3636D90E1D42B5AD43C35D /* table */ = {
+			isa = PBXGroup;
+			children = (
+				3E4C153664C04DA8B8C46095 /* Source Files */,
+				15E77E489DD14CF9A4CECB56 /* Header Files */,
+				6AF24AB9A528463A961AF027 /* /Users/sgerbino/Workspace/table/src/CMakeLists.txt */,
+			);
+			name = table;
+			sourceTree = "<group>";
+		};
+		D3AED23FCE2E4F01A0EAD347 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		D4511006832B4697A86131EE /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				E31F2255247546E99C78C029 /* /Users/sgerbino/Workspace/table/test/table_callback_test.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		D6FB6B7794F748ECAF9494A8 /* table_binary_search_test */ = {
+			isa = PBXGroup;
+			children = (
+				7EE05A09AF0C47AABF2F5AAC /* Source Files */,
+				B5FB1FEB7DE849669CFCCDB6 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */,
+			);
+			name = table_binary_search_test;
+			sourceTree = "<group>";
+		};
+		D934E21972D04C4EB10369FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				77D0DB0A72C345E3AD2FBFB6 /* table_binary_search_test */,
+				E3BF1EED308E48CDA3BBD375 /* table_callback_test */,
+				A195DB2C258F4B3DA921EBFE /* table_column_test */,
+				90C1D797A8F245FCA6E2F0F1 /* table_memtest */,
+				672A43FDFB7D4D86BE635220 /* table_row_test */,
+				49BAD97F612543BA8E5F26F8 /* table_sort_test */,
+				B85B129E604F4DE7B6416A75 /* table_validator_test */,
+				CEDCFBE84B3A4EDBBC791A91 /* table_version_test */,
+				7B30E0825FCA4CA89664230B /* table */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9DE1E8A253D475CB92E529E /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		DDE8AFF3791543E3A0C485F4 /* table_validator_test */ = {
+			isa = PBXGroup;
+			children = (
+				075FF7D41A5B4EC1A39EFD03 /* Source Files */,
+				094DE48611864081ADB6E396 /* /Users/sgerbino/Workspace/table/test/CMakeLists.txt */,
+			);
+			name = table_validator_test;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1C2BB2692FB14043A6E7000B /* table_callback_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C29941DBA9C94E098EAFBFD9 /* Build configuration list for PBXNativeTarget "table_callback_test" */;
+			buildPhases = (
+				300C7DDB26134A1FA3D6F6EE /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1CE7BDC4D13341B4AF386BF1 /* PBXTargetDependency */,
+				596DE9A1F5134255A7CAE8BB /* PBXTargetDependency */,
+			);
+			name = table_callback_test;
+			productName = table_callback_test;
+			productReference = E3BF1EED308E48CDA3BBD375 /* table_callback_test */;
+			productType = "com.apple.product-type.tool";
+		};
+		C0B81371E4F44CA887DE31A7 /* table_sort_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BBF364C5E3447C7AB93FDB4 /* Build configuration list for PBXNativeTarget "table_sort_test" */;
+			buildPhases = (
+				1115D99FEC754A3593A86DDD /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F29B2249CC4443D49B1E9FA8 /* PBXTargetDependency */,
+				369DF248722E4F8A9D68871E /* PBXTargetDependency */,
+			);
+			name = table_sort_test;
+			productName = table_sort_test;
+			productReference = 49BAD97F612543BA8E5F26F8 /* table_sort_test */;
+			productType = "com.apple.product-type.tool";
+		};
+		C3D10A33E00D4ABDAE9439CA /* table */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A370DE079AC54ECCBE8CAD56 /* Build configuration list for PBXNativeTarget "table" */;
+			buildPhases = (
+				0218362BAE3D48B1BE5B5AC9 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				67593512BEAF44D2BF59E4F6 /* PBXTargetDependency */,
+				A7C44F96D6634792BCEEE44A /* PBXTargetDependency */,
+			);
+			name = table;
+			productName = table;
+			productReference = 7B30E0825FCA4CA89664230B /* table */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C646F42CC48749269B1A98CC /* table_row_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4474FB9B5E384740A6AD775F /* Build configuration list for PBXNativeTarget "table_row_test" */;
+			buildPhases = (
+				C3812C5B91374BA39B5D94FD /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC2EAB66FDDF4AA3A24223D7 /* PBXTargetDependency */,
+				BE615FF034DC4F13907DF82F /* PBXTargetDependency */,
+			);
+			name = table_row_test;
+			productName = table_row_test;
+			productReference = 672A43FDFB7D4D86BE635220 /* table_row_test */;
+			productType = "com.apple.product-type.tool";
+		};
+		C81DAD43BD60487FBDC16B5D /* table_column_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D06B9B82532439D9F7AE2D7 /* Build configuration list for PBXNativeTarget "table_column_test" */;
+			buildPhases = (
+				72ABB2584DDD434F8C8D01E7 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0E78AD1B90D4EAABA3A1E8E /* PBXTargetDependency */,
+				5DCF41E627D34AE5AFA80B21 /* PBXTargetDependency */,
+			);
+			name = table_column_test;
+			productName = table_column_test;
+			productReference = A195DB2C258F4B3DA921EBFE /* table_column_test */;
+			productType = "com.apple.product-type.tool";
+		};
+		DBF7BC92551B4A86BC76D20A /* table_memtest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B9442A00FAB4585B8F3ED80 /* Build configuration list for PBXNativeTarget "table_memtest" */;
+			buildPhases = (
+				CCD830EA023741AAB940F73D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A4B9321E14C4A13B22EFE91 /* PBXTargetDependency */,
+				2F1AFC990C864207BD47D8A5 /* PBXTargetDependency */,
+			);
+			name = table_memtest;
+			productName = table_memtest;
+			productReference = 90C1D797A8F245FCA6E2F0F1 /* table_memtest */;
+			productType = "com.apple.product-type.tool";
+		};
+		EC8E6B36413440B3951BED66 /* table_version_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74AC280C1D0A401EA1645FFD /* Build configuration list for PBXNativeTarget "table_version_test" */;
+			buildPhases = (
+				55D7E476B329463E9A4A8C57 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				19F2CF686F834CA1B30538C7 /* PBXTargetDependency */,
+				8082E45729CF4E9991505431 /* PBXTargetDependency */,
+			);
+			name = table_version_test;
+			productName = table_version_test;
+			productReference = CEDCFBE84B3A4EDBBC791A91 /* table_version_test */;
+			productType = "com.apple.product-type.tool";
+		};
+		F244B5A4961641F487CF6A3C /* table_validator_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6615C8ED9CB34F2DB9E41619 /* Build configuration list for PBXNativeTarget "table_validator_test" */;
+			buildPhases = (
+				04EF3E35358048AFA820B87D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E55D59B1E1CA442080967B5D /* PBXTargetDependency */,
+				21A32B0B819C4B9393F89169 /* PBXTargetDependency */,
+			);
+			name = table_validator_test;
+			productName = table_validator_test;
+			productReference = B85B129E604F4DE7B6416A75 /* table_validator_test */;
+			productType = "com.apple.product-type.tool";
+		};
+		F418874AC06B44B280A46B86 /* table_binary_search_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FC6C583B9AC4FFBB6971A0D /* Build configuration list for PBXNativeTarget "table_binary_search_test" */;
+			buildPhases = (
+				2BF34F17013C4A6BA3D3CFDA /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				513726D989EC48A8AA489321 /* PBXTargetDependency */,
+				B8E89F903A404F7B94DC79C0 /* PBXTargetDependency */,
+			);
+			name = table_binary_search_test;
+			productName = table_binary_search_test;
+			productReference = 77D0DB0A72C345E3AD2FBFB6 /* table_binary_search_test */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9EF5055FDCE2413AB457EB13 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0820;
+			};
+			buildConfigurationList = 0C19E18B651747EDB9E198B0 /* Build configuration list for PBXProject "TABLE" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				1DB26B2D59FB479E8252880D /* Debug */,
+				3B3A96CB4704448296EA3736 /* Release */,
+				0F1DB41421F34A11A9F31CAA /* MinSizeRel */,
+				73B7658442EF422A9EC2A781 /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = 19EF274D1CD44910ADE5DEB9;
+			projectDirPath = ../;
+			projectRoot = "";
+			targets = (
+				2102B1078F65433799AE29D9 /* ALL_BUILD */,
+				A3E4116A42094D469B9D0F61 /* Continuous */,
+				C1D5A661C1B1403CB0D0A75B /* Experimental */,
+				370E0BC2BA43470DB1DC3235 /* Nightly */,
+				958845AF3B8B4A11AB79FBE1 /* NightlyMemoryCheck */,
+				748872BAF82E40B4B68B3081 /* RUN_TESTS */,
+				B3C92B3BA23D480781E6383C /* ZERO_CHECK */,
+				2E31CFC6FE794034B746116D /* doc */,
+				DD6377508DB24024B7B43A0E /* install */,
+				9E21A9CBF2A8423F9B0136A7 /* package */,
+				1A8C155E62C846B8B24AACE7 /* version */,
+				F418874AC06B44B280A46B86 /* table_binary_search_test */,
+				1C2BB2692FB14043A6E7000B /* table_callback_test */,
+				C81DAD43BD60487FBDC16B5D /* table_column_test */,
+				DBF7BC92551B4A86BC76D20A /* table_memtest */,
+				C646F42CC48749269B1A98CC /* table_row_test */,
+				C0B81371E4F44CA887DE31A7 /* table_sort_test */,
+				F244B5A4961641F487CF6A3C /* table_validator_test */,
+				EC8E6B36413440B3951BED66 /* table_version_test */,
+				C3D10A33E00D4ABDAE9439CA /* table */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F69789EC8A94669B6DDE930 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/sgerbino/Workspace/table/build -f /Users/sgerbino/Workspace/table/build/CMakeScripts/NightlyMemoryCheck_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		15E7732573F04FD2B1ACA8CA = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		1F9820E816CB41818FB72933 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/sgerbino/Workspace/table/build -f /Users/sgerbino/Workspace/table/build/CMakeScripts/Experimental_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		2323406CD46F49648046033D = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		2F7372744B8C4DE5B0385421 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		385CF4D3F01647D29FBB9E01 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		3C34141C521242D08E519C2C = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		5CF96CA8CD4341AD858BA95D = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		64B30A137C3E46B6BF737DC1 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/sgerbino/Workspace/table/build -f /Users/sgerbino/Workspace/table/build/CMakeScripts/package_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		85089BE841A54A0CA0F3240E = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		859D6B53F9884B33A76173ED /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/sgerbino/Workspace/table/build -f /Users/sgerbino/Workspace/table/build/CMakeScripts/Continuous_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		8F7AFA73E761424081056D3B = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		9279B8DEF0064B01BC684518 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/sgerbino/Workspace/table/build -f /Users/sgerbino/Workspace/table/build/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		96492E17737746B3895200C3 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/sgerbino/Workspace/table/build -f /Users/sgerbino/Workspace/table/build/CMakeScripts/Nightly_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		A63FA8A33ADE40669DFE3E49 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		A88E475B50DB4341B471C673 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		ABDBBE09DB314E1B8C0ECEE9 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/sgerbino/Workspace/table/build -f /Users/sgerbino/Workspace/table/build/CMakeScripts/install_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		E0333721CEDA4EDFBB73C98A /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/sgerbino/Workspace/table/build -f /Users/sgerbino/Workspace/table/build/CMakeScripts/doc_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		ED29D67508F24D5D9804B8D5 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/sgerbino/Workspace/table/build -f /Users/sgerbino/Workspace/table/build/CMakeScripts/RUN_TESTS_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		F8A5EE12DF724BACB455E289 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		FDEBC59AA06141698071AB6F /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/sgerbino/Workspace/table/build -f /Users/sgerbino/Workspace/table/build/CMakeScripts/version_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		FF10F16FDA764D75A24ACBEC /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/sgerbino/Workspace/table/build -f /Users/sgerbino/Workspace/table/build/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0218362BAE3D48B1BE5B5AC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E6C947F2B264DB4B8DCFE16 /* /Users/sgerbino/Workspace/table/src/table.c */,
+				CECFAC4DF60F4F2E980B3E28 /* /Users/sgerbino/Workspace/table/src/table_callback.c */,
+				261A3DD350B44767BEF6FACB /* /Users/sgerbino/Workspace/table/src/table_cell.c */,
+				0E04C357B0594628B70C66DC /* /Users/sgerbino/Workspace/table/src/table_column.c */,
+				B5846091B23C4368B07215FC /* /Users/sgerbino/Workspace/table/src/table_compare.c */,
+				4B7640B2845E4E47AC67B9CA /* /Users/sgerbino/Workspace/table/src/table_find.c */,
+				09A4900DB9DF4117958F8503 /* /Users/sgerbino/Workspace/table/src/table_get.c */,
+				373CF82D623345958730CB8E /* /Users/sgerbino/Workspace/table/src/table_row.c */,
+				B991D90B515A46D396FD3372 /* /Users/sgerbino/Workspace/table/src/table_set.c */,
+				4C90A303867E4B43A9B9214D /* /Users/sgerbino/Workspace/table/src/table_sort.c */,
+				3BEAA5B56260428EA3C180AC /* /Users/sgerbino/Workspace/table/src/table_validator.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04EF3E35358048AFA820B87D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				164F45E80FD448A389CC0B2F /* /Users/sgerbino/Workspace/table/test/table_validator_test.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1115D99FEC754A3593A86DDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBD03F5AA941447AB76FD499 /* /Users/sgerbino/Workspace/table/test/table_sort_test.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BF34F17013C4A6BA3D3CFDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8C2D7C00A8C46F3A8DC038D /* /Users/sgerbino/Workspace/table/test/table_binary_search_test.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		300C7DDB26134A1FA3D6F6EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66C55A50247A4DBB95133896 /* /Users/sgerbino/Workspace/table/test/table_callback_test.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55D7E476B329463E9A4A8C57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86D9B28C9D03431DA6730584 /* /Users/sgerbino/Workspace/table/test/table_version_test.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72ABB2584DDD434F8C8D01E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91EFC4B90D8344EFA0076850 /* /Users/sgerbino/Workspace/table/test/table_column_test.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3812C5B91374BA39B5D94FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6104E316A5A1490B92859D51 /* /Users/sgerbino/Workspace/table/test/table_row_test.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCD830EA023741AAB940F73D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA5A4E0B81B0418BAAE7E271 /* /Users/sgerbino/Workspace/table/test/table_memtest.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		19F2CF686F834CA1B30538C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3D10A33E00D4ABDAE9439CA /* table */;
+			targetProxy = 724EA2E9822644D1BB0173DC /* PBXContainerItemProxy */;
+		};
+		1CE7BDC4D13341B4AF386BF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3D10A33E00D4ABDAE9439CA /* table */;
+			targetProxy = C4408EABB477436592A220F3 /* PBXContainerItemProxy */;
+		};
+		21A32B0B819C4B9393F89169 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = AF4BF31DD749420C899506D7 /* PBXContainerItemProxy */;
+		};
+		22C9BE5B0C69405B96E12AFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = A57C9DC6A5E544428E65E38F /* PBXContainerItemProxy */;
+		};
+		273D3E5E91A7413DBA437EDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C2BB2692FB14043A6E7000B /* table_callback_test */;
+			targetProxy = 958133F23A8A4E69A732426A /* PBXContainerItemProxy */;
+		};
+		2C34686431D24917B90C65DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F244B5A4961641F487CF6A3C /* table_validator_test */;
+			targetProxy = 445465F30F9442AFBD5F5A5A /* PBXContainerItemProxy */;
+		};
+		2F1AFC990C864207BD47D8A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = 44DF1ED36A30417EA3C07889 /* PBXContainerItemProxy */;
+		};
+		369DF248722E4F8A9D68871E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = 2B87918A8E2044D8AE9285A5 /* PBXContainerItemProxy */;
+		};
+		38AA1E69963E40D499968711 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = 1C2E7A8146904BBAB6F3A1C5 /* PBXContainerItemProxy */;
+		};
+		3925B6F6C86D44648C72A55D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3D10A33E00D4ABDAE9439CA /* table */;
+			targetProxy = 1AA7ADCB5EAD4BE580AF04BD /* PBXContainerItemProxy */;
+		};
+		44E6A33270D0417E8B02D0DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = F49FD62BBC874C8B83E159C4 /* PBXContainerItemProxy */;
+		};
+		473770E5043F49D384DF6E75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = 68D61F7BA09949D08ACCA7B5 /* PBXContainerItemProxy */;
+		};
+		513726D989EC48A8AA489321 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3D10A33E00D4ABDAE9439CA /* table */;
+			targetProxy = F1B49A134CEE49D3B2734797 /* PBXContainerItemProxy */;
+		};
+		596DE9A1F5134255A7CAE8BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = 4A61281D890446C29AA83637 /* PBXContainerItemProxy */;
+		};
+		5A4B9321E14C4A13B22EFE91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3D10A33E00D4ABDAE9439CA /* table */;
+			targetProxy = 9BAE668725DA4241A568F573 /* PBXContainerItemProxy */;
+		};
+		5AFA60EE7D9D4FD284EA1B43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC8E6B36413440B3951BED66 /* table_version_test */;
+			targetProxy = A1359A2DBC35442F9D1EBB5D /* PBXContainerItemProxy */;
+		};
+		5DCF41E627D34AE5AFA80B21 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = FDCD945AD0814BDB87776539 /* PBXContainerItemProxy */;
+		};
+		66ED37AB6B224E7DAC911300 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2102B1078F65433799AE29D9 /* ALL_BUILD */;
+			targetProxy = 9232FBA12CD54305BD7CEFBB /* PBXContainerItemProxy */;
+		};
+		67593512BEAF44D2BF59E4F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = 02896F3380AC41B2B1735B68 /* PBXContainerItemProxy */;
+		};
+		6BEEA7048A5C40BE977092DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBF7BC92551B4A86BC76D20A /* table_memtest */;
+			targetProxy = 0ACE809E7F5748C7BD46FCF9 /* PBXContainerItemProxy */;
+		};
+		7241775D77114D8CA00B1961 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C81DAD43BD60487FBDC16B5D /* table_column_test */;
+			targetProxy = AD5D82A16A34440DB53C80A4 /* PBXContainerItemProxy */;
+		};
+		7524138485F54910B1AB81CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = 7EDDBB3828CD44449506D4F7 /* PBXContainerItemProxy */;
+		};
+		8082E45729CF4E9991505431 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = 8327FCBA49D341A187EF1A38 /* PBXContainerItemProxy */;
+		};
+		888A6FD9F2E64843A7BBE8B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F418874AC06B44B280A46B86 /* table_binary_search_test */;
+			targetProxy = 66BE9E12D27B4F51BD3FAC10 /* PBXContainerItemProxy */;
+		};
+		A1779987EECE4A628F6975E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C646F42CC48749269B1A98CC /* table_row_test */;
+			targetProxy = B1174B5B3E834EEA84DCD1C3 /* PBXContainerItemProxy */;
+		};
+		A7C44F96D6634792BCEEE44A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A8C155E62C846B8B24AACE7 /* version */;
+			targetProxy = 6FAED9EDD85340539F67A300 /* PBXContainerItemProxy */;
+		};
+		AEE604B88DDB4791802C9DB0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2102B1078F65433799AE29D9 /* ALL_BUILD */;
+			targetProxy = F601A80FA05B4427B352F8B2 /* PBXContainerItemProxy */;
+		};
+		B8E89F903A404F7B94DC79C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = D770E09F61D14C4B8C22E223 /* PBXContainerItemProxy */;
+		};
+		BE615FF034DC4F13907DF82F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = 7AB351CA50CC45B298F97D1C /* PBXContainerItemProxy */;
+		};
+		D0E78AD1B90D4EAABA3A1E8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3D10A33E00D4ABDAE9439CA /* table */;
+			targetProxy = 77504187B7804B6D8F63E0B0 /* PBXContainerItemProxy */;
+		};
+		D2FCEEA89CC746ED8B5E8A9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = 40866054A78C409BA4C456C5 /* PBXContainerItemProxy */;
+		};
+		E04E1C374E8841CBB5860AD4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0B81371E4F44CA887DE31A7 /* table_sort_test */;
+			targetProxy = C3D6CCE95A49453B8E484B88 /* PBXContainerItemProxy */;
+		};
+		E55D59B1E1CA442080967B5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3D10A33E00D4ABDAE9439CA /* table */;
+			targetProxy = CCF278D07F1A4FCAA48739CA /* PBXContainerItemProxy */;
+		};
+		E59BCAD5DAFB43F9AE05D4D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C92B3BA23D480781E6383C /* ZERO_CHECK */;
+			targetProxy = AA5C5997DC414113B164D664 /* PBXContainerItemProxy */;
+		};
+		EC2EAB66FDDF4AA3A24223D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3D10A33E00D4ABDAE9439CA /* table */;
+			targetProxy = D8464D8C7B8647A694BEFDB7 /* PBXContainerItemProxy */;
+		};
+		F29B2249CC4443D49B1E9FA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3D10A33E00D4ABDAE9439CA /* table */;
+			targetProxy = AEEC1C18DDD34DFC9D610854 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		013A85B24BFC441B90944B30 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = doc;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		02BD651B8BA847818B5543AB /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = package;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		05FB4023F41441CAAC54F92B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Debug/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_version_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		06A912006FEB4E258EBF6379 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Continuous;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		088C708446BA4E51AB9C8436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = doc;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		08E925BF92714AE4B667A082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = NightlyMemoryCheck;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		0F9653194A5F45E59B0C0186 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/sgerbino/Workspace/table/build/build;
+			};
+			name = Release;
+		};
+		1B1CC97BE7714201B9A09A6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = package;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		1BDC4EC2D7B84C65A41EDD5A /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/sgerbino/Workspace/table/build/lib/RelWithDebInfo;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = " -Wall -Werror -std=c99        -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		1C15CD3DDD7A4611943B2DCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Release/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_memtest;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		1E80A5E15F3F46C0B0F849FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Release/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_column_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		280C946ADF7548A692965E6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Debug/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_binary_search_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		2D836D0F2F2E49BE9744ED0A /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/MinSizeRel/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_memtest;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		2E1266E89AD44239B8EA6A3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = package;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		3590CFCBFF134A279FAFC70F /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = RUN_TESTS;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		392EB5398DA34982B0BE8447 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Debug/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_sort_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		3CB8913777844BD8943A1700 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		41899A4320EF4AF98D4A1FFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Release/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_validator_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		41937B0EB70C42A1A966E6AC /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/RelWithDebInfo/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_binary_search_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		420FFE5FB97647BEBD7CAB5C /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/RelWithDebInfo/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_version_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		4383EE738E5F4E8BB7DFB1A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = version;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		441190D429B04C38957603FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Debug/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_column_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		48ACA2DBC4514ECDB8C10BF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Debug/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_callback_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		4E44B3328E0C4DB0BA1CEAFC /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Experimental;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		4EF268E133F54B808CD312F1 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = version;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		4F855731C7454A38968A30A8 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = NightlyMemoryCheck;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		50981DA469AE4DB59FA8122D /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/MinSizeRel/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_version_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		5129873A55BA49D898B58937 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/MinSizeRel/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_validator_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		51F112E17BF04D9A8851B971 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Experimental;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		5203519E520248B69AF8F52E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Release/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_version_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		54DFFCCC4D314162B785088C /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/RelWithDebInfo/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_column_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		556F8624582E405F99421ECA /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/MinSizeRel/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_row_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		56E11141D88443468BD51262 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/RelWithDebInfo/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_sort_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		573AE34D80E04F6EAE912495 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/RelWithDebInfo/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_memtest;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		589EB53570A844B28AAF950F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/sgerbino/Workspace/table/build/lib/Release;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = " -Wall -Werror -std=c99     -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		58F8ACFC78F249038A15381C /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/sgerbino/Workspace/table/build/lib/MinSizeRel;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = " -Wall -Werror -std=c99     -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		5D3E2AEA5BC94D9A82088B05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Debug/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_validator_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		615FC913B81341958C958D35 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		627CC9F9FC434E638B5AD9F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		6412C026EC4D4F37A39ED6FF /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = NightlyMemoryCheck;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		6438B28767E2475396931CAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Release/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_callback_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		686706A090C1405B9358E535 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		70E6F77BDC7646D088022D75 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		789235F684854EDD862054A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Experimental;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		794AD90DE0554E03AAE6E9E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		79528FFD5C2E48DC992B8A17 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = RUN_TESTS;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		79DC573DC8464A0E89924B67 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/MinSizeRel/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_sort_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		7A59771C9A0E4614A7E4C489 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Release/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_sort_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		82C6E3245CAB46579678441C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Experimental;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		8852C2E0799646888E588BBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = RUN_TESTS;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		8A64DB466789482DBDB8DB81 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/MinSizeRel/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_callback_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		8B9F342BDA8344CF87096929 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = doc;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		8F47BD8829C34DD1A121771A /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/sgerbino/Workspace/table/build/build;
+			};
+			name = MinSizeRel;
+		};
+		91C32EBF6C7F4162BF6DDFA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Nightly;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		9D9DE35C9BF84BF2BC0F8128 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/RelWithDebInfo/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_validator_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		9DD048AB9B7A4A0D89E004D6 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = version;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		9E7BF9DE2D754DC592539C06 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		A5682253E68A4C58AB690463 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/MinSizeRel/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_binary_search_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		A84EE92F9AAA4CA689D68B87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Continuous;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		A8E405F237FC45CE822176CE /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Nightly;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		A980D13DE7184F9B9735CC3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Release/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_binary_search_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		AD66EA63D5CA4A739376C891 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Nightly;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		B244F2C3FB644ABA841F8788 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		B90AE54A337949B6A72C4B2D /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Nightly;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		BB6A92826DE64BF9B2D67BD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Debug/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_memtest;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		C243DDF36C0841C28CBCA0AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = RUN_TESTS;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		C27ADC514BDB418FA631ADFD /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/RelWithDebInfo/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_callback_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		C33002BEEEEE42DBA1864255 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/sgerbino/Workspace/table/build/build;
+			};
+			name = RelWithDebInfo;
+		};
+		C33A29F8E45E4708AF22D256 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Continuous;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		CC47525BC97B4E4FA7B05A97 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/MinSizeRel/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_column_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		CFFA45BF035B4752A4129F13 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/RelWithDebInfo/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_row_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		D39A4B6AE2DA4621B4FD6783 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		D8BBAEF6FA754935BBFA886E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		DC04BE5410204868899AA7B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = version;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		E05BF96652134050AB0F2360 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/sgerbino/Workspace/table/build/lib/Debug;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = " -Wall -Werror -std=c99     ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		E72E9B3CB49A4B17975268EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/sgerbino/Workspace/table/build/build;
+			};
+			name = Debug;
+		};
+		E93A53B31A714735A6040ED3 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Continuous;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		EAE454412514404FA146C22A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Debug/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_row_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		F176739F053F4A03B9DA1DB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = NightlyMemoryCheck;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		F52113214CDF46A981B5D56B /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		F662415CF4F74575A9BAB162 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = doc;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		F813029CCE284F1E92182BBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		F9FC6A072765418093CCF49F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/sgerbino/Workspace/table/build/lib/Release/libtable.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = table_row_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build/test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		FC8D62651D53438DA7E6A542 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/sgerbino/Workspace/table/include,/Users/sgerbino/Workspace/table/build/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = package;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/sgerbino/Workspace/table/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0C19E18B651747EDB9E198B0 /* Build configuration list for PBXProject "TABLE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E72E9B3CB49A4B17975268EB /* Debug */,
+				0F9653194A5F45E59B0C0186 /* Release */,
+				8F47BD8829C34DD1A121771A /* MinSizeRel */,
+				C33002BEEEEE42DBA1864255 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		1B9442A00FAB4585B8F3ED80 /* Build configuration list for PBXNativeTarget "table_memtest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB6A92826DE64BF9B2D67BD9 /* Debug */,
+				1C15CD3DDD7A4611943B2DCC /* Release */,
+				2D836D0F2F2E49BE9744ED0A /* MinSizeRel */,
+				573AE34D80E04F6EAE912495 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		27F7335791F242F28530069F /* Build configuration list for PBXAggregateTarget "NightlyMemoryCheck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F176739F053F4A03B9DA1DB8 /* Debug */,
+				08E925BF92714AE4B667A082 /* Release */,
+				4F855731C7454A38968A30A8 /* MinSizeRel */,
+				6412C026EC4D4F37A39ED6FF /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2D06B9B82532439D9F7AE2D7 /* Build configuration list for PBXNativeTarget "table_column_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				441190D429B04C38957603FC /* Debug */,
+				1E80A5E15F3F46C0B0F849FA /* Release */,
+				CC47525BC97B4E4FA7B05A97 /* MinSizeRel */,
+				54DFFCCC4D314162B785088C /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		35AD28F9C55845AC8E6F5332 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				794AD90DE0554E03AAE6E9E7 /* Debug */,
+				627CC9F9FC434E638B5AD9F7 /* Release */,
+				D39A4B6AE2DA4621B4FD6783 /* MinSizeRel */,
+				70E6F77BDC7646D088022D75 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3DC996E4781548E3AD807705 /* Build configuration list for PBXAggregateTarget "RUN_TESTS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C243DDF36C0841C28CBCA0AD /* Debug */,
+				8852C2E0799646888E588BBF /* Release */,
+				3590CFCBFF134A279FAFC70F /* MinSizeRel */,
+				79528FFD5C2E48DC992B8A17 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4474FB9B5E384740A6AD775F /* Build configuration list for PBXNativeTarget "table_row_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAE454412514404FA146C22A /* Debug */,
+				F9FC6A072765418093CCF49F /* Release */,
+				556F8624582E405F99421ECA /* MinSizeRel */,
+				CFFA45BF035B4752A4129F13 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5D0E248718C944E5AF212A1D /* Build configuration list for PBXAggregateTarget "Experimental" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				789235F684854EDD862054A5 /* Debug */,
+				82C6E3245CAB46579678441C /* Release */,
+				51F112E17BF04D9A8851B971 /* MinSizeRel */,
+				4E44B3328E0C4DB0BA1CEAFC /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		62DA9D35422441BBBBF6333B /* Build configuration list for PBXAggregateTarget "package" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B1CC97BE7714201B9A09A6E /* Debug */,
+				2E1266E89AD44239B8EA6A3D /* Release */,
+				02BD651B8BA847818B5543AB /* MinSizeRel */,
+				FC8D62651D53438DA7E6A542 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6615C8ED9CB34F2DB9E41619 /* Build configuration list for PBXNativeTarget "table_validator_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D3E2AEA5BC94D9A82088B05 /* Debug */,
+				41899A4320EF4AF98D4A1FFF /* Release */,
+				5129873A55BA49D898B58937 /* MinSizeRel */,
+				9D9DE35C9BF84BF2BC0F8128 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6BBF364C5E3447C7AB93FDB4 /* Build configuration list for PBXNativeTarget "table_sort_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				392EB5398DA34982B0BE8447 /* Debug */,
+				7A59771C9A0E4614A7E4C489 /* Release */,
+				79DC573DC8464A0E89924B67 /* MinSizeRel */,
+				56E11141D88443468BD51262 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		74AC280C1D0A401EA1645FFD /* Build configuration list for PBXNativeTarget "table_version_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05FB4023F41441CAAC54F92B /* Debug */,
+				5203519E520248B69AF8F52E /* Release */,
+				50981DA469AE4DB59FA8122D /* MinSizeRel */,
+				420FFE5FB97647BEBD7CAB5C /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7FC6C583B9AC4FFBB6971A0D /* Build configuration list for PBXNativeTarget "table_binary_search_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				280C946ADF7548A692965E6E /* Debug */,
+				A980D13DE7184F9B9735CC3B /* Release */,
+				A5682253E68A4C58AB690463 /* MinSizeRel */,
+				41937B0EB70C42A1A966E6AC /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		94EF0A2E27384C9B8E162DB0 /* Build configuration list for PBXAggregateTarget "doc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B9F342BDA8344CF87096929 /* Debug */,
+				088C708446BA4E51AB9C8436 /* Release */,
+				013A85B24BFC441B90944B30 /* MinSizeRel */,
+				F662415CF4F74575A9BAB162 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9B52C33EFF08494B950E7116 /* Build configuration list for PBXAggregateTarget "Nightly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD66EA63D5CA4A739376C891 /* Debug */,
+				91C32EBF6C7F4162BF6DDFA2 /* Release */,
+				B90AE54A337949B6A72C4B2D /* MinSizeRel */,
+				A8E405F237FC45CE822176CE /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9EB9D02D865C4BE7AC48122A /* Build configuration list for PBXAggregateTarget "install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				686706A090C1405B9358E535 /* Debug */,
+				F813029CCE284F1E92182BBF /* Release */,
+				9E7BF9DE2D754DC592539C06 /* MinSizeRel */,
+				615FC913B81341958C958D35 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A370DE079AC54ECCBE8CAD56 /* Build configuration list for PBXNativeTarget "table" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E05BF96652134050AB0F2360 /* Debug */,
+				589EB53570A844B28AAF950F /* Release */,
+				58F8ACFC78F249038A15381C /* MinSizeRel */,
+				1BDC4EC2D7B84C65A41EDD5A /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BF62C8A7562F4A2FAC3C2E4F /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CB8913777844BD8943A1700 /* Debug */,
+				D8BBAEF6FA754935BBFA886E /* Release */,
+				F52113214CDF46A981B5D56B /* MinSizeRel */,
+				B244F2C3FB644ABA841F8788 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C29941DBA9C94E098EAFBFD9 /* Build configuration list for PBXNativeTarget "table_callback_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48ACA2DBC4514ECDB8C10BF2 /* Debug */,
+				6438B28767E2475396931CAF /* Release */,
+				8A64DB466789482DBDB8DB81 /* MinSizeRel */,
+				C27ADC514BDB418FA631ADFD /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D1A60B20B39B487693E9B065 /* Build configuration list for PBXAggregateTarget "version" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC04BE5410204868899AA7B0 /* Debug */,
+				4383EE738E5F4E8BB7DFB1A9 /* Release */,
+				9DD048AB9B7A4A0D89E004D6 /* MinSizeRel */,
+				4EF268E133F54B808CD312F1 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F3111551F34F4B728041E9B7 /* Build configuration list for PBXAggregateTarget "Continuous" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06A912006FEB4E258EBF6379 /* Debug */,
+				A84EE92F9AAA4CA689D68B87 /* Release */,
+				C33A29F8E45E4708AF22D256 /* MinSizeRel */,
+				E93A53B31A714735A6040ED3 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9EF5055FDCE2413AB457EB13 /* Project object */;
+}

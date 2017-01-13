@@ -25,14 +25,6 @@ add_test(NAME table-validator-test
   COMMAND table_validator_test
   WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
 
-
-add_executable(table_serialize_test ${CMAKE_CURRENT_SOURCE_DIR}/table_serialize_test.c)
-target_link_libraries(table_serialize_test table)
-add_test(NAME table-serialize-test
-  COMMAND table_serialize_test
-  WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
-
-
 add_executable(table_sort_test ${CMAKE_CURRENT_SOURCE_DIR}/table_sort_test.c)
 target_link_libraries(table_sort_test table)
 add_test(NAME table-sort-test

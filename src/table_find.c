@@ -17,9 +17,9 @@
  * \param[in] maximum_index The highest index to consider while searching
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_subset_find(table *t, int column_index, void* value, table_order order, int minimum_index, int maximum_index)
+int table_subset_find(const table *t, int column_index, void* value, table_order order, int minimum_index, int maximum_index)
 {
-  table_compare_function compare = table_get_column_compare_function(t, column_index);
+  table_comparator compare = table_get_column_compare_function(t, column_index);
   
   if (order == TABLE_ASCENDING)
   {
@@ -45,7 +45,7 @@ int table_subset_find(table *t, int column_index, void* value, table_order order
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find(table* t, int column_index, void* value, table_order order)
+int table_find(const table* t, int column_index, void* value, table_order order)
 {
   return table_subset_find(t, column_index, value, order, 0, table_get_row_length(t) - 1);
 }
@@ -58,7 +58,7 @@ int table_find(table* t, int column_index, void* value, table_order order)
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_bool(table *t, int column_index, bool value, table_order order)
+int table_find_bool(const table *t, int column_index, bool value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -71,7 +71,7 @@ int table_find_bool(table *t, int column_index, bool value, table_order order)
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_int(table *t, int column_index, int value, table_order order)
+int table_find_int(const table *t, int column_index, int value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -84,7 +84,7 @@ int table_find_int(table *t, int column_index, int value, table_order order)
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_uint(table *t, int column_index, unsigned int value, table_order order)
+int table_find_uint(const table *t, int column_index, unsigned int value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -97,7 +97,7 @@ int table_find_uint(table *t, int column_index, unsigned int value, table_order 
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_int8(table *t, int column_index, int8_t value, table_order order)
+int table_find_int8(const table *t, int column_index, int8_t value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -110,7 +110,7 @@ int table_find_int8(table *t, int column_index, int8_t value, table_order order)
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_uint8(table *t, int column_index, uint8_t value, table_order order)
+int table_find_uint8(const table *t, int column_index, uint8_t value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -123,7 +123,7 @@ int table_find_uint8(table *t, int column_index, uint8_t value, table_order orde
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_int16(table *t, int column_index, int16_t value, table_order order)
+int table_find_int16(const table *t, int column_index, int16_t value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -136,7 +136,7 @@ int table_find_int16(table *t, int column_index, int16_t value, table_order orde
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_uint16(table *t, int column_index, uint16_t value, table_order order)
+int table_find_uint16(const table *t, int column_index, uint16_t value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -149,7 +149,7 @@ int table_find_uint16(table *t, int column_index, uint16_t value, table_order or
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_int32(table *t, int column_index, int32_t value, table_order order)
+int table_find_int32(const table *t, int column_index, int32_t value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -162,7 +162,7 @@ int table_find_int32(table *t, int column_index, int32_t value, table_order orde
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_uint32(table *t, int column_index, uint32_t value, table_order order)
+int table_find_uint32(const table *t, int column_index, uint32_t value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -175,7 +175,7 @@ int table_find_uint32(table *t, int column_index, uint32_t value, table_order or
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_int64(table *t, int column_index, int64_t value, table_order order)
+int table_find_int64(const table *t, int column_index, int64_t value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -188,7 +188,7 @@ int table_find_int64(table *t, int column_index, int64_t value, table_order orde
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_uint64(table *t, int column_index, uint64_t value, table_order order)
+int table_find_uint64(const table *t, int column_index, uint64_t value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -201,7 +201,7 @@ int table_find_uint64(table *t, int column_index, uint64_t value, table_order or
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_short(table *t, int column_index, short value, table_order order)
+int table_find_short(const table *t, int column_index, short value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -214,7 +214,7 @@ int table_find_short(table *t, int column_index, short value, table_order order)
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_ushort(table *t, int column_index, unsigned short value, table_order order)
+int table_find_ushort(const table *t, int column_index, unsigned short value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -227,7 +227,7 @@ int table_find_ushort(table *t, int column_index, unsigned short value, table_or
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_long(table *t, int column_index, long value, table_order order)
+int table_find_long(const table *t, int column_index, long value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -240,7 +240,7 @@ int table_find_long(table *t, int column_index, long value, table_order order)
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_ulong(table *t, int column_index, unsigned long value, table_order order)
+int table_find_ulong(const table *t, int column_index, unsigned long value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -253,7 +253,7 @@ int table_find_ulong(table *t, int column_index, unsigned long value, table_orde
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_llong(table *t, int column_index, long long value, table_order order)
+int table_find_llong(const table *t, int column_index, long long value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -266,7 +266,7 @@ int table_find_llong(table *t, int column_index, long long value, table_order or
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_ullong(table *t, int column_index, unsigned long long value, table_order order)
+int table_find_ullong(const table *t, int column_index, unsigned long long value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -279,7 +279,7 @@ int table_find_ullong(table *t, int column_index, unsigned long long value, tabl
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_float(table *t, int column_index, float value, table_order order)
+int table_find_float(const table *t, int column_index, float value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -292,7 +292,7 @@ int table_find_float(table *t, int column_index, float value, table_order order)
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_double(table *t, int column_index, double value, table_order order)
+int table_find_double(const table *t, int column_index, double value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -305,7 +305,7 @@ int table_find_double(table *t, int column_index, double value, table_order orde
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_ldouble(table *t, int column_index, long double value, table_order order)
+int table_find_ldouble(const table *t, int column_index, long double value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -318,7 +318,7 @@ int table_find_ldouble(table *t, int column_index, long double value, table_orde
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_char(table *t, int column_index, char value, table_order order)
+int table_find_char(const table *t, int column_index, char value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -331,7 +331,7 @@ int table_find_char(table *t, int column_index, char value, table_order order)
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_uchar(table *t, int column_index, unsigned char value, table_order order)
+int table_find_uchar(const table *t, int column_index, unsigned char value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -344,7 +344,7 @@ int table_find_uchar(table *t, int column_index, unsigned char value, table_orde
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_string(table *t, int column_index, const char *value, table_order order)
+int table_find_string(const table *t, int column_index, const char *value, table_order order)
 {
   return table_find(t, column_index, (void*)&value, order);
 }
@@ -357,7 +357,7 @@ int table_find_string(table *t, int column_index, const char *value, table_order
  * \param[in] order The order in which to linear search the table
  * \return The row of the first occurrence of the search value or TABLE_INDEX_NOT_FOUND
  */
-int table_find_ptr(table *t, int column_index, void* value, table_order order)
+int table_find_ptr(const table *t, int column_index, void* value, table_order order)
 {
   return table_find(t, column_index, value, order);
 }
@@ -370,7 +370,7 @@ int table_find_ptr(table *t, int column_index, void* value, table_order order)
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find(table *t, int col, void *value, table_position position)
+int table_sorted_find(const table *t, int col, void *value, table_position position)
 {
   return table_sorted_subset_find(t, col, value, position, 0, table_get_row_length(t) - 1);
 }
@@ -385,9 +385,9 @@ int table_sorted_find(table *t, int col, void *value, table_position position)
  * \param[in] maximum The highest row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find(table *t, int col, void *value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find(const table *t, int col, void *value, table_position position, int minimum, int maximum)
 {
-  table_compare_function func = table_get_column_compare_function(t, col);
+  table_comparator func = table_get_column_compare_function(t, col);
   int middle = (maximum - minimum) / 2 + minimum;
   int compare = func(value, table_get(t, middle, col));
 
@@ -428,7 +428,7 @@ int table_sorted_subset_find(table *t, int col, void *value, table_position posi
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_int(table *t, int col, int value, table_position position)
+int table_sorted_find_int(const table *t, int col, int value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -441,7 +441,7 @@ int table_sorted_find_int(table *t, int col, int value, table_position position)
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_uint(table *t, int col, unsigned int value, table_position position)
+int table_sorted_find_uint(const table *t, int col, unsigned int value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -454,7 +454,7 @@ int table_sorted_find_uint(table *t, int col, unsigned int value, table_position
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_int8(table *t, int col, int8_t value, table_position position)
+int table_sorted_find_int8(const table *t, int col, int8_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -467,7 +467,7 @@ int table_sorted_find_int8(table *t, int col, int8_t value, table_position posit
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_uint8(table *t, int col, uint8_t value, table_position position)
+int table_sorted_find_uint8(const table *t, int col, uint8_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -480,7 +480,7 @@ int table_sorted_find_uint8(table *t, int col, uint8_t value, table_position pos
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_int16(table *t, int col, int16_t value, table_position position)
+int table_sorted_find_int16(const table *t, int col, int16_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -493,7 +493,7 @@ int table_sorted_find_int16(table *t, int col, int16_t value, table_position pos
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_uint16(table *t, int col, uint16_t value, table_position position)
+int table_sorted_find_uint16(const table *t, int col, uint16_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -506,7 +506,7 @@ int table_sorted_find_uint16(table *t, int col, uint16_t value, table_position p
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_int32(table *t, int col, int32_t value, table_position position)
+int table_sorted_find_int32(const table *t, int col, int32_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -519,7 +519,7 @@ int table_sorted_find_int32(table *t, int col, int32_t value, table_position pos
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_uint32(table *t, int col, uint32_t value, table_position position)
+int table_sorted_find_uint32(const table *t, int col, uint32_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -532,7 +532,7 @@ int table_sorted_find_uint32(table *t, int col, uint32_t value, table_position p
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_int64(table *t, int col, int64_t value, table_position position)
+int table_sorted_find_int64(const table *t, int col, int64_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -545,7 +545,7 @@ int table_sorted_find_int64(table *t, int col, int64_t value, table_position pos
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_uint64(table *t, int col, uint64_t value, table_position position)
+int table_sorted_find_uint64(const table *t, int col, uint64_t value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -558,7 +558,7 @@ int table_sorted_find_uint64(table *t, int col, uint64_t value, table_position p
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_short(table *t, int col, short value, table_position position)
+int table_sorted_find_short(const table *t, int col, short value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -571,7 +571,7 @@ int table_sorted_find_short(table *t, int col, short value, table_position posit
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_ushort(table *t, int col, unsigned short value, table_position position)
+int table_sorted_find_ushort(const table *t, int col, unsigned short value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -584,7 +584,7 @@ int table_sorted_find_ushort(table *t, int col, unsigned short value, table_posi
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_long(table *t, int col, long value, table_position position)
+int table_sorted_find_long(const table *t, int col, long value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -597,7 +597,7 @@ int table_sorted_find_long(table *t, int col, long value, table_position positio
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_ulong(table *t, int col, unsigned long value, table_position position)
+int table_sorted_find_ulong(const table *t, int col, unsigned long value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -610,7 +610,7 @@ int table_sorted_find_ulong(table *t, int col, unsigned long value, table_positi
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_llong(table *t, int col, long long value, table_position position)
+int table_sorted_find_llong(const table *t, int col, long long value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -623,7 +623,7 @@ int table_sorted_find_llong(table *t, int col, long long value, table_position p
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_ullong(table *t, int col, unsigned long long value, table_position position)
+int table_sorted_find_ullong(const table *t, int col, unsigned long long value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -636,7 +636,7 @@ int table_sorted_find_ullong(table *t, int col, unsigned long long value, table_
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_float(table *t, int col, float value, table_position position)
+int table_sorted_find_float(const table *t, int col, float value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -649,7 +649,7 @@ int table_sorted_find_float(table *t, int col, float value, table_position posit
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_double(table *t, int col, double value, table_position position)
+int table_sorted_find_double(const table *t, int col, double value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -662,7 +662,7 @@ int table_sorted_find_double(table *t, int col, double value, table_position pos
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_ldouble(table *t, int col, long double value, table_position position)
+int table_sorted_find_ldouble(const table *t, int col, long double value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -675,7 +675,7 @@ int table_sorted_find_ldouble(table *t, int col, long double value, table_positi
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_char(table *t, int col, char value, table_position position)
+int table_sorted_find_char(const table *t, int col, char value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -688,7 +688,7 @@ int table_sorted_find_char(table *t, int col, char value, table_position positio
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_uchar(table *t, int col, unsigned char value, table_position position)
+int table_sorted_find_uchar(const table *t, int col, unsigned char value, table_position position)
 {
    return table_sorted_find(t, col, (void*)&value, position);
 }
@@ -701,7 +701,7 @@ int table_sorted_find_uchar(table *t, int col, unsigned char value, table_positi
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_string(table *t, int col, const char *value, table_position position)
+int table_sorted_find_string(const table *t, int col, const char *value, table_position position)
 {
    return table_sorted_find(t, col, (void*)value, position);
 }
@@ -714,7 +714,7 @@ int table_sorted_find_string(table *t, int col, const char *value, table_positio
  * \param[in] position The location of the returned row if there are more than one result
  * \return The row matching given criteria
  */
-int table_sorted_find_ptr(table *t, int col, void *value, table_position position)
+int table_sorted_find_ptr(const table *t, int col, void *value, table_position position)
 {
    return table_sorted_find(t, col, value, position);
 }
@@ -729,7 +729,7 @@ int table_sorted_find_ptr(table *t, int col, void *value, table_position positio
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_int(table *t, int col, int value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_int(const table *t, int col, int value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -744,7 +744,7 @@ int table_sorted_subset_find_int(table *t, int col, int value, table_position po
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_uint(table *t, int col, unsigned int value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_uint(const table *t, int col, unsigned int value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -759,7 +759,7 @@ int table_sorted_subset_find_uint(table *t, int col, unsigned int value, table_p
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_int8(table *t, int col, int8_t value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_int8(const table *t, int col, int8_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -774,7 +774,7 @@ int table_sorted_subset_find_int8(table *t, int col, int8_t value, table_positio
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_uint8(table *t, int col, uint8_t value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_uint8(const table *t, int col, uint8_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -789,7 +789,7 @@ int table_sorted_subset_find_uint8(table *t, int col, uint8_t value, table_posit
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_int16(table *t, int col, int16_t value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_int16(const table *t, int col, int16_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -804,7 +804,7 @@ int table_sorted_subset_find_int16(table *t, int col, int16_t value, table_posit
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_uint16(table *t, int col, uint16_t value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_uint16(const table *t, int col, uint16_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -819,7 +819,7 @@ int table_sorted_subset_find_uint16(table *t, int col, uint16_t value, table_pos
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_int32(table *t, int col, int32_t value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_int32(const table *t, int col, int32_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -834,7 +834,7 @@ int table_sorted_subset_find_int32(table *t, int col, int32_t value, table_posit
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_uint32(table *t, int col, uint32_t value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_uint32(const table *t, int col, uint32_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -849,7 +849,7 @@ int table_sorted_subset_find_uint32(table *t, int col, uint32_t value, table_pos
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_int64(table *t, int col, int64_t value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_int64(const table *t, int col, int64_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -864,7 +864,7 @@ int table_sorted_subset_find_int64(table *t, int col, int64_t value, table_posit
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_uint64(table *t, int col, uint64_t value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_uint64(const table *t, int col, uint64_t value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -879,7 +879,7 @@ int table_sorted_subset_find_uint64(table *t, int col, uint64_t value, table_pos
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_short(table *t, int col, short value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_short(const table *t, int col, short value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -894,7 +894,7 @@ int table_sorted_subset_find_short(table *t, int col, short value, table_positio
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_ushort(table *t, int col, unsigned short value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_ushort(const table *t, int col, unsigned short value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -909,7 +909,7 @@ int table_sorted_subset_find_ushort(table *t, int col, unsigned short value, tab
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_long(table *t, int col, long value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_long(const table *t, int col, long value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -924,7 +924,7 @@ int table_sorted_subset_find_long(table *t, int col, long value, table_position 
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_ulong(table *t, int col, unsigned long value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_ulong(const table *t, int col, unsigned long value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -939,7 +939,7 @@ int table_sorted_subset_find_ulong(table *t, int col, unsigned long value, table
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_llong(table *t, int col, long long value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_llong(const table *t, int col, long long value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -954,7 +954,7 @@ int table_sorted_subset_find_llong(table *t, int col, long long value, table_pos
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_ullong(table *t, int col, unsigned long long value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_ullong(const table *t, int col, unsigned long long value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -969,7 +969,7 @@ int table_sorted_subset_find_ullong(table *t, int col, unsigned long long value,
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_float(table *t, int col, float value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_float(const table *t, int col, float value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -984,7 +984,7 @@ int table_sorted_subset_find_float(table *t, int col, float value, table_positio
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_double(table *t, int col, double value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_double(const table *t, int col, double value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -999,7 +999,7 @@ int table_sorted_subset_find_double(table *t, int col, double value, table_posit
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_ldouble(table *t, int col, long double value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_ldouble(const table *t, int col, long double value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -1014,7 +1014,7 @@ int table_sorted_subset_find_ldouble(table *t, int col, long double value, table
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_char(table *t, int col, char value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_char(const table *t, int col, char value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -1029,7 +1029,7 @@ int table_sorted_subset_find_char(table *t, int col, char value, table_position 
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_uchar(table *t, int col, unsigned char value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_uchar(const table *t, int col, unsigned char value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)&value, position, minimum, maximum);
 }
@@ -1044,7 +1044,7 @@ int table_sorted_subset_find_uchar(table *t, int col, unsigned char value, table
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_string(table *t, int col, const char *value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_string(const table *t, int col, const char *value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, (void*)value, position, minimum, maximum);
 }
@@ -1059,7 +1059,7 @@ int table_sorted_subset_find_string(table *t, int col, const char *value, table_
  * \param[in] maximum The last row to consider
  * \return The row matching given criteria
  */
-int table_sorted_subset_find_ptr(table *t, int col, void *value, table_position position, int minimum, int maximum)
+int table_sorted_subset_find_ptr(const table *t, int col, void *value, table_position position, int minimum, int maximum)
 {
    return table_sorted_subset_find(t, col, value, position, minimum, maximum);
 }
