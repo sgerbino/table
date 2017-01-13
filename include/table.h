@@ -297,8 +297,8 @@ table_data_type table_get_column_data_type(const table *t, int col);
 int table_get_column(const table *t, const char *name);
 const char *table_get_column_name(const table *t, int col);
 int table_cell_nullify(table *t, int row, int col);
-table_comparator table_get_column_compare_function(const table *t, int column);
-void table_set_column_compare_function(table *t, int column, table_comparator function);
+table_comparator table_get_column_comparator(const table *t, int column);
+void table_set_column_comparator(table *t, int column, table_comparator function);
 
 /* Sort */
 void table_column_sort(table *t, int *cols, table_order *sort_orders, int num_cols);

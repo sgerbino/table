@@ -19,7 +19,7 @@
  */
 int table_subset_find(const table *t, int column_index, void* value, table_order order, int minimum_index, int maximum_index)
 {
-  table_comparator compare = table_get_column_compare_function(t, column_index);
+  table_comparator compare = table_get_column_comparator(t, column_index);
   
   if (order == TABLE_ASCENDING)
   {
@@ -387,7 +387,7 @@ int table_sorted_find(const table *t, int col, void *value, table_position posit
  */
 int table_sorted_subset_find(const table *t, int col, void *value, table_position position, int minimum, int maximum)
 {
-  table_comparator func = table_get_column_compare_function(t, col);
+  table_comparator func = table_get_column_comparator(t, col);
   int middle = (maximum - minimum) / 2 + minimum;
   int compare = func(value, table_get(t, middle, col));
 

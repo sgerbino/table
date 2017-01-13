@@ -221,7 +221,7 @@ table_column *table_get_col_ptr(const table *t, int col)
  * \brief Retrieve the column comparison function
  * \return The column comparison fucntion
  */
-table_comparator table_get_column_compare_function(const table *t, int column)
+table_comparator table_get_column_comparator(const table *t, int column)
 {
   table_column *col_ptr = table_get_col_ptr(t, column);
   return col_ptr->compare;
@@ -230,7 +230,7 @@ table_comparator table_get_column_compare_function(const table *t, int column)
 /**
  * \brief Sets the columns compare function
  */
-void table_set_column_compare_function(table *t, int column, table_comparator function)
+void table_set_column_comparator(table *t, int column, table_comparator function)
 {
   table_column *col_ptr = table_get_col_ptr(t, column);
   col_ptr->compare = function;

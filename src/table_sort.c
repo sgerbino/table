@@ -43,7 +43,7 @@ void table_column_sort(table *t, int *cols, table_order *sort_orders, int num_co
       else
       {
          int row, first = -1, last = -1;
-	 table_comparator compare = table_get_column_compare_function(t, cols[sort_column - 1]);
+	 table_comparator compare = table_get_column_comparator(t, cols[sort_column - 1]);
          for (row = 0; row < num_rows; row++)
          {
             if (row)
@@ -126,7 +126,7 @@ static void table_merge_sort_split_rows(table *t, table_row *sorted_rows, int co
 static void table_merge_sort_merge_rows(table *t, table_row *sorted_rows, int col, int first, int middle, int last, table_order order)
 {
    int n1 = first, n2 = middle + 1, i;
-   table_comparator compare = table_get_column_compare_function(t, col);
+   table_comparator compare = table_get_column_comparator(t, col);
    for (i = 0; i < last - first + 1; i++)
    {
       if (order == TABLE_ASCENDING)
