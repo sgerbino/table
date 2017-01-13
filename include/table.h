@@ -80,7 +80,7 @@ typedef struct table_column
 {
   char *name;    /**< The name of the column */
   table_data_type type; /**< The column data type */
-  table_comparator compare; /**< The column compare function */
+  table_comparator comparator; /**< The column comparator function */
 } table_column;
 
 /**

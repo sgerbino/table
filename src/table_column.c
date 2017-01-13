@@ -20,7 +20,7 @@ void table_column_init(table *t, int column_index, const char *name, table_data_
   if (column->name)
 	  strcpy(column->name, name);
   column->type = type;
-  column->compare = func;
+  column->comparator = func;
 }
 
 /**
@@ -224,7 +224,7 @@ table_column *table_get_col_ptr(const table *t, int col)
 table_comparator table_get_column_comparator(const table *t, int column)
 {
   table_column *col_ptr = table_get_col_ptr(t, column);
-  return col_ptr->compare;
+  return col_ptr->comparator;
 }
 
 /**
@@ -233,5 +233,5 @@ table_comparator table_get_column_comparator(const table *t, int column)
 void table_set_column_comparator(table *t, int column, table_comparator function)
 {
   table_column *col_ptr = table_get_col_ptr(t, column);
-  col_ptr->compare = function;
+  col_ptr->comparator = function;
 }
