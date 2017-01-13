@@ -12,7 +12,7 @@
  * \param col The column number
  * \return TRUE or FALSE
  */
-int table_column_is_valid(table *t, int col)
+int table_column_is_valid(const table *t, int col)
 {
   int retval = 0;
 
@@ -33,7 +33,7 @@ int table_column_is_valid(table *t, int col)
  * \param row The row number
  * \return TRUE or FALSE
  */
-int table_row_is_valid(table *t, int row)
+int table_row_is_valid(const table *t, int row)
 {
   int retval = 0;
 
@@ -55,7 +55,7 @@ int table_row_is_valid(table *t, int row)
  * \param col The column number
  * \return TRUE or FALSE
  */
-int table_cell_is_valid(table *t, int row, int col)
+int table_cell_is_valid(const table *t, int row, int col)
 {
   return table_column_is_valid(t, col) && table_row_is_valid(t, row) ? 1 : 0;
 }
@@ -67,7 +67,7 @@ int table_cell_is_valid(table *t, int row, int col)
  * \param col The column number
  * \return TRUE or FALSE
  */
-int table_cell_has_value(table *t, int row, int col)
+int table_cell_has_value(const table *t, int row, int col)
 {
   table_cell* cell = table_get_cell_ptr(t, row, col);
   int retval = 0;

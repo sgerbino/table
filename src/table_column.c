@@ -13,14 +13,14 @@ static int table_column_remove(table *t, int col_num);
  * \param[in] type The column data type
  * \param[in] func The column compare function
  */
-void table_column_init(table *t, int column_index, const char *name, table_data_type type, table_compare_function func)
+void table_column_init(table *t, int column_index, const char *name, table_data_type type, table_comparator func)
 {
   table_column *column = table_get_col_ptr(t, column_index);
   column->name = malloc(strlen(name) + 1);
   if (column->name)
 	  strcpy(column->name, name);
   column->type = type;
-  column->compare = func;
+  column->comparator = func;
 }
 
 /**
@@ -39,7 +39,7 @@ void table_column_destroy(table *t, int column)
  * \param[in] table The table to examine
  * \return The number of columns
  */
-int table_get_column_length(table *t)
+int table_get_column_length(const table *t)
 {
   return t->column_length;
 }
@@ -50,7 +50,7 @@ int table_get_column_length(table *t)
  * \param[in] name The name of the column to target
  * \return The column number
  */
-int table_get_column(table *t, const char *name)
+int table_get_column(const table *t, const char *name)
 {
   int column_index;
   int column_length = table_get_column_length(t);
@@ -68,7 +68,7 @@ int table_get_column(table *t, const char *name)
  * \param[in] column_index The table column
  * \return The columns table_data_type
  */
-table_data_type table_get_column_data_type(table *t, int column_index)
+table_data_type table_get_column_data_type(const table *t, int column_index)
 {
   table_column *column = table_get_col_ptr(t, column_index);
   return column->type;
@@ -113,7 +113,7 @@ int table_remove_column(table *t, int col)
  * \brief Get the name of a table column
  * \return The table column name
  */
-const char* table_get_column_name(table *t, int col)
+const char* table_get_column_name(const table *t, int col)
 {
   table_column *col_ptr = table_get_col_ptr(t, col);
   return col_ptr->name;
@@ -170,7 +170,7 @@ static int table_column_add(table *t, const char *name, table_data_type type)
   int row_length = table_get_row_length(t);
   int column_length = table_get_column_length(t);
 
-  table_column_init(t, column_length, name, type, table_get_default_compare_function_for_data_type(type));
+  table_column_init(t, column_length, name, type, table_get_default_comparator_for_data_type(type));
 
   for(int row = 0; row < row_length; row++)
     table_cell_init(t, row, column_length);
@@ -212,7 +212,7 @@ static int table_column_remove(table *t, int column_index)
  * \brief Get the pointer of a particular column
  * \return The table column pointer
  */
-table_column *table_get_col_ptr(table *t, int col)
+table_column *table_get_col_ptr(const table *t, int col)
 {
   return t->columns + col;
 }
@@ -221,17 +221,17 @@ table_column *table_get_col_ptr(table *t, int col)
  * \brief Retrieve the column comparison function
  * \return The column comparison fucntion
  */
-table_compare_function table_get_column_compare_function(table *t, int column)
+table_comparator table_get_column_comparator(const table *t, int column)
 {
   table_column *col_ptr = table_get_col_ptr(t, column);
-  return col_ptr->compare;
+  return col_ptr->comparator;
 }
 
 /**
  * \brief Sets the columns compare function
  */
-void table_set_column_compare_function(table *t, int column, table_compare_function function)
+void table_set_column_comparator(table *t, int column, table_comparator function)
 {
   table_column *col_ptr = table_get_col_ptr(t, column);
-  col_ptr->compare = function;
+  col_ptr->comparator = function;
 }

@@ -1,7 +1,7 @@
 #include <table.h>
 #include <stdio.h>
 
-static void table_callback(table *t, int row, int col, table_event_type event_type, void *data)
+static void callback(table *t, int row, int col, table_event_type event_type, void *data)
 {
    *(table_bitfield*)data |= event_type;
 }
@@ -15,7 +15,7 @@ int main(int argc, char **argv)
    int col;
    
    table_init(&t);
-   table_register_callback(&t, table_callback, &result, ~0);
+   table_register_callback(&t, callback, &result, ~0);
    
    row = table_add_row(&t);
    if (!(result & TABLE_ROW_ADDED))

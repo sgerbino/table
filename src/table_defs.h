@@ -61,7 +61,7 @@
 
 /* Internal constructors */
 void table_row_init(table *t, int row_index);
-void table_column_init(table *t, int column_index, const char *name, table_data_type type, table_compare_function func);
+void table_column_init(table *t, int column_index, const char *name, table_data_type type, table_comparator func);
 void table_cell_init(table *t, int row_index, int column_index);
 
 /* Internal destructors */
@@ -73,9 +73,9 @@ void table_cell_destroy(table* t, int row_index, int column_index);
 void table_notify(table* t, int row_index, int column_index, table_event_type event_type);
 
 /* Internal structure getters/setters */
-table_cell *table_get_cell_ptr(table* t, int row_index, int column_index);
-table_column *table_get_col_ptr(table *t, int col_num);
-table_row *table_get_row_ptr(table *t, int row_num);
+table_cell *table_get_cell_ptr(const table *t, int row_index, int column_index);
+table_column *table_get_col_ptr(const table *t, int col_num);
+table_row *table_get_row_ptr(const table *t, int row_num);
 void table_set_row_ptr(table *t, int row, table_row *row_ptr);
 
 #endif

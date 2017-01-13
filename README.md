@@ -118,7 +118,7 @@ table_new() and table_delete().
 #include <stdio.h>
 #include <table.h>
 
-static void table_callback(table *t, int row, int col, table_event_type event_type, void *data)
+static void callback(table *t, int row, int col, table_event_type event_type, void *data)
 {
 	char *event_name = "UNKNOWN";
 	switch (event_type)
@@ -152,7 +152,7 @@ int main(int argc, char **argv)
 
 	table_init(&t);
 
-	table_register_callback(&t, table_callback, NULL, ~0);
+	table_register_callback(&t, callback, NULL, ~0);
 
 	int64_col = table_add_column(&t, "int64", TABLE_INT64);
 	uint64_col = table_add_column(&t, "uint64", TABLE_UINT64);

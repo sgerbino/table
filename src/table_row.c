@@ -44,7 +44,7 @@ void table_row_destroy(table *t, int row_index)
  * \param[in] table The table to examine
  * \return The number of rows
  */
-int table_get_row_length(table *t)
+int table_get_row_length(const table *t)
 {
   return t->rows_length;
 }
@@ -174,7 +174,7 @@ static int table_row_rem(table *t, int row_num)
  * \brief Get the pointer of a particular row
  * \return The table row pointer
  */
-table_row* table_get_row_ptr(table *t, int row)
+table_row* table_get_row_ptr(const table *t, int row)
 {
   return t->rows + row;
 }

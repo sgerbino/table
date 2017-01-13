@@ -28,7 +28,7 @@ do                                             \
 } while (0);                                   \
     
 
-int table_compare_bool(void *value1, void *value2)
+int table_compare_bool(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    bool val1 = *(bool*)value1;
@@ -37,7 +37,7 @@ int table_compare_bool(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_int(void *value1, void *value2)
+int table_compare_int(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    int val1 = *(int*)value1;
@@ -46,7 +46,7 @@ int table_compare_int(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_uint(void *value1, void *value2)
+int table_compare_uint(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    unsigned int val1 = *(unsigned int*)value1;
@@ -55,7 +55,7 @@ int table_compare_uint(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_int8(void *value1, void *value2)
+int table_compare_int8(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    int8_t val1 = *(int8_t*)value1;
@@ -64,7 +64,7 @@ int table_compare_int8(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_uint8(void *value1, void *value2)
+int table_compare_uint8(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    uint8_t val1 = *(uint8_t*)value1;
@@ -73,7 +73,7 @@ int table_compare_uint8(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_int16(void *value1, void *value2)
+int table_compare_int16(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    int16_t val1 = *(int16_t*)value1;
@@ -82,7 +82,7 @@ int table_compare_int16(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_uint16(void *value1, void *value2)
+int table_compare_uint16(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    uint16_t val1 = *(uint16_t*)value1;
@@ -91,7 +91,7 @@ int table_compare_uint16(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_int32(void *value1, void *value2)
+int table_compare_int32(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    int32_t val1 = *(int32_t*)value1;
@@ -100,7 +100,7 @@ int table_compare_int32(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_uint32(void *value1, void *value2)
+int table_compare_uint32(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    uint32_t val1 = *(uint32_t*)value1;
@@ -109,7 +109,7 @@ int table_compare_uint32(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_int64(void *value1, void *value2)
+int table_compare_int64(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    int64_t val1 = *(int64_t*)value1;
@@ -118,7 +118,7 @@ int table_compare_int64(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_uint64(void *value1, void *value2)
+int table_compare_uint64(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    uint64_t val1 = *(uint64_t*)value1;
@@ -127,7 +127,7 @@ int table_compare_uint64(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_short(void *value1, void *value2)
+int table_compare_short(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    short val1 = *(short*)value1;
@@ -136,7 +136,7 @@ int table_compare_short(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_ushort(void *value1, void *value2)
+int table_compare_ushort(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    unsigned short val1 = *(unsigned short*)value1;
@@ -145,7 +145,7 @@ int table_compare_ushort(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_long(void *value1, void *value2)
+int table_compare_long(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    long val1 = *(long*)value1;
@@ -154,7 +154,7 @@ int table_compare_long(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_ulong(void *value1, void *value2)
+int table_compare_ulong(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    unsigned long val1 = *(unsigned long*)value1;
@@ -163,7 +163,7 @@ int table_compare_ulong(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_llong(void *value1, void *value2)
+int table_compare_llong(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    long long val1 = *(long long*)value1;
@@ -172,7 +172,7 @@ int table_compare_llong(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_ullong(void *value1, void *value2)
+int table_compare_ullong(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    unsigned long val1 = *(unsigned long*)value1;
@@ -181,7 +181,7 @@ int table_compare_ullong(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_float(void *value1, void *value2)
+int table_compare_float(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    float val1 = *(float*)value1;
@@ -190,7 +190,7 @@ int table_compare_float(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_double(void *value1, void *value2)
+int table_compare_double(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    double val1 = *(double*)value1;
@@ -199,7 +199,7 @@ int table_compare_double(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_ldouble(void *value1, void *value2)
+int table_compare_ldouble(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    long double val1 = *(long double*)value1;
@@ -208,7 +208,7 @@ int table_compare_ldouble(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_char(void *value1, void *value2)
+int table_compare_char(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    char val1 = *(char*)value1;
@@ -217,7 +217,7 @@ int table_compare_char(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_uchar(void *value1, void *value2)
+int table_compare_uchar(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    unsigned char val1 = *(unsigned char*)value1;
@@ -226,7 +226,7 @@ int table_compare_uchar(void *value1, void *value2)
    return 0;
 }
 
-int table_compare_string(void *value1, void *value2)
+int table_compare_string(const void *value1, const void *value2)
 {
    TABLE_COMPARE_POINTERS(value1, value2);
    const char *val1 = (const char*)value1;
@@ -234,7 +234,7 @@ int table_compare_string(void *value1, void *value2)
    return strcmp(val1, val2);
 }
 
-int table_compare_ptr(void *value1, void *value2)
+int table_compare_ptr(const void *value1, const void *value2)
 {
    if (value1 > value2)
       return 1;
@@ -249,9 +249,9 @@ int table_compare_ptr(void *value1, void *value2)
  * \param[in] type The data type
  * \return The corresponding table compare function pointer
  */
-table_compare_function table_get_default_compare_function_for_data_type(table_data_type type)
+table_comparator table_get_default_comparator_for_data_type(table_data_type type)
 {
-   table_compare_function func = NULL;
+   table_comparator func = NULL;
 
    switch(type)
    {
