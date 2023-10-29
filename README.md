@@ -1,4 +1,4 @@
-# table
+# table test
 
 [![FreeBSD License](https://img.shields.io/:license-freebsd-red.svg)](https://github.com/sgerbino/table/blob/master/COPYING.txt)
 [![Build Status](https://travis-ci.org/sgerbino/table.svg?branch=master)](https://travis-ci.org/sgerbino/table)
